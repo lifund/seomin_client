@@ -11,7 +11,9 @@ app.use(express.json({ limit: '5mb'}));
 app.use('/public', express.static('public'));
 app.use(bodyParser.json());
   
-
 app.get('/',(req,res)=>{
+	res.redirect('/temp');
+});
+app.get('/temp',(req,res)=>{
 	res.sendFile(path.join(__dirname,'public/temp.html'));
-})
+});
