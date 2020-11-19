@@ -1,0 +1,63 @@
+[
+
+    {
+        "categoryName": "메인메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":true
+    },
+    {
+        "categoryName": "메인메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "메인메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":true
+    },
+    {
+        "categoryName": "메인메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "메인메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "도우종류", "imageURL":"", "productName":"메뉴 이름", "price":[], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "도우종류", "imageURL":"", "productName":"메뉴 이름", "price":[], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "도우종류", "imageURL":"", "productName":"메뉴 이름", "price":[], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "도우종류", "imageURL":"", "productName":"메뉴 이름", "price":[], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "도우종류", "imageURL":"", "productName":"메뉴 이름", "price":[], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "세트메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "세트메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "세트메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "세트메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "세트메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "사이드메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"","value":10000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":true
+    },
+    {
+        "categoryName": "사이드메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"","value":10000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "사이드메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"","value":10000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "사이드메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"","value":10000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    },
+    {
+        "categoryName": "사이드메뉴", "imageURL":"", "productName":"메뉴 이름", "price":[{"size":"","value":10000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+    }
+]

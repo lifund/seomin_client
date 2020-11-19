@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서민피자 관리자</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        section {
+            background-color: rgb(221, 212, 212);
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+        }
+        .popup {
+            padding:10px;
+            background-color: #fff;
+            border: 2px solid gray;
+        }
+        
+        input[type="text"] {
+            display: block;
+            padding: 5px;
+            font-size: 1em;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        input[type=submit],button {
+            display: block;
+            background: #016ABC;
+            color: #fff;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+            height:30px;
+            font-size: 1em;
+        }
+
+        table, table * {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        td,th{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <iframe hidden width="0" height="0" name="dummyframe" id="dummyframe"></iframe>
+
+    <div id="addressSearch" class="popup">
+        <h2>주소 검색하기</h2>
+        <input type="text" name="addressQuery" id="addressQuery" placeholder="주소 입력">
+        <input type="submit" value="검색">
+        <table id="addressList">
+            <tr>
+                <th>지번주소</th>
+                <th>도로명주소</th>
+                <th>시/도</th>
+                <th>군/구</th>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <form class="popup" action="/admin/menu/createUpdate" method="post" target="dummyframe">
+        <h3>새 메뉴 작성</h2>
+        <input type="text" name="name" id="name" placeholder="메뉴 이름">
+        <div class="priceBox">
+            <input type="text" name="price_size" id="price_size" placeholder="가격 이름 (L/M 등 없어도 됨)">
+            <input type="text" name="price_value" id="price_value" placeholder="가격 값">
+        </div>
+        <button type="button" >가격란 추가하기</button>
+        <input type="text" name="short" id="short" placeholder="메뉴 목록에서 노출될 짧은설명/키워드">
+        <input type="text" name="long" id="long" placeholder="메뉴 상세페이지에서 노출될 긴 설명">
+        <input type="submit" value="완료">
+    </form>
+
+
+    <form class="popup" action="/admin/shop/createUpdate" method="post" target="dummyframe">
+        <h2>새 가맹점 작성</h2>
+        <input type="text" name="name" id="name" placeholder="가맹점 이름">
+        <input type="text" name="phone" id="phone" placeholder="전화번호">
+        <select id="open" name="open">
+            <option value="00:00">00:00</option>
+            <option value="01:00">01:00</option>
+            <option value="02:00">02:00</option>
+            <option value="03:00">03:00</option>
+            <option value="04:00">04:00</option>
+            <option value="05:00">05:00</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
+            <option value="22:00">22:00</option>
+            <option value="23:00">23:00</option>
+            <option value="24:00">24:00</option>
+        </select>
+        <select id="close" name="close">
+            <option value="00:00">00:00</option>
+            <option value="01:00">01:00</option>
+            <option value="02:00">02:00</option>
+            <option value="03:00">03:00</option>
+            <option value="04:00">04:00</option>
+            <option value="05:00">05:00</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
+            <option value="22:00">22:00</option>
+            <option value="23:00">23:00</option>
+            <option value="24:00">24:00</option>
+        </select>
+        <input type="text" disabled placeholder="지번/도로명 주소 (검색하세요)">
+        <button type="button" id="open_addressSearch">주소 검색하기</button>
+        <input type="text" placeholder="상세 주소">
+        <input type="submit" value="완료">
+    </form>
+
+
+
+
+    <section>
+        <h2>메뉴 데이터</h2>
+        <button>메뉴 추가하기</button>
+
+        <table id="menuList">
+            <tr>
+                <th>이름</th>
+                <th>가격</th>
+                <th>짧은설명</th>
+                <th>긴설명</th>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>가맹점 데이터</h2>
+        <button>가맹점 추가하기</button>
+        
+        <table id="shopList">
+            <tr>
+                <th>상호</th>
+                <th>전화</th>
+                <th>오픈</th>
+                <th>마감</th>
+                <th>주소</th>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>가맹 문의</h2>
+        <table id="franchiseInquiryList">
+            <tr>
+                <th>이름</th>
+                <th>연락처</th>
+                <th>문의내용</th>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>고객의 소리</h2>
+        <table id="shopInquiryList">
+            <tr>
+                <th>문의종류</th>
+                <th>이름</th>
+                <th>연락처</th>
+                <th>문의내용</th>
+            </tr>
+        </table>
+    </section>
+    
+</body>
+</html>
