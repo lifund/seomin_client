@@ -1,0 +1,17 @@
+{
+    "apps": [
+        {
+            "name": "seomin",
+            "script": "./client.js",
+            "watch": true,
+            "ignore_watch": ["/public"],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "env_production": {
+                "NODE_ENV": "production"
+            }
+        }
+    ]
+}
+  

@@ -21,6 +21,7 @@
     "body-parser": "^1.19.0",
     "custom-env": "^2.0.1",
     "dotenv": "^8.2.0",
+    "express-useragent": "^1.0.15",
     "mongodb": "^3.6.3",
     "mustache": "^4.0.1",
     "node-fetch": "^2.6.1"

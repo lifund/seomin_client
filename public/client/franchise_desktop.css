@@ -1,0 +1,105 @@
+
+/*----------------------------------------------*/
+/*-------------------- 공통 --------------------*/
+/*----------------------------------------------*/
+
+* {
+    font-family: 'NanumSquare', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+}
+html, body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+p,h1,h2,h3,h4,h5,h6,a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+:root {
+    --color-blue: #4C95F7;
+    --color-pink:  #FF6672;
+    --color-light-gray: #D9D9D9;
+    --color-dark-gray: #6d6d6d;
+
+    --color-tint-gray: #F0F0F0;
+    --shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
+}
+[hidden] { display: none !important; }
+
+
+/*-------------------- header container --------------------*/
+#headerMaster{
+    width: 100%;
+    background: #fff;
+    height: 56px;
+}
+#headerContainer{
+    display: flex;
+    max-width: 1000px;
+    margin: auto;
+}
+
+
+/*-------------------- header --------------------*/
+header > svg{
+    display: none;
+}
+
+/*-------------------- nav --------------------*/
+nav > a > svg {
+    display: none;
+}
+nav {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+nav > a{
+    margin-left: 64px;
+    color: black;
+    width: max-content;
+
+}
+nav > a:hover{
+    color: var(--color-pink);
+}
+nav > a > p {
+    padding-top: 28px;
+    line-height: 0;
+    overflow: hidden;
+    height: 28px;
+    font-weight: 700;
+}
+
+
+
+
+/*-------------------- main --------------------*/
+/*----------------------------------------------*/
+html, body {
+    background-color: var(--color-tint-gray);
+}
+main {
+    max-width: 1000px;
+    margin-top: 56px;
+    margin-left: auto;
+    margin-right: auto;
+}
+main > h2 {
+    padding-top: 48px;
+    margin-left: 16px;
+}
+.franchise_container {
+    padding: 30px 20px;
+    margin: 20px 10px;
+
+    font-size: 14px;
+    color: var(--color-dark-gray);
+    background-color: #fff;
+    box-shadow: var(--shadow);
+}

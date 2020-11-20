@@ -1,0 +1,291 @@
+/*----------------------------------------------*/
+/*-------------------- 공통 --------------------*/
+/*----------------------------------------------*/
+
+* {
+    font-family: 'NanumSquare', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+}
+html, body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+p,h1,h2,h3,h4,h5,h6,a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+:root {
+    --color-blue: #4C95F7;
+    --color-pink:  #FF6672;
+    --color-light-gray: #D9D9D9;
+    --color-dark-gray: #6d6d6d;    
+    --color-tint-gray: #F0F0F0;
+    --shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
+}
+[hidden] { display: none !important; }
+
+/*-------------------- header --------------------*/
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    background: #fff;
+}
+header > a {
+    margin: auto;
+}
+header > svg {
+    position: absolute;
+    right: 0;
+}
+
+/*-------------------- nav --------------------*/
+@keyframes nav_enter {
+    0% { 
+        clip-path: inset(0 0 100% 0);
+        background: rgba(255,255,255,0.5); 
+    }
+    100% { 
+        clip-path: inset(0);
+        background: rgba(255,255,255,1.0);
+    }
+}
+@keyframes nav_leave {
+    0% { 
+        clip-path: inset(0);
+        background: rgba(255,255,255,1.0);
+    }
+    100% { 
+        clip-path: inset(0 0 100% 0);
+        background: rgba(255,255,255,0.5);
+    }
+}
+.nav_enter {
+    animation: 0.3s nav_enter;
+    animation-fill-mode: forwards;
+}
+.nav_leave {
+    animation: 0.3s nav_leave; 
+    animation-fill-mode: forwards;
+}
+nav {
+    width: 100%;
+    position: fixed;
+    top: 56px;
+    clip-path: inset(0 0 100% 0);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.navButton {
+    height: 56px;
+    width: calc(100% - 32px);
+    margin: auto;
+    border-bottom: 1px solid #999999;
+
+    display: flex;
+}
+.navButton:last-child {
+    border: none;
+}
+.navButton > svg {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.navButton > p {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    padding-left: 1rem;
+    font-weight: 700;
+    color: black;
+}
+
+
+
+
+/*----------------------------------------------*/
+/*-------------------- main --------------------*/
+/*----------------------------------------------*/
+html, body {
+    background-color: var(--color-tint-gray);
+}
+main {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 56px;
+    padding-bottom: 80px;
+}
+
+/*-------------------- category buttons --------------------*/
+#menu_category {
+    height: 40px;
+    border-bottom: 1px solid var(--color-light-gray);
+
+    display: flex;
+    color: var(--color-dark-gray);
+}
+#menu_category > p{
+    padding: 0 8px;
+
+    padding-top: 20px;
+    line-height: 0;
+    height: 20px;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+.activeTab{
+    color: var(--color-pink);
+    border-bottom: 2px solid var(--color-pink);    
+}
+
+/*-------------------- menu containers --------------------*/
+.menu_container {
+    margin-top: 20px;
+}
+
+.menuCard {
+    margin-left: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+    vertical-align: top;
+    width: calc(calc(100% - 30px) / 2);
+    height: auto;
+}
+.menuCard > img {
+    width: 100%;
+}
+.menuCard_productName {
+    font-weight: 700;
+    margin-top: 4px;
+}
+.menuCard_price {
+    margin-top: 10px;
+    margin-right: 2px;
+    display: flex;
+}
+.menuCard_price_size {
+    display: inline-block;
+    width: 16px;
+    border-radius: 10px;
+    
+    height: 8px;
+    padding-top: 8px;
+    line-height: 0px;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    color: white;
+    background: var(--color-pink);
+} 
+.menuCard_price_value {
+    padding-top: 2px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-pink);
+}
+.menuCard_price_won {
+    padding-top: 2px;
+    font-size: 14px;
+}
+.menuCard_description_short {
+    padding-top: 10px;
+}
+
+/*-------------------- menu detail popup --------------------*/
+#menuPopupOverlay {
+
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.8);
+}
+#menuPopup {
+    width: calc(100vw - 40px);
+    padding-bottom: 20px;
+    
+    z-index: 10;
+    position: fixed;
+    top: calc( 80px - 20px );
+    left: 20px;
+
+    border-radius: 20px;
+
+    background: #FFF;
+    box-shadow: var(--shadow);
+}
+#menuPopup > img{
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+#removeMenuPopup {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#popup_productName {
+    font-weight: 700;
+    margin-top: 16px;
+    margin-left: 16px;
+}
+#popup_price {
+    margin-top: 10px;
+    margin-right: 2px;
+    margin-left: 16px;
+    display: flex;
+}
+.popup_price_size {
+    display: inline-block;
+    width: 16px;
+    border-radius: 10px;
+    
+    height: 8px;
+    padding-top: 8px;
+    line-height: 0px;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    color: white;
+    background: var(--color-pink);
+} 
+.popup_price_value {
+    padding-top: 2px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-pink);
+}
+.popup_price_won {
+    padding-top: 2px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+#popup_description_long {
+    display: block;
+    margin-top: 10px;
+    margin-left: 16px;
+
+    height: 80px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+
+    font-size: 14px;
+    font-weight: 500;
+}

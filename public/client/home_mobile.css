@@ -1,0 +1,335 @@
+/*----------------------------------------------*/
+/*-------------------- 공통 --------------------*/
+/*----------------------------------------------*/
+
+* {
+    font-family: 'NanumSquare', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+}
+html, body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+p,h1,h2,h3,h4,h5,h6,a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+:root {
+    --color-blue: #4C95F7;
+    --color-pink:  #FF6672;
+    --color-light-gray: #D9D9D9;
+    --color-dark-gray: #6d6d6d;
+    --color-tint-gray: #F0F0F0;
+    --shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
+}
+
+
+/*-------------------- header --------------------*/
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    background: #fff;
+}
+header > a {
+    margin: auto;
+}
+header > svg {
+    position: absolute;
+    right: 0;
+}
+
+/*-------------------- nav --------------------*/
+@keyframes nav_enter {
+    0% { 
+        clip-path: inset(0 0 100% 0);
+        background: rgba(255,255,255,0.5); 
+    }
+    100% { 
+        clip-path: inset(0);
+        background: rgba(255,255,255,1.0);
+    }
+}
+@keyframes nav_leave {
+    0% { 
+        clip-path: inset(0);
+        background: rgba(255,255,255,1.0);
+    }
+    100% { 
+        clip-path: inset(0 0 100% 0);
+        background: rgba(255,255,255,0.5);
+    }
+}
+.nav_enter {
+    animation: 0.3s nav_enter;
+    animation-fill-mode: forwards;
+}
+.nav_leave {
+    animation: 0.3s nav_leave; 
+    animation-fill-mode: forwards;
+}
+nav {
+    width: 100%;
+    position: fixed;
+    top: 56px;
+    clip-path: inset(0 0 100% 0);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.navButton {
+    height: 56px;
+    width: calc(100% - 32px);
+    margin: auto;
+    border-bottom: 1px solid #999999;
+
+    display: flex;
+}
+.navButton:last-child {
+    border: none;
+}
+.navButton > svg {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.navButton > p {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    padding-left: 1rem;
+    font-weight: 700;
+    color: black;
+}
+
+/*-------------------- 하단 배너 (div) --------------------*/
+#lowerBanner {
+    position: fixed;
+    height: 56px;
+    bottom: -1px;
+    width: 100%;
+}
+#lowerBanner_container {
+    max-width: 1000px;
+    height: 100%;
+
+    padding: 0 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display : flex;
+    align-items : center;
+    justify-content: center;
+}
+#lowerBanner_container > p {
+    display: block;
+
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+}
+#lowerBanner_container > a {
+    margin-left: auto;
+    order: 2;
+    border-radius: 100px;
+
+    padding: 0rem 1.2rem ;
+    padding-top: 16px;
+    line-height: 0;
+    height: 16px;
+
+    color: white;
+    background-color: var(--color-blue);
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+
+
+
+/*----------------------------------------------*/
+/*-------------------- main --------------------*/
+/*----------------------------------------------*/
+main {
+    margin-top: 56px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*-------------------- 배너 슬라이더 --------------------*/
+#banner_slider {
+    height: 100vw;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+#banner_slider img {
+    display: inline-block;
+    scroll-snap-align: center;
+    height: 100%;
+    width:100%;
+}
+
+/*-------------------- 추천 메뉴 --------------------*/
+#recommendation {
+    padding-top: 48px;
+}
+/* title */
+#recommendation_title {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    display: flex;
+}
+#recommendation_title > h2 {
+    margin-right: auto;
+    order: 1;
+}
+#recommendation_title > a {
+    margin-left: auto;
+    order: 2;
+    color: var(--color-dark-gray);
+}
+#recommendation_title > a > svg {
+    display: block;
+    margin-top: 4px;
+}
+
+#recommendation_slider {
+    margin-top: 16px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+/* menu card */
+.menuCard:first-child {
+    margin-left: 16px;
+}
+.menuCard:last-child {
+    margin-right: 16px;
+}
+.menuCard {
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    scroll-snap-align: center;
+    width: calc(100vw / 3);
+    height: calc(calc(100vw / 3) + 80px);
+}
+.menuCard > img {
+    width: 100%;
+}
+.menuCard > p {
+    font-weight: 700;
+    margin-top: 4px;
+}
+.menuCard_price {
+    margin-top: 10px;
+    display: flex;
+}
+.menuCard_price_size {
+    display: inline-block;
+    width: 16px;
+    border-radius: 10px;
+    
+    height: 8px;
+    padding-top: 8px;
+    line-height: 0;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    color: white;
+    background: var(--color-pink);
+} 
+.menuCard_price_value {
+    margin-left: 2px;
+    padding-top: 2px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-pink);
+}
+.menuCard_price_won {
+    padding-top: 2px;
+    font-size: 14px;
+}
+
+
+/*-------------------- 섹션 구분선 --------------------*/
+.section_line {
+    height: 10px;
+    width: 100%;
+    margin-top: 48px;
+    background-color: #E5E5E5;
+}
+
+/*-------------------- 프렌차이즈 안내 --------------------*/
+#franchise {
+    margin-top: 48px;
+}
+#franchise > h2 {
+    margin-left: 16px;
+    margin-bottom: 16px;
+}
+.franchise_button {
+    display: block;
+    margin: 10px 10px;
+    width: calc(100% - 20px - 48px);
+
+    padding: 24px;
+    background-color: var(--color-pink);
+    color: white;
+}
+.franchise_button > div {
+    display: flex;
+}
+.franchise_button > div > p {
+    display: inline-block;
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    padding-left: 10px;
+    font-size: 24px;
+    font-weight: 900;
+}
+.franchise_button > p:first-of-type {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 700;
+}
+.franchise_button > p:last-of-type {
+    margin-top: 24px;
+}
+
+/*-------------------- 푸터 --------------------*/
+footer {
+    margin-top: 48px;
+    padding: 16px;
+    padding-top: 32px;
+    padding-bottom: 80px;
+    background-color: var(--color-light-gray);
+
+    color: var(--color-dark-gray);
+}
+#footer_container > a {
+    margin-right: 10px;
+    font-size: 14px;
+}
+#footer_container > p {
+    font-size: 14px;
+    line-height: 120%;
+}
