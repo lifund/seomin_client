@@ -52,7 +52,44 @@
     </style>
 </head>
 <body>
+    <button id="logout_button">로그아웃</button>
     <iframe hidden width="0" height="0" name="dummyframe" id="dummyframe"></iframe>
+
+    <!------------------ 가맹 문의 ------------------>
+    <section>
+        <h2>가맹 문의</h2>
+        <div class="m__franchise_inquiry"></div>
+    </section>
+
+    <!------------------ 고객 문의 ------------------>
+    <section>
+        <h2>고객의 소리</h2>
+        <div class="m__shop_inquiry"></div>
+    </section>
+
+    <!-------------------- 메뉴 -------------------->
+    <section>
+        <h2>메뉴 데이터</h2>
+        <button>메뉴 추가하기</button>
+
+        <div class="m__menu_list"></div>
+
+    </section>
+
+    <!------------------- 가맹점 ------------------->
+    <section>
+        <h2>가맹점 데이터</h2>
+        <button>가맹점 추가하기</button>
+        
+        <div class="m__shop_list"></div>
+    </section>
+
+
+
+
+    <!--------------------------------------------->
+    <!--------------- 팝업 : 주소검색 ---------------->
+    <!--------------------------------------------->
 
     <div id="addressSearch" class="popup">
         <h2>주소 검색하기</h2>
@@ -70,6 +107,10 @@
 
 
 
+    <!--------------------------------------------->
+    <!--------------- 팝업 : 메뉴추가 ---------------->
+    <!--------------------------------------------->
+
     <form class="popup" action="/admin/menu/createUpdate" method="post" target="dummyframe">
         <h3>새 메뉴 작성</h2>
         <input type="text" name="name" id="name" placeholder="메뉴 이름">
@@ -84,124 +125,64 @@
     </form>
 
 
+
+    <!--------------------------------------------->
+    <!--------------- 팝업 : 지점추가 ---------------->
+    <!--------------------------------------------->
+
     <form class="popup" action="/admin/shop/createUpdate" method="post" target="dummyframe">
         <h2>새 가맹점 작성</h2>
         <input type="text" name="name" id="name" placeholder="가맹점 이름">
         <input type="text" name="phone" id="phone" placeholder="전화번호">
         <select id="open" name="open">
-            <option value="00:00">00:00</option>
-            <option value="01:00">01:00</option>
-            <option value="02:00">02:00</option>
-            <option value="03:00">03:00</option>
-            <option value="04:00">04:00</option>
-            <option value="05:00">05:00</option>
-            <option value="06:00">06:00</option>
-            <option value="07:00">07:00</option>
-            <option value="08:00">08:00</option>
-            <option value="09:00">09:00</option>
-            <option value="10:00">10:00</option>
-            <option value="11:00">11:00</option>
-            <option value="12:00">12:00</option>
-            <option value="13:00">13:00</option>
-            <option value="14:00">14:00</option>
-            <option value="15:00">15:00</option>
-            <option value="16:00">16:00</option>
-            <option value="17:00">17:00</option>
-            <option value="18:00">18:00</option>
-            <option value="19:00">19:00</option>
-            <option value="20:00">20:00</option>
-            <option value="21:00">21:00</option>
-            <option value="22:00">22:00</option>
-            <option value="23:00">23:00</option>
-            <option value="24:00">24:00</option>
+            <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option>
         </select>
         <select id="close" name="close">
-            <option value="00:00">00:00</option>
-            <option value="01:00">01:00</option>
-            <option value="02:00">02:00</option>
-            <option value="03:00">03:00</option>
-            <option value="04:00">04:00</option>
-            <option value="05:00">05:00</option>
-            <option value="06:00">06:00</option>
-            <option value="07:00">07:00</option>
-            <option value="08:00">08:00</option>
-            <option value="09:00">09:00</option>
-            <option value="10:00">10:00</option>
-            <option value="11:00">11:00</option>
-            <option value="12:00">12:00</option>
-            <option value="13:00">13:00</option>
-            <option value="14:00">14:00</option>
-            <option value="15:00">15:00</option>
-            <option value="16:00">16:00</option>
-            <option value="17:00">17:00</option>
-            <option value="18:00">18:00</option>
-            <option value="19:00">19:00</option>
-            <option value="20:00">20:00</option>
-            <option value="21:00">21:00</option>
-            <option value="22:00">22:00</option>
-            <option value="23:00">23:00</option>
-            <option value="24:00">24:00</option>
+            <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option>
         </select>
         <input type="text" disabled placeholder="지번/도로명 주소 (검색하세요)">
         <button type="button" id="open_addressSearch">주소 검색하기</button>
         <input type="text" placeholder="상세 주소">
         <input type="submit" value="완료">
     </form>
-
-
-
-
-    <section>
-        <h2>메뉴 데이터</h2>
-        <button>메뉴 추가하기</button>
-
-        <table id="menuList">
-            <tr>
-                <th>이름</th>
-                <th>가격</th>
-                <th>짧은설명</th>
-                <th>긴설명</th>
-            </tr>
-        </table>
-    </section>
-
-    <section>
-        <h2>가맹점 데이터</h2>
-        <button>가맹점 추가하기</button>
-        
-        <table id="shopList">
-            <tr>
-                <th>상호</th>
-                <th>전화</th>
-                <th>오픈</th>
-                <th>마감</th>
-                <th>주소</th>
-            </tr>
-        </table>
-    </section>
-
-    <section>
-        <h2>가맹 문의</h2>
-        <table id="franchiseInquiryList">
-            <tr>
-                <th>이름</th>
-                <th>연락처</th>
-                <th>문의내용</th>
-            </tr>
-        </table>
-    </section>
-
-    <section>
-        <h2>고객의 소리</h2>
-        <table id="shopInquiryList">
-            <tr>
-                <th>문의종류</th>
-                <th>이름</th>
-                <th>연락처</th>
-                <th>문의내용</th>
-            </tr>
-        </table>
-    </section>
     
+
+
+
+
+    <!--------------------------------------------->
+    <!------------------ SCRIPT ------------------->
+    <!--------------------------------------------->
+    <script>
+
+        function parseCookie(cookieString){
+            var cookieArray = cookieString.split(';');
+            var cookieObject = {};
+            for (let i = 0; i < cookieArray.length; i++) {
+                cookieObject[cookieArray[i].split('=')[0]] = cookieArray[i].split('=')[1];
+            } 
+            return cookieObject;
+        }
+        var cookie = parseCookie(document.cookie);
+
+
+        function logout(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/admin/logout");
+            xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+            var submitForm = {
+                'sessionKey': cookie['sessionKey']
+            };
+            xhr.send(JSON.stringify(submitForm));
+        }
+
+        document.getElementById('logout_button').addEventListener('click',function(ev){
+            logout();
+            window.location = '/admin';
+        });
+
+
+
+    </script>
 </body>
 </html>

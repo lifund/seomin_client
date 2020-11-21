@@ -123,6 +123,7 @@ html, body {
 }
 main {
     margin-top: 56px;
+    padding-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
 }

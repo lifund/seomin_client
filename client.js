@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const app = express();
 const path = require('path');
 const fs = require('fs');
@@ -7,7 +8,6 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 const mulang = require('@lifund/mulang');
 var useragent = require('express-useragent');
-const { urlencoded, json } = require('body-parser');
 app.use(useragent.express());
 
 const port = 3000;
@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
+app.use(cookieParser());
   
 var date = new Date();
 
@@ -315,6 +316,7 @@ app.post('/shop/inquiry',(req,res)=>{
 			res.send('success');
 			const inquiryData = {
 				"time":date.toLocaleString(),
+				"status":"접수",
 				"category":req.body.category,
 				"name":req.body.name,
 				"email":req.body.email,
@@ -369,6 +371,7 @@ app.post('/franchise/inquiry',(req,res)=>{
 			res.send('success');
 			const inquiryData = {
 				"time":date.toLocaleString(),
+				"status":"접수",
 				"name":req.body.name,
 				"email":req.body.email,
 				"tel":req.body.tel,
@@ -438,49 +441,107 @@ const mongoInsert = (collection="",document={},callback=function(){}) => {
 //-----------------------------------------------//
 
 //-------------------- MAINPAGE & LOGIN --------------------//
+var logged_in_sessionKeys = [];
+setInterval(() => {
+	logged_in_sessionKeys = [];
+	console.log('SessionKeys Reset');
+}, 3600000);
+function isduplicate_logged_in_sessionKeys(sessionKey) {
+	for (let i = 0; i < logged_in_sessionKeys.length; i++) {
+		if(sessionKey === logged_in_sessionKeys[i]){
+			return true
+		}
+	}
+	return false
+}
+	
+function make_sessionKey() {
+	var new_sessionKey = parseInt(Math.random()*1000).toString();
+	if (isduplicate_logged_in_sessionKeys(new_sessionKey)){
+		make_sessionKey();
+	} else {
+		logged_in_sessionKeys.push(new_sessionKey);
+		return new_sessionKey
+	}
+}
+
 app.get('/admin',(req,res)=>{
-	res.sendFile(path.join(__dirname,'public/admin/admin.html'));
-});
-app.post('/admin/login',(req,res)=>{
-});
-app.post('/admin/logout',(req,res)=>{
-});
+	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		// read HTML template
+		let sourceHtml = fs.readFileSync(path.join(__dirname,'public/admin/admin.html'),'utf-8');
+		mongoFind('franchise_inquiry',{},(result)=>{
+			let franchise_CardHTML = '';
+			result.forEach((franchise_inquiry)=>{
+				franchise_CardHTML += 
+				`<div class="${franchise_inquiry.status}">
+					${franchise_inquiry.time}
+					${franchise_inquiry.status}
+					${franchise_inquiry.name}
+					${franchise_inquiry.email}
+					${franchise_inquiry.tel}
+					${franchise_inquiry.contents}
+				</div>`;
+			});
 
-
-//-------------------- MENU --------------------//
-app.post('/admin/menu/createUpdate',(req,res)=>{
-	console.log( req.body );
-	const data = {
-		"productName":"메뉴 이름", 
-		"price":[{"size":"L","value":17000},{"size":"M","value":14000}], 
-		"description":{"short":"짧은 설명 or 키워드","long":"메인 설명글"}
+			mongoFind('shop_inquiry',{},(result)=>{
+				let shop_CardHTML = '';
+				result.forEach((shop_inquiry)=>{
+					shop_CardHTML += 
+					`<div class="${shop_inquiry.category} ${shop_inquiry.status}">
+						${shop_inquiry.time}
+						${shop_inquiry.status}
+						${shop_inquiry.category}
+						${shop_inquiry.name}
+						${shop_inquiry.email}
+						${shop_inquiry.tel}
+						${shop_inquiry.contents}
+					</div>`;
+				});
+				let targetJson = {
+					"meta": { "languages": ["kor"], "linebreak": "<br>", },
+					"contents":
+					{
+						"franchise_inquiry": {"kor": franchise_CardHTML},
+						"shop_inquiry": {"kor": shop_CardHTML}
+					}
+				}
+				const mulang_home = new mulang({
+					sourceHtml: sourceHtml,
+					targetJson: targetJson
+				})
+				res.send(mulang_home.render().kor)
+			}); 
+		});//{ $exists: true }
+	}else{
+		res.redirect('/admin/login')
 	}
 });
-app.post('/admin/shop/delete',(req,res)=>{
-	console.log( req.body );
-	const targetID = "";
+
+app.get('/admin/login',(req,res)=>{
+	res.sendFile(path.join(__dirname,'public/admin/login.html'));
 });
 
-
-//-------------------- SHOP --------------------//
-app.post('/admin/shop/createUpdate',(req,res)=>{
-	console.log( req.body );
-	res.send('success')
-	const data = {
-        "name":"서민피자 ㅇㅇㅇ 점",
-		"address":"서울 중구 충무로5가 36-2",
-		"road_address":"서울 중구 퇴계로49길 14",
-        "city":"서울",
-        "district":"중구",
-        "phone":"가맹점 전화번호",
-        "openingHours":["오픈시간","마감시간"],
-    };
-});
-app.post('/admin/shop/delete',(req,res)=>{
-	console.log( req.body );
-	const targetID = "";
+app.post('/admin/login',(req,res)=>{
+	console.log('[로그인 알림]', req.body.email, req.body.password);
+	mongoFind('admin',{"email":req.body.email,"password":req.body.password},function(result){
+		if(result.length>0){
+			res.cookie('sessionKey',make_sessionKey());
+			res.redirect('/admin');
+		} else {
+			res.redirect('/admin/login')
+		}
+	});
 });
 
+app.post('/admin/logout',(req,res)=>{
+	for( var i = 0; i < logged_in_sessionKeys.length; i++){ 
+        if ( logged_in_sessionKeys[i] === req.body.sessionKey) { 
+			logged_in_sessionKeys.splice(i, 1); 
+        }
+	}
+	console.log('[로그아웃 알림]',req.body.sessionKey,logged_in_sessionKeys);
+	res.redirect('/admin')
+});
 
 //-------------------- SHOP - INQUIRY UPDATE --------------------//
 app.post('/admin/shopInquiry/statusUpdate',(req,res)=>{
