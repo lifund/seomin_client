@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
   
-
+var date = new Date();
 
 
 //------------------------------------------------//
@@ -302,7 +302,6 @@ app.get('/shop/inquiry',(req,res)=>{
 });
 
 app.post('/shop/inquiry',(req,res)=>{
-	console.log(req.body);
 	const recaptcha_body = `secret=${process.env.recaptcha}&response=${req.body.token}`;
 
 	fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -312,10 +311,10 @@ app.post('/shop/inquiry',(req,res)=>{
 	})
 	.then(verify => verify.json())
 	.then((body) =>{
-		console.log(body);
 		if(body.success === true){
 			res.send('success');
 			const inquiryData = {
+				"time":date.toLocaleString().slice(0,-10),
 				"category":req.body.category,
 				"name":req.body.name,
 				"email":req.body.email,
@@ -323,7 +322,7 @@ app.post('/shop/inquiry',(req,res)=>{
 				"contents":req.body.contents
 			}
 			mongoInsert('shop_inquiry',inquiryData,(result)=>{
-				console.log('[inquiry] 접수됨');
+				console.log('[고객의소리] 접수됨');
 			});
 		} else {
 			res.send('redirect');
@@ -347,7 +346,41 @@ app.get('/franchise',(req,res)=>{
 
 //-------------------- FRANCHISE - INQUIRY --------------------//
 app.get('/franchise/inquiry',(req,res)=>{
-	res.sendFile(path.join(__dirname,'public/client/franchiseInquiry.html'));
+	let sourceHtml = fs.readFileSync(path.join(__dirname,'public/client/franchiseInquiry.html'),'utf-8');
+	// STYLE SHEET : MOBILE/DEKSTOP
+	if(req.useragent.isMobile){
+		sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="/public/client/franchiseInquiry_mobile.css">`)
+	}else{
+		sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="/public/client/franchiseInquiry_desktop.css">`)
+	}
+	res.send(sourceHtml);
+});
+app.post('/franchise/inquiry',(req,res)=>{
+	const recaptcha_body = `secret=${process.env.recaptcha}&response=${req.body.token}`;
+
+	fetch('https://www.google.com/recaptcha/api/siteverify', {
+		method: 'post',
+		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+		body: recaptcha_body
+	})
+	.then(verify => verify.json())
+	.then((body) =>{
+		if(body.success === true){
+			res.send('success');
+			const inquiryData = {
+				"time":date.toLocaleString().slice(0,-10),
+				"name":req.body.name,
+				"email":req.body.email,
+				"tel":req.body.tel,
+				"contents":req.body.contents
+			}
+			mongoInsert('franchise_inquiry',inquiryData,(result)=>{
+				console.log('[프렌차이즈 문의] 접수됨');
+			});
+		} else {
+			res.send('redirect');
+		}
+	});
 });
 
 
