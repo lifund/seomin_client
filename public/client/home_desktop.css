@@ -20,6 +20,9 @@ p,h1,h2,h3,h4,h5,h6,a {
     margin: 0;
     line-height: 100%;
 }
+button:hover, a:hover {
+    cursor: pointer;
+}
 :root {
     --color-blue: #4C95F7;
     --color-pink:  #FF6672;
@@ -29,6 +32,7 @@ p,h1,h2,h3,h4,h5,h6,a {
     --color-tint-gray: #F0F0F0;
     --shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
 }
+[hidden] { display: none !important; }
 
 
 /*-------------------- header container --------------------*/
@@ -169,7 +173,7 @@ main {
 #recommendation_title > a {
     margin-left: auto;
     order: 2;
-    color: var(--color-dark-gray);
+    color: var(--color-blue);
 }
 #recommendation_title > a > svg {
     display: block;
@@ -185,13 +189,13 @@ main {
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
+/* menu card */
 .menuCard:first-child {
     margin-left: 16px;
 }
 .menuCard:last-child {
     margin-right: 16px;
 }
-/* menu card */
 .menuCard {
     margin-left: 10px;
     display: inline-block;
@@ -199,6 +203,9 @@ main {
     scroll-snap-align: center;
     width: calc(100vw / 5);
     height: calc(calc(100vw / 5) + 80px);
+}
+.menuCard:hover{
+    cursor: pointer;
 }
 .menuCard > img {
     width: 100%;
@@ -308,4 +315,99 @@ footer {
 #footer_container > p {
     line-height: 120%;
     font-size: 14px;
+}
+
+
+/*-------------------- menu detail popup --------------------*/
+#menuPopupOverlay {
+
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.8);
+}
+#menuPopup {
+    height: 400px;
+    z-index: 10;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 4px;
+    background: #FFF;
+    box-shadow: var(--shadow);
+
+    display: flex;
+}
+#menuPopup > img{
+    height: 100%;
+    border-radius: 4px 0 0 4px;
+}
+#removeMenuPopup {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/* text contents */
+#popup_container {
+    width: 300px;
+    margin-top: 20px;
+}
+#popup_productName {
+    display: block;
+    font-weight: 700;
+    margin-left: 16px;
+}
+#popup_price {
+    margin-top: 20px;
+    margin-right: 2px;
+    margin-left: 16px;
+    display: flex;
+}
+.popup_price_size {
+    display: inline-block;
+    width: 16px;
+    border-radius: 10px;
+    
+    height: 8px;
+    padding-top: 8px;
+    line-height: 0px;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    color: white;
+    background: var(--color-pink);
+} 
+.popup_price_value {
+    padding-top: 2px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-pink);
+}
+.popup_price_won {
+    padding-top: 2px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+#popup_description_long {
+    display: block;
+    height: 80px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    margin-top: 20px;
+    margin-left: 16px;
+    padding-bottom: 20px;
+
+    font-size: 14px;
+    font-weight: 500;
 }

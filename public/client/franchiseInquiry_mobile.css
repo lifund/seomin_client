@@ -20,6 +20,9 @@ p,h1,h2,h3,h4,h5,h6,a {
     margin: 0;
     line-height: 100%;
 }
+button:hover, a:hover {
+    cursor: pointer;
+}
 :root {
     --color-blue: #4C95F7;
     --color-pink:  #FF6672;
@@ -107,6 +110,7 @@ a, .titleContainer > button, .titleContainer_withButton > button {
     padding-top: 4px;
     border: none;
     color: var(--color-blue);
+    background: none;
 }
 
 
@@ -147,6 +151,7 @@ input[type=text], input[type=email], input[type=tel] {
     width: calc(100% - 32px);
     height: 144px;
     resize: none;
+    border: 1px solid var(--color-light-gray);
 
     padding: 16px 16px;
     word-wrap: break-word;

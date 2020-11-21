@@ -128,8 +128,9 @@
         </div>
     </footer>
 
-
-    <div id="menuPopup" hidden>        
+    <div id="menuPopupOverlay" hidden>
+        <div id="menuPopup" hidden>        
+        </div>
     </div>
 
     <script>
@@ -180,6 +181,7 @@
 
         /*-------------------- MENU DETAILS POPUP --------------------*/
         function showMenuPopup(menuData){
+            
             var content = '';
 
             var priceHTML = '';
@@ -187,14 +189,16 @@
                 if(menuData.price[i].size != ''){
                     priceHTML += '<div class="popup_price_size">'+menuData.price[i].size+'</div>'
                 }
-                priceHTML += '<p class="popup_price_value">'+menuData.price[i].value+'</p>'
+                priceHTML += '<p class="popup_price_value">'+menuData.price[i].value+'</p><p class="popup_price_won">원</p>'
             }
 
             content += '<img src="public/menuImage/'+menuData.imageURL+'" alt="이미지 준비중">'
             + '<a id="removeMenuPopup"><!-- menu_fold --><svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"/><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"/></svg></a>'
-            + '<h2 id="popup_productName">' + menuData.productName + '</h2>'
-            + '<div id="popup_price">' + priceHTML + '</div>'
-            + '<h3 id="popup_description_long">' + menuData.description.long + '</h3>'
+            + '<div id="popup_container">'
+            +   '<h2 id="popup_productName">' + menuData.productName + '</h2>'
+            +   '<div id="popup_price">' + priceHTML + '</div>'
+            +   '<h3 id="popup_description_long">' + menuData.description.long + '</h3>'
+            + '</div>'
             ;
             
             var popup = document.querySelector('#menuPopup');
@@ -204,10 +208,13 @@
                 removeMenuPopup()
             });
             popup.removeAttribute('hidden');
+            document.getElementById('menuPopupOverlay').removeAttribute('hidden');
+            
         }
 
         function removeMenuPopup(){
-            document.querySelector('#menuPopup').setAttribute('hidden','')
+            document.querySelector('#menuPopup').setAttribute('hidden','');
+            document.getElementById('menuPopupOverlay').setAttribute('hidden','');
         }
 
         document.querySelectorAll('.menuCard').forEach(function(menuCard){
@@ -218,6 +225,12 @@
                 }
             },false)
         });
+
+        document.getElementById('menuPopupOverlay').addEventListener('click',function(ev){
+            if(ev.target.id=='menuPopupOverlay'){
+                removeMenuPopup();
+            }
+        },false);
         
     </script>
 

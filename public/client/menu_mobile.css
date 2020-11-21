@@ -19,11 +19,14 @@ p,h1,h2,h3,h4,h5,h6,a {
     margin: 0;
     line-height: 100%;
 }
+button:hover, a:hover {
+    cursor: pointer;
+}
 :root {
     --color-blue: #4C95F7;
     --color-pink:  #FF6672;
     --color-light-gray: #D9D9D9;
-    --color-dark-gray: #6d6d6d;    
+    --color-dark-gray: #6d6d6d;
     --color-tint-gray: #F0F0F0;
     --shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
 }
@@ -159,6 +162,9 @@ main {
     vertical-align: top;
     width: calc(calc(100% - 30px) / 2);
     height: auto;
+}
+.menuCard:hover{
+    cursor: pointer;
 }
 .menuCard > img {
     width: 100%;

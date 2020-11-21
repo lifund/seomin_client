@@ -20,6 +20,9 @@ p,h1,h2,h3,h4,h5,h6,a {
     margin: 0;
     line-height: 100%;
 }
+button:hover, a:hover {
+    cursor: pointer;
+}
 :root {
     --color-blue: #4C95F7;
     --color-pink:  #FF6672;
@@ -207,6 +210,9 @@ main > h2 {
     border-top: 1px solid var(--color-light-gray);
     width: 100%;
     display: flex;
+}
+.regionList:hover{
+    cursor: pointer;
 }
 .regionList > p {
     height: 25px;
