@@ -340,3 +340,92 @@ footer {
     font-size: 14px;
     line-height: 120%;
 }
+
+
+/*-------------------- menu detail popup --------------------*/
+#menuPopupOverlay {
+
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.8);
+}
+#menuPopup {
+    width: calc(100vw - 40px);
+    padding-bottom: 20px;
+    
+    z-index: 10;
+    position: fixed;
+    top: calc( 80px - 20px );
+    left: 20px;
+
+    border-radius: 20px;
+
+    background: #FFF;
+    box-shadow: var(--shadow);
+}
+#menuPopup > img{
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+#removeMenuPopup {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#popup_productName {
+    font-weight: 700;
+    margin-top: 16px;
+    margin-left: 16px;
+}
+#popup_price {
+    margin-top: 10px;
+    margin-right: 2px;
+    margin-left: 16px;
+    display: flex;
+}
+.popup_price_size {
+    display: inline-block;
+    width: 16px;
+    border-radius: 10px;
+    
+    height: 8px;
+    padding-top: 8px;
+    line-height: 0px;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    color: white;
+    background: var(--color-pink);
+} 
+.popup_price_value {
+    padding-top: 2px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-pink);
+}
+.popup_price_won {
+    padding-top: 2px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+#popup_description_long {
+    display: block;
+    margin-top: 10px;
+    margin-left: 16px;
+
+    height: 80px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+
+    font-size: 14px;
+    font-weight: 500;
+}
