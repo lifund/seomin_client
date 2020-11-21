@@ -18,36 +18,200 @@
 
 
     <main>
-        <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
-        <h3>문의 종류</h3>
-        <div id="inquiry_category">
-            <button>기타</button>
-            <button>칭찬</button>
-            <button>건의</button>
-        </div>
+
+            <!-- 문의 종류 | category -->
+            <div class="titleContainer">
+                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
+                <h3>문의 종류</h3>
+            </div>
+            <div id="category_container">
+                <button class="category_button button_inactive">일반</button>
+                <button class="category_button button_inactive">칭찬</button>
+                <button class="category_button button_inactive">건의</button>
+            </div>
+            <input id="category_data" type="text" name="category" value="" hidden>
+            
+
+            <!-- 이름 | name -->
+            <div class="titleContainer">
+                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
+                <h3>이름</h3>
+            </div>
+            <input id="name" type="text" name="name" id="name" placeholder="이름을 입력하세요">
+
+
+            <!-- 연락처 | contacts -->
+            <div class="titleContainer_withButton">
+                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
+                <h3 id="contact_title">이메일</h3>
+                <button id="contact_change_tel">휴대전화로 상담하기</button>
+                <button id="contact_change_email" hidden>이메일로 상담하기</button>
+            </div>
+            <input id="contact_email" type="email" name="email" id="email" placeholder="이메일을 입력해주세요">
+            <input id="contact_tel" type="tel" name="tel" id="tel" placeholder="전화번호를 입력해주세요" hidden>
         
-        <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
-        <h3>이름</h3>
-        <input type="text" name="name" id="name" placeholder="이름을 입력하세요">
 
-        <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
-        <h3>이메일</h3>
-        <a href="">휴대전화로 상담하기</a>
-        <input type="email" name="email" id="email" placeholder="이메일을 입력해주세요">
-        <input hidden type="tel" name="tel" id="tel" placeholder="전화번호를 입력해주세요">
-    
-        <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
-        <h3>문의 내용</h3>
-        <input type="text" name="contents" id="name" placeholder="문의 내용을 입력해주세요"> 
+            <!-- 문의내용 | contents -->
+            <div class="titleContainer">
+                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
+                <h3>문의 내용</h3>
+            </div>
+            <textarea id="contents" name="text" wrap="soft" placeholder="문의 내용을 입력해주세요"></textarea>
 
-        <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
-        <h3>개인정보 처리방침에 동의합니다.</h3>
-        <a href="">약관보기</a>
-        <input type="button" value="약관에 동의하기">
+            
+            <!-- 동의 | agree -->
+            <div class="titleContainer_withButton">
+                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
+                <h3>개인정보 처리방침에 동의합니다.</h3>
+                <a href="/termsofservice">약관보기</a>
+            </div>
+            <input id="agree" class="button_inactive" type="button" value="약관에 동의하기">
 
-        <input type="submit" value="접수하기">
-        <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
-        <p>필수 정보를 빠짐없이 임력해주세요.</p>
+            <!-- 약관 경고 | agreement warning -->
+            <div class="titleContainer" id="agreement_notice" hidden>
+                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
+                <p>개인정보 처리방침에 동의해주세요.</p>
+            </div>
+            
+            <!-- 접수 | submit -->
+            <button id="submit" 
+            class="g-recaptcha button_inactive" 
+            data-sitekey="6LeLc-cZAAAAALdvLsIWx-o0MKHaVNlSBUMallJ_" 
+            data-callback='onSubmit' 
+            data-action='submit'>접수하기</button>
+
+
+
+            <!-- 필수정보 경고 | required warning -->
+            <div class="titleContainer" id="requirement_notice" hidden>
+                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
+                <p>필수 정보를 빠짐없이 임력해주세요.</p>
+            </div>
+
+            <div id="recaptcha_notice">
+                <span>This site is protected by reCAPTCHA and the Google</span>
+                <a href="https://policies.google.com/privacy">Privacy Policy</a> <span>and</span>
+                <a href="https://policies.google.com/terms">Terms of Service</a> <span>apply.</span>
+            </div>
+
     </main>
+    
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script>
+
+        /*------------------------------------------------*/
+        /*-------------------- ALL --------------------*/
+        /*------------------------------------------------*/
+
+        /*-------------------- category --------------------*/
+        var category_button_collection = document.getElementsByClassName('category_button');
+        for (let i = 0; i < category_button_collection.length; i++) {
+            category_button_collection[i].addEventListener('click',function(ev){
+                for (let j = 0; j < category_button_collection.length; j++) {
+                    category_button_collection[j].classList.remove('button_active');
+                }
+                ev.currentTarget.classList.add('button_active');
+                document.getElementById('category_data').value = ev.currentTarget.innerText;
+            });
+        }
+        
+
+        /*-------------------- contact method swap --------------------*/
+        document.getElementById('contact_change_tel').addEventListener('click',function(ev){
+            document.getElementById('contact_email').setAttribute('hidden','');
+            document.getElementById('contact_change_tel').setAttribute('hidden','');
+            document.getElementById('contact_tel').removeAttribute('hidden');
+            document.getElementById('contact_change_email').removeAttribute('hidden');
+            document.getElementById('contact_title').innerText = '전화번호';
+        });
+        document.getElementById('contact_change_email').addEventListener('click',function(ev){
+            document.getElementById('contact_tel').setAttribute('hidden','');
+            document.getElementById('contact_change_email').setAttribute('hidden','');
+            document.getElementById('contact_email').removeAttribute('hidden');
+            document.getElementById('contact_change_tel').removeAttribute('hidden');
+            document.getElementById('contact_title').innerText = '이메일';
+        });
+
+
+        /*-------------------- agree --------------------*/
+        var agreeButton = document.getElementById('agree');
+        agreeButton.addEventListener('click',function(ev){
+            if(agreeButton.classList.contains('button_active')) {
+                agreeButton.classList.remove('button_active');
+                agreeButton.classList.add('button_inactive');
+            } else {
+                agreeButton.classList.remove('button_inactive');
+                agreeButton.classList.add('button_active');
+            }
+        });
+
+
+        /*-------------------- requirement & agreement check --------------------*/
+        function requirement_check(){
+            var isfulfilled = true;
+            if(document.getElementById('category_data').value.trim()==''){
+                isfulfilled = false;
+            }
+            if(document.getElementById('name').value.trim()==''){
+                isfulfilled = false;
+            }
+            if(document.getElementById('contact_email').value.trim()=='' 
+            && document.getElementById('contact_tel').value.trim()==''){
+                isfulfilled = false;
+            }
+            if(document.getElementById('contents').value.trim()==''){
+                isfulfilled = false;
+            }
+            return isfulfilled;
+        }
+        function agreement_check(){
+            if(!document.getElementById('agree').classList.contains('button_active')){
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        /*-------------------- submit --------------------*/
+        function onSubmit(token){
+            if(requirement_check() && agreement_check()){
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/shop/inquiry");
+                xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+                xhr.onload = function () {
+                    if(this.responseText === 'success'){
+                        window.alert('정상적으로 접수되었습니다. \r\n빠른 시일 내에 연락드리겠습니다.');
+                        window.location = '/shop';
+                    }else{
+                        window.location = '/shop';
+                    }
+                };
+                var submitForm = {
+                    'token': token
+                }
+                submitForm['category'] = document.getElementById('category_data').value;
+                submitForm['name'] = document.getElementById('name').value;
+                submitForm['email'] = document.getElementById('contact_email').value;
+                submitForm['tel'] = document.getElementById('contact_tel').value;
+                submitForm['contents'] = document.getElementById('contents').value;
+
+                xhr.send(JSON.stringify(submitForm));
+            }
+            if(!requirement_check()){
+                document.getElementById('requirement_notice').removeAttribute('hidden');
+            }
+            if(!agreement_check()){
+                document.getElementById('agreement_notice').removeAttribute('hidden');
+            }
+            
+        }
+        function submit(data){
+            console.log(data);
+        }
+
+    </script>
+
 </body>
 </html>

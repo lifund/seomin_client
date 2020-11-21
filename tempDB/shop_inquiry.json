@@ -1,0 +1,21 @@
+[
+
+    {
+        "category": "일반", 
+        "phone":"01040487626",
+        "email":"",
+        "contents":"가상의 문의내용"
+    },
+    {
+        "category": "칭찬", 
+        "phone":"01040487626",
+        "email":"",
+        "contents":"가상의 문의내용"
+    },
+    {
+        "category": "건의", 
+        "phone":"",
+        "email":"jan9won@gmail.com",
+        "contents":"가상의 문의내용"
+    }
+]

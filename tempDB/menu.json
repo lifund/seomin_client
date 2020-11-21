@@ -4,7 +4,7 @@
         "categoryName": "메인메뉴", "imageURL":"test.png", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"test.png", "productName":"메뉴 이름", "price":[{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+        "categoryName": "메인메뉴", "imageURL":"test.png", "productName":"메뉴 이름", "price":[{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":true
     },
     {
         "categoryName": "메인메뉴", "imageURL":"test.png", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":true
@@ -13,7 +13,7 @@
         "categoryName": "메인메뉴", "imageURL":"test.png", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"test.png", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false
+        "categoryName": "메인메뉴", "imageURL":"test.png", "productName":"메뉴 이름", "price":[{"size":"L","value":17000},{"size":"M","value":14000}], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":true
     },
     {
         "categoryName": "도우종류", "imageURL":"test.png", "productName":"메뉴 이름", "price":[], "description":{"short":"짧은 설명 or 키워드" ,"long":"메인 설명글"}, "mainPage":false

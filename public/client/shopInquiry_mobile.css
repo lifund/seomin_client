@@ -1,0 +1,186 @@
+
+/*----------------------------------------------*/
+/*-------------------- 공통 --------------------*/
+/*----------------------------------------------*/
+
+* {
+    font-family: 'NanumSquare', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+}
+html, body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+p,h1,h2,h3,h4,h5,h6,a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+:root {
+    --color-blue: #4C95F7;
+    --color-pink:  #FF6672;
+    --color-light-gray: #D9D9D9;
+    --color-dark-gray: #6d6d6d;    
+    --color-tint-gray: #F0F0F0;
+    --shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
+}
+[hidden] { display: none !important; }
+
+
+/*-------------------- header --------------------*/
+
+
+
+
+
+/*----------------------------------------------*/
+/*-------------------- main --------------------*/
+/*----------------------------------------------*/
+html, body {
+    background-color: var(--color-tint-gray);
+}
+main {
+    padding-top: 56px;
+    padding-bottom: 64px;
+    margin-left: auto;
+    margin-right: auto;
+    width: calc(100% - 32px);
+}
+
+/*-------------------- header --------------------*/
+header {
+    position: fixed;
+    top: 0;
+
+    width: 100%;
+    height: 56px;
+    background: #fff;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+}
+header > h2 {
+    text-align: center;
+}
+header > a {
+    height: 56px;
+}
+
+/*-------------------- button colors --------------------*/
+.button_inactive {
+    background: #FFF;
+    border: 1px solid var(--color-light-gray);
+    color: black;
+    font-weight: 500;
+}
+.button_active {
+    background: var(--color-blue);
+    border: 1px solid var(--color-light-gray);
+    color: white;
+    font-weight: 700;
+}
+
+/*-------------------- section title bar --------------------*/
+.titleContainer, .titleContainer_withButton {
+    display: grid;
+    margin-top: 48px;
+    align-items: center;
+}
+.titleContainer {
+    grid-template-columns: max-content auto;
+}
+.titleContainer_withButton{
+    grid-template-columns: max-content auto max-content;
+}
+.titleContainer > h3, .titleContainer_withButton > h3 {
+    display: inline-block;
+    padding-top: 4px;
+    margin-left: 4px;
+}
+a, .titleContainer > button, .titleContainer_withButton > button {
+    display: inline-block;
+    padding-top: 4px;
+    border: none;
+    color: var(--color-blue);
+}
+
+
+
+/*-------------------- category --------------------*/
+#category_container{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+}
+.category_button {
+    width: 100%;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+/*-------------------- name, email, tel --------------------*/
+input[type=text], input[type=email], input[type=tel] {
+    width: calc(100% - 32px);
+    height: 48px;
+    margin-top: 10px;
+
+    border: 1px solid var(--color-light-gray);
+    background: #FFF;
+    color: black;
+    border-radius: 2px;
+
+    padding: 0 16px;
+    font-size: 18px;
+    resize: none; 
+}
+
+/*-------------------- contents --------------------*/
+#contents {
+    margin-top: 10px;
+    width: calc(100% - 32px);
+    height: 144px;
+    resize: none;
+
+    padding: 16px 16px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/*-------------------- agree, submit --------------------*/
+#agree, #submit {
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+
+    border: 1px solid var(--color-light-gray);
+    font-size: 14px;
+
+    border-radius: 20px;
+}
+#requirement_notice, #agreement_notice{
+    padding-top: 10px;
+    width: max-content;
+    margin: auto;
+}
+#requirement_notice > p, #agreement_notice > p{
+    padding-top: 2px;
+    font-size: 12px;
+    color: var(--color-pink);
+    padding-left: 4px;
+}
+
+.grecaptcha-badge { visibility: hidden; }
+#recaptcha_notice {
+    margin-top: 40px;
+}
+#recaptcha_notice  * {
+    filter: opacity(0.7);
+    font-size: 12px;
+}

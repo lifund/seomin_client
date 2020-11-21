@@ -7,6 +7,7 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 const mulang = require('@lifund/mulang');
 var useragent = require('express-useragent');
+const { urlencoded, json } = require('body-parser');
 app.use(useragent.express());
 
 const port = 3000;
@@ -288,14 +289,44 @@ app.get('/shop',(req,res)=>{
 	});
 });
 
-
-
 //-------------------- SHOP - INQUIRY --------------------//
 app.get('/shop/inquiry',(req,res)=>{
-	res.sendFile(path.join(__dirname,'public/client/shopInquiry.html'));
+	let sourceHtml = fs.readFileSync(path.join(__dirname,'public/client/shopInquiry.html'),'utf-8');
+	// STYLE SHEET : MOBILE/DEKSTOP
+	if(req.useragent.isMobile){
+		sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="/public/client/shopInquiry_mobile.css">`)
+	}else{
+		sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="/public/client/shopInquiry_desktop.css">`)
+	}
+	res.send(sourceHtml);
 });
+
 app.post('/shop/inquiry',(req,res)=>{
-	res.sendStatus(200);
+	const recaptcha_body = `secret=${process.env.recaptcha}&response=${req.body.token}`;
+
+	fetch('https://www.google.com/recaptcha/api/siteverify', {
+		method: 'post',
+		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+		body: recaptcha_body
+	})
+	.then(verify => verify.json())
+	.then((body) =>{
+		if(body.success === true){
+			res.send('success');
+			const inquiryData = {
+				"category":req.body.category,
+				"name":req.body.name,
+				"email":req.body.email,
+				"tel":req.body.tel,
+				"contents":req.body.contents
+			}
+			mongoInsert('shop_inquiry',inquiryData,(result)=>{
+				console.log('[inquiry] 접수됨');
+			});
+		} else {
+			res.send('redirect');
+		}
+	});
 });
 
 
@@ -312,12 +343,12 @@ app.get('/franchise',(req,res)=>{
 	res.send(sourceHtml);
 });
 
-
-
 //-------------------- FRANCHISE - INQUIRY --------------------//
 app.get('/franchise/inquiry',(req,res)=>{
 	res.sendFile(path.join(__dirname,'public/client/franchiseInquiry.html'));
 });
+
+
 
 //-------------------- Terms Of Service --------------------//
 app.get('/termsofservice',(req,res)=>{
@@ -353,13 +384,14 @@ const mongoFind = (collection="",query={},callback=function(){}) => {
 	});
 }
 
-const mongoInsert = (collection="",document={}) => {
+const mongoInsert = (collection="",document={},callback=function(){}) => {
 	MongoClient.connect(mongoUrl, mongoOption, function(err, db) {
 		if (err) throw err;
 		var dbo = db.db('seomin');
 		dbo.collection(collection).insertOne(document,function(err,result){
-			console.log("1 document inserted",'\n',result);
+			if (err) throw err;
 			db.close();
+			callback(result);
 		});
 	});
 }
@@ -415,7 +447,7 @@ app.post('/admin/shop/delete',(req,res)=>{
 });
 
 
-//-------------------- SHOP - INQUIRY --------------------//
+//-------------------- SHOP - INQUIRY UPDATE --------------------//
 app.post('/admin/shopInquiry/statusUpdate',(req,res)=>{
 	console.log( req.body );
 	data = {
@@ -424,7 +456,7 @@ app.post('/admin/shopInquiry/statusUpdate',(req,res)=>{
 	}
 });
 
-//-------------------- FRANCHISE - INQUIRY --------------------//
+//-------------------- FRANCHISE - INQUIRY UPDATE --------------------//
 app.post('/admin/franchiseInquiry/statusUpdate',(req,res)=>{
 	console.log( req.body );
 	data = {

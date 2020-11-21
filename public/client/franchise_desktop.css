@@ -90,9 +90,20 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
-main > h2 {
-    padding-top: 48px;
+#titleContainer {
+    display: grid;
+    grid-template-columns: auto max-content;
+    align-items: center;
+}
+#titleContainer > h2 {
     margin-left: 16px;
+}
+#titleContainer > a {
+    margin-right: 16px;
+    background: var(--color-blue);
+    padding: 0.5em 1em;
+    color: #FFF;
+    border-radius: 20px;
 }
 .franchise_container {
     padding: 30px 20px;
