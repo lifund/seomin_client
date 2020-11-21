@@ -16,6 +16,7 @@
         <h2>고객의 소리</h2>
     </header>
 
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <main>
 
@@ -74,13 +75,13 @@
             </div>
             
             <!-- 접수 | submit -->
-            <button id="submit" 
-            class="g-recaptcha button_inactive" 
-            data-sitekey="6LeLc-cZAAAAALdvLsIWx-o0MKHaVNlSBUMallJ_" 
-            data-callback='onSubmit' 
-            data-action='submit'>접수하기</button>
+            <button id="submit" class="button_inactive">접수하기</button>
 
-
+            <div class="g-recaptcha"
+            data-sitekey="6LcJlecZAAAAAM5pdU04Yb0My1vhY-aFrKEebOud"
+            data-callback="onSubmit"
+            data-size="invisible">
+            </div>
 
             <!-- 필수정보 경고 | required warning -->
             <div class="titleContainer" id="requirement_notice" hidden>
@@ -97,7 +98,6 @@
     </main>
     
 
-    <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <script>
 
@@ -175,29 +175,10 @@
         }
 
         /*-------------------- submit --------------------*/
-        function onSubmit(token){
-            if(requirement_check() && agreement_check()){
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "/shop/inquiry");
-                xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
-                xhr.onload = function () {
-                    if(this.responseText === 'success'){
-                        window.alert('정상적으로 접수되었습니다. \r\n빠른 시일 내에 연락드리겠습니다.');
-                        window.location = '/shop';
-                    }else{
-                        window.location = '/shop';
-                    }
-                };
-                var submitForm = {
-                    'token': token
-                }
-                submitForm['category'] = document.getElementById('category_data').value;
-                submitForm['name'] = document.getElementById('name').value;
-                submitForm['email'] = document.getElementById('contact_email').value;
-                submitForm['tel'] = document.getElementById('contact_tel').value;
-                submitForm['contents'] = document.getElementById('contents').value;
 
-                xhr.send(JSON.stringify(submitForm));
+        document.getElementById('submit').addEventListener('click',function(ev){
+            if(requirement_check() && agreement_check()){
+                grecaptcha.execute();
             }
             if(!requirement_check()){
                 document.getElementById('requirement_notice').removeAttribute('hidden');
@@ -205,10 +186,30 @@
             if(!agreement_check()){
                 document.getElementById('agreement_notice').removeAttribute('hidden');
             }
-            
-        }
-        function submit(data){
-            console.log(data);
+        });
+        
+        function onSubmit(token){
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/shop/inquiry");
+            xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+            xhr.onload = function () {
+                if(this.responseText === 'success'){
+                    window.alert('정상적으로 접수되었습니다. \r\n빠른 시일 내에 연락드리겠습니다.');
+                    window.location = '/shop';
+                }else{
+                    window.location = '/shop';
+                }
+            };
+            var submitForm = {
+                'token': token
+            }
+            submitForm['category'] = document.getElementById('category_data').value;
+            submitForm['name'] = document.getElementById('name').value;
+            submitForm['email'] = document.getElementById('contact_email').value;
+            submitForm['tel'] = document.getElementById('contact_tel').value;
+            submitForm['contents'] = document.getElementById('contents').value;
+
+            xhr.send(JSON.stringify(submitForm));
         }
 
     </script>
