@@ -314,7 +314,7 @@ app.post('/shop/inquiry',(req,res)=>{
 		if(body.success === true){
 			res.send('success');
 			const inquiryData = {
-				"time":date.toLocaleString().slice(0,-10),
+				"time":date.toLocaleString(),
 				"category":req.body.category,
 				"name":req.body.name,
 				"email":req.body.email,
@@ -368,7 +368,7 @@ app.post('/franchise/inquiry',(req,res)=>{
 		if(body.success === true){
 			res.send('success');
 			const inquiryData = {
-				"time":date.toLocaleString().slice(0,-10),
+				"time":date.toLocaleString(),
 				"name":req.body.name,
 				"email":req.body.email,
 				"tel":req.body.tel,
