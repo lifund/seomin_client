@@ -302,6 +302,7 @@ app.get('/shop/inquiry',(req,res)=>{
 });
 
 app.post('/shop/inquiry',(req,res)=>{
+	console.log(req.body);
 	const recaptcha_body = `secret=${process.env.recaptcha}&response=${req.body.token}`;
 
 	fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -311,6 +312,7 @@ app.post('/shop/inquiry',(req,res)=>{
 	})
 	.then(verify => verify.json())
 	.then((body) =>{
+		console.log(body);
 		if(body.success === true){
 			res.send('success');
 			const inquiryData = {
