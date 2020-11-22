@@ -1,0 +1,64 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+
+}
+
+section {
+    background-color: rgb(221, 212, 212);
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.card_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+}
+
+
+.franchise_inquiry{ 
+    background: #FFF;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.franchise_inquiry>p{
+    line-height: 0;
+} 
+
+
+.popup {
+    padding:10px;
+    background-color: #fff;
+    border: 2px solid gray;
+}
+
+input[type="text"] {
+    display: block;
+    padding: 5px;
+    font-size: 1em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+input[type=submit],button {
+    display: block;
+    background: #016ABC;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height:30px;
+    font-size: 1em;
+}
+
+table, table * {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+td,th{
+    padding: 5px;
+}

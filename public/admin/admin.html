@@ -4,155 +4,229 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>서민피자 관리자</title>
-    <style>
-        *{
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    <!-- stylesheet_placeholder -->
 
-        section {
-            background-color: rgb(221, 212, 212);
-            padding: 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-
-        }
-        .popup {
-            padding:10px;
-            background-color: #fff;
-            border: 2px solid gray;
-        }
-        
-        input[type="text"] {
-            display: block;
-            padding: 5px;
-            font-size: 1em;
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        input[type=submit],button {
-            display: block;
-            background: #016ABC;
-            color: #fff;
-            border: 1px solid #eee;
-            border-radius: 20px;
-            padding-left: 20px;
-            padding-right: 20px;
-            height:30px;
-            font-size: 1em;
-        }
-
-        table, table * {
-            border-collapse: collapse;
-            border: 1px solid black;
-        }
-        td,th{
-            padding: 5px;
-        }
-    </style>
 </head>
 <body>
-    <button id="logout_button">로그아웃</button>
-    <iframe hidden width="0" height="0" name="dummyframe" id="dummyframe"></iframe>
 
-    <!------------------ 가맹 문의 ------------------>
-    <section>
-        <h2>가맹 문의</h2>
-        <div class="m__franchise_inquiry"></div>
-    </section>
+    <main>
 
-    <!------------------ 고객 문의 ------------------>
-    <section>
-        <h2>고객의 소리</h2>
-        <div class="m__shop_inquiry"></div>
-    </section>
+        <button id="logout_button">로그아웃</button>
+        <iframe hidden width="0" height="0" name="dummyframe" id="dummyframe"></iframe>
 
-    <!-------------------- 메뉴 -------------------->
-    <section>
-        <h2>메뉴 데이터</h2>
-        <button>메뉴 추가하기</button>
+        <!------------------ 가맹 문의 ------------------>
+        <section>
+            <h2>가맹 문의</h2>
+            <div class="category_button">
+                <button id="franchise_inquiry_submitted_button" class="button_active">접수</button>
+                <button id="franchise_inquiry_resolved_button" class="button_inactive">완료</button>
+            </div>
+            <div id="franchise_inquiry_submitted_container" class="card_container m__franchise_inquiry_submitted"></div>
+            <div id="franchise_inquiry_resolved_container" class="card_container m__franchise_inquiry_resolved" hidden></div>
+        </section>
 
-        <div class="m__menu_list"></div>
+        <script>
+            function request_post(url="", data={}, successCallback=function(){}, errorCallback=function(){}){
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", url);
+                xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+                xhr.onload = function () {
+                    if(this.responseText === 'success'){
+                        successCallback();
+                    }else{
+                        errorCallback();
+                    }
+                };
+                xhr.send(JSON.stringify(data));
+            }
+            
 
-    </section>
 
-    <!------------------- 가맹점 ------------------->
-    <section>
-        <h2>가맹점 데이터</h2>
-        <button>가맹점 추가하기</button>
+            document.getElementById('franchise_inquiry_submitted_button').addEventListener('click',function(ev){
+                document.getElementById('franchise_inquiry_submitted_container').removeAttribute('hidden');
+                document.getElementById('franchise_inquiry_submitted_button').classList.remove('button_inactive');
+                document.getElementById('franchise_inquiry_submitted_button').classList.add('button_active');
+                document.getElementById('franchise_inquiry_resolved_container').setAttribute('hidden','');
+                document.getElementById('franchise_inquiry_resolved_button').classList.add('button_inactive');
+                document.getElementById('franchise_inquiry_resolved_button').classList.remove('button_active');
+            });
+            document.getElementById('franchise_inquiry_resolved_button').addEventListener('click',function(ev){
+                document.getElementById('franchise_inquiry_resolved_container').removeAttribute('hidden');
+                document.getElementById('franchise_inquiry_resolved_button').classList.remove('button_inactive');
+                document.getElementById('franchise_inquiry_resolved_button').classList.add('button_active');
+                document.getElementById('franchise_inquiry_submitted_container').setAttribute('hidden','');
+                document.getElementById('franchise_inquiry_submitted_button').classList.add('button_inactive');
+                document.getElementById('franchise_inquiry_submitted_button').classList.remove('button_active');
+            });
+
+            var franchise_inquiry_changeStatus = document.getElementsByClassName('franchise_inquiry_changeStatus');
+            for (let i = 0; i < franchise_inquiry_changeStatus.length; i++) {
+                var element = franchise_inquiry_changeStatus[i];
+                element.addEventListener('click',function(ev){
+                    var real = document.getElementById(ev.currentTarget.id+'_el');
+                    if (ev.currentTarget.innerText == '완료 상태로 변경'){
+                        request_post(
+                            '/admin/franchiseInquiry/statusUpdate',
+                            {
+                                "collection":"franchise_inquiry",
+                                "id":ev.currentTarget.id,
+                                "document": { $set: { "status" : "완료" } }
+                            },
+                            function(){
+                                window.location = '/admin';
+                            }
+                        );
+
+                    }
+                    if (ev.currentTarget.innerText == '접수 상태로 되돌리기'){
+                        request_post(
+                            '/admin/franchiseInquiry/statusUpdate',
+                            {
+                                "collection":"franchise_inquiry",
+                                "id":ev.currentTarget.id,
+                                "document": { $set: { "status" : "접수" } }
+                            },
+                            function(){
+                                window.location = '/admin';
+                            }
+                        );
+                        
+                    }
+                });
+            };
+            
+        </script>
+
+        <!------------------ 고객 문의 ------------------>
+        <section>
+            <h2>고객의 소리</h2>
+            <div class="category_button">
+                <button id="shop_inquiry_submitted_button" class="button_active">접수</button>
+                <button id="shop_inquiry_resolved_button" class="button_inactive">완료</button>
+            </div>
+            <div id="shop_inquiry_submitted_container" class="card_container m__shop_inquiry_submitted"></div>
+            <div id="shop_inquiry_resolved_container" class="card_container m__shop_inquiry_resolved" hidden></div>
+        </section>
+
+        <script>
+            document.getElementById('shop_inquiry_submitted_button').addEventListener('click',function(ev){
+                document.getElementById('shop_inquiry_submitted_container').removeAttribute('hidden');
+                document.getElementById('shop_inquiry_submitted_button').classList.remove('button_inactive');
+                document.getElementById('shop_inquiry_submitted_button').classList.add('button_active');
+                document.getElementById('shop_inquiry_resolved_container').setAttribute('hidden','');
+                document.getElementById('shop_inquiry_resolved_button').classList.add('button_inactive');
+                document.getElementById('shop_inquiry_resolved_button').classList.remove('button_active');
+            });
+            document.getElementById('shop_inquiry_resolved_button').addEventListener('click',function(ev){
+                document.getElementById('shop_inquiry_resolved_container').removeAttribute('hidden');
+                document.getElementById('shop_inquiry_resolved_button').classList.remove('button_inactive');
+                document.getElementById('shop_inquiry_resolved_button').classList.add('button_active');
+                document.getElementById('shop_inquiry_submitted_container').setAttribute('hidden','');
+                document.getElementById('shop_inquiry_submitted_button').classList.add('button_inactive');
+                document.getElementById('shop_inquiry_submitted_button').classList.remove('button_active');
+            });
+
+
+            var shop_inquiry_changeStatus = document.getElementsByClassName('shop_inquiry_changeStatus');
+            for (let i = 0; i < shop_inquiry_changeStatus.length; i++) {
+                var element = shop_inquiry_changeStatus[i];
+                element.addEventListener('click',function(ev){
+                    var real = document.getElementById(ev.currentTarget.id+'_el');
+                    if (ev.currentTarget.innerText == '완료 상태로 변경'){
+                        request_post(
+                            '/admin/shopInquiry/statusUpdate',
+                            {
+                                "collection":"shop_inquiry",
+                                "id":ev.currentTarget.id,
+                                "document": { $set: { "status" : "완료" } }
+                            },
+                            function(){
+                                window.location = '/admin';
+                            }
+                        );
+                    }
+                    if (ev.currentTarget.innerText == '접수 상태로 되돌리기'){
+                        request_post(
+                            '/admin/shopInquiry/statusUpdate',
+                            {
+                                "collection":"shop_inquiry",
+                                "id":ev.currentTarget.id,
+                                "document": { $set: { "status" : "접수" } }
+                            },
+                            function(){
+                                window.location = '/admin';
+                            }
+                        );
+                        
+                    }
+                });
+            };
+        </script>
+
+        <!--
+
+        <section>
+            <h2>가맹점 데이터</h2>
+            <button>가맹점 추가하기</button>
+            
+            <div class="card_container m__shop_list"></div>
+        </section>
         
-        <div class="m__shop_list"></div>
-    </section>
+
+        <section>
+            <h2>메뉴 데이터</h2>
+            <button>메뉴 추가하기</button>
+
+            <div class="card_container m__menu_list"></div>
+
+        </section>
+
+     
+        -->
 
 
+        
+        <!------------------------------------------------------------------------------------>
+        <!--------------------------------------- 팝업 ---------------------------------------->
+        <!------------------------------------------------------------------------------------>
 
+        <!--------------------------------------- 주소검색 ---------------------------------------->
 
-    <!--------------------------------------------->
-    <!--------------- 팝업 : 주소검색 ---------------->
-    <!--------------------------------------------->
-
-    <div id="addressSearch" class="popup">
-        <h2>주소 검색하기</h2>
-        <input type="text" name="addressQuery" id="addressQuery" placeholder="주소 입력">
-        <input type="submit" value="검색">
-        <table id="addressList">
-            <tr>
-                <th>지번주소</th>
-                <th>도로명주소</th>
-                <th>시/도</th>
-                <th>군/구</th>
-            </tr>
-        </table>
-    </div>
-
-
-
-    <!--------------------------------------------->
-    <!--------------- 팝업 : 메뉴추가 ---------------->
-    <!--------------------------------------------->
-
-    <form class="popup" action="/admin/menu/createUpdate" method="post" target="dummyframe">
-        <h3>새 메뉴 작성</h2>
-        <input type="text" name="name" id="name" placeholder="메뉴 이름">
-        <div class="priceBox">
-            <input type="text" name="price_size" id="price_size" placeholder="가격 이름 (L/M 등 없어도 됨)">
-            <input type="text" name="price_value" id="price_value" placeholder="가격 값">
+        <div id="addressSearch" class="popup" hidden>
+            <a id="removeMenuPopup_address"><!-- menu_fold --><svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"/><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"/></svg></a>
+            <h2>주소 검색하기</h2>
+            <input type="text" name="addressQuery" id="addressQuery" placeholder="주소 입력">
+            <input type="submit" value="검색">
+            <table id="addressList">
+                <tr>
+                    <th>지번주소</th>
+                    <th>도로명주소</th>
+                    <th>시/도</th>
+                    <th>군/구</th>
+                </tr>
+            </table>
         </div>
-        <button type="button" >가격란 추가하기</button>
-        <input type="text" name="short" id="short" placeholder="메뉴 목록에서 노출될 짧은설명/키워드">
-        <input type="text" name="long" id="long" placeholder="메뉴 상세페이지에서 노출될 긴 설명">
-        <input type="submit" value="완료">
-    </form>
+        <script>
+            var shop_address_searchButton = document.getElementsByClassName('shop_address_searchButton');
+            for (let i = 0; i < shop_address_searchButton.length; i++) {
+                shop_address_searchButton[i].addEventListener('click',function(ev){
+                    document.getElementById('addressSearch').removeAttribute('hidden');
+                });
+            }
+            document.getElementById('removeMenuPopup_address').addEventListener('click',function(ev){
+                document.getElementById('addressSearch').setAttribute('hidden','');
+            });
+        </script>
 
 
-
-    <!--------------------------------------------->
-    <!--------------- 팝업 : 지점추가 ---------------->
-    <!--------------------------------------------->
-
-    <form class="popup" action="/admin/shop/createUpdate" method="post" target="dummyframe">
-        <h2>새 가맹점 작성</h2>
-        <input type="text" name="name" id="name" placeholder="가맹점 이름">
-        <input type="text" name="phone" id="phone" placeholder="전화번호">
-        <select id="open" name="open">
-            <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option>
-        </select>
-        <select id="close" name="close">
-            <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option>
-        </select>
-        <input type="text" disabled placeholder="지번/도로명 주소 (검색하세요)">
-        <button type="button" id="open_addressSearch">주소 검색하기</button>
-        <input type="text" placeholder="상세 주소">
-        <input type="submit" value="완료">
-    </form>
-    
+    </main>
 
 
 
 
-    <!--------------------------------------------->
-    <!------------------ SCRIPT ------------------->
-    <!--------------------------------------------->
+    <!--------------------------------------------------------------------------------------------->
+    <!------------------------------------------ SCRIPT ------------------------------------------->
+    <!--------------------------------------------------------------------------------------------->
     <script>
 
         function parseCookie(cookieString){

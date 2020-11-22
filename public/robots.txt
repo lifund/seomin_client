@@ -2,6 +2,6 @@ User-agent: *
 Disallow: /admin
 Disallow: /admin/login
 Disallow: /admin/logout
-Disallow: /admin/shop/createUpdate
-Disallow: /admin/shop/delete
+Disallow: /admin/shopInquiry/statusUpdate
+Disallow: /admin/franchiseInquiry/statusUpdate
 Disallow: /admin/searchAddress

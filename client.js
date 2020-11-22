@@ -22,12 +22,14 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(cookieParser());
   
-var date = new Date();
 
 
-//------------------------------------------------//
-//-------------------- BASE PATHS --------------------//
-//------------------------------------------------//
+//----------------------------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------- BASE PATHS --------------------------------------------------//
+//----------------------------------------------------------------------------------------------------------------//
+//----------------------------------------------------------------------------------------------------------------//
+
 app.get('/robots.txt',(req,res)=>{
 	res.sendFile(path.join(__dirname,'public/robots.txt'));
 })
@@ -44,10 +46,11 @@ app.get('/prototype',(req,res)=>{
 
 
 
-
-//------------------------------------------------//
-//-------------------- CLIENT --------------------//
-//------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------- CLIENT --------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------//
 
 //-------------------- HOME --------------------//
 app.get('/home',(req,res)=>{
@@ -302,7 +305,9 @@ app.get('/shop/inquiry',(req,res)=>{
 	res.send(sourceHtml);
 });
 
+//-------------------- FRANCHISE - INQUIRY - POST --------------------//
 app.post('/shop/inquiry',(req,res)=>{
+	const date = new Date();
 	const recaptcha_body = `secret=${process.env.recaptcha}&response=${req.body.token}`;
 
 	fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -315,7 +320,8 @@ app.post('/shop/inquiry',(req,res)=>{
 		if(body.success === true){
 			res.send('success');
 			const inquiryData = {
-				"time":date.toLocaleString(),
+				"time":date.getTime(),
+				"timeStamp": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
 				"status":"접수",
 				"category":req.body.category,
 				"name":req.body.name,
@@ -357,7 +363,9 @@ app.get('/franchise/inquiry',(req,res)=>{
 	}
 	res.send(sourceHtml);
 });
+//-------------------- FRANCHISE - INQUIRY - POST --------------------//
 app.post('/franchise/inquiry',(req,res)=>{
+	const date = new Date();
 	const recaptcha_body = `secret=${process.env.recaptcha}&response=${req.body.token}`;
 
 	fetch('https://www.google.com/recaptcha/api/siteverify', {
@@ -370,7 +378,8 @@ app.post('/franchise/inquiry',(req,res)=>{
 		if(body.success === true){
 			res.send('success');
 			const inquiryData = {
-				"time":date.toLocaleString(),
+				"time":date.getTime(),
+				"timeStamp": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
 				"status":"접수",
 				"name":req.body.name,
 				"email":req.body.email,
@@ -402,11 +411,14 @@ app.get('/termsofservice',(req,res)=>{
 
 
 
-//------------------------------------------------------//
-//-------------------- MONGO DB API --------------------//
-//------------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------- MONGO DB API --------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------------------------------------//
 
 var MongoClient = require('mongodb').MongoClient;
+var ObjectId = require('mongodb').ObjectID;
 var mongoUrl = "mongodb://localhost:27017/";
 var mongoOption = {useUnifiedTopology: true };
 
@@ -434,13 +446,52 @@ const mongoInsert = (collection="",document={},callback=function(){}) => {
 	});
 }
 
+const mongoUpdate_id = (collection="",id,document={},callback=function(){}) => {
+	MongoClient.connect(mongoUrl, mongoOption, function(err, db) {
+		if (err) throw err;
+		var dbo = db.db('seomin');
+		dbo.collection(collection).updateOne({ _id: ObjectId(id)},document,function(err,result){
+			if (err) throw err;
+			db.close();
+			callback(result);
+		});
+	});
+}
+
+// make another for key depth > 1 occasions.
+function sortObjectArrayByTheKey(objArr=[],key=""){
+	var sorted = [];
+	sorted[0] = objArr[0];
+
+	for (let i = 1; i < objArr.length; i++) {
+		const obj = objArr[i];
+		if (obj[key] <= sorted[0][key]) {sorted.unshift(obj); continue;}
+		if (obj[key] >= sorted[sorted.length-1][key]) {sorted.push(obj); continue}
+		for (let j = 0; j < sorted.length-1; j++) {
+			if (sorted[j][key] < obj[key] && obj[key] < sorted[j+1][key]){
+				let temp = sorted.slice(0,j+1);
+				temp.push(obj[key]);
+				temp.push(sorted.slice(j+1));
+				sorted = temp;
+				continue;
+			}
+		}
+	}
+	return sorted;
+}
 
 
-//-----------------------------------------------//
-//-------------------- ADMIN --------------------//
-//-----------------------------------------------//
 
+//-----------------------------------------------------------------------------------------------------------//
+//-----------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------- ADMIN --------------------------------------------------//
+//-----------------------------------------------------------------------------------------------------------//
+//-----------------------------------------------------------------------------------------------------------//
+
+
+//----------------------------------------------------------//
 //-------------------- MAINPAGE & LOGIN --------------------//
+//----------------------------------------------------------//
 var logged_in_sessionKeys = [];
 setInterval(() => {
 	logged_in_sessionKeys = [];
@@ -467,49 +518,156 @@ function make_sessionKey() {
 
 app.get('/admin',(req,res)=>{
 	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		
 		// read HTML template
 		let sourceHtml = fs.readFileSync(path.join(__dirname,'public/admin/admin.html'),'utf-8');
+		// STYLE SHEET : MOBILE/DEKSTOP
+		if(req.useragent.isMobile){
+			sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="public/admin/admin_mobile.css">`)
+		}else{
+			sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="public/admin/admin_desktop.css">`)
+		}
+
+		
+		/* franchise_inquiry */
 		mongoFind('franchise_inquiry',{},(result)=>{
-			let franchise_CardHTML = '';
+			if (result.length > 0) result = sortObjectArrayByTheKey(result,'time').reverse();
+
+			let franchise_inquiry_submitted_CardHTML = '';
+			let franchise_inquiry_resolved_CardHTML = '';
 			result.forEach((franchise_inquiry)=>{
-				franchise_CardHTML += 
-				`<div class="${franchise_inquiry.status}">
-					${franchise_inquiry.time}
-					${franchise_inquiry.status}
-					${franchise_inquiry.name}
-					${franchise_inquiry.email}
-					${franchise_inquiry.tel}
-					${franchise_inquiry.contents}
-				</div>`;
+				if(franchise_inquiry.status==='접수'){
+					franchise_inquiry_submitted_CardHTML += 
+					`<div id="${franchise_inquiry._id}_el" class="franchise_inquiry ${franchise_inquiry.status}">
+						<p class="franchise_inquiry_time">${franchise_inquiry.timeStamp}</p>
+						<hr>
+						<p class="franchise_inquiry_name">이름 : ${franchise_inquiry.name}</p>
+						<p class="franchise_inquiry_email">이메일 : ${franchise_inquiry.email}</p>
+						<p class="franchise_inquiry_tel">전화 : ${franchise_inquiry.tel}</p>
+						<p class="franchise_inquiry_contents">내용 : ${franchise_inquiry.contents}</p>
+						<button id="${franchise_inquiry._id}" class="franchise_inquiry_changeStatus button_inactive">완료 상태로 변경</button>
+					</div>`;
+				}else{
+					franchise_inquiry_resolved_CardHTML += 
+					`<div id="${franchise_inquiry._id}_el" class="franchise_inquiry ${franchise_inquiry.status}">
+						<p class="franchise_inquiry_time">${franchise_inquiry.timeStamp}</p>
+							<hr>
+							<p class="franchise_inquiry_name">이름 : ${franchise_inquiry.name}</p>
+						<p class="franchise_inquiry_email">이메일 : ${franchise_inquiry.email} </p>
+						<p class="franchise_inquiry_tel">전화 : ${franchise_inquiry.tel} </p>
+						<p class="franchise_inquiry_contents">내용 : ${franchise_inquiry.contents}</p>
+						<button id="${franchise_inquiry._id}" class="franchise_inquiry_changeStatus button_inactive">접수 상태로 되돌리기</button>
+					</div>`;
+				}
 			});
 
+
+			/* shop_inquiry */
 			mongoFind('shop_inquiry',{},(result)=>{
-				let shop_CardHTML = '';
+				if (result.length > 0) result = sortObjectArrayByTheKey(result,'time').reverse();
+
+				let shop_inquiry_submitted_CardHTML = '';
+				let shop_inquiry_resolved_CardHTML = '';
 				result.forEach((shop_inquiry)=>{
-					shop_CardHTML += 
-					`<div class="${shop_inquiry.category} ${shop_inquiry.status}">
-						${shop_inquiry.time}
-						${shop_inquiry.status}
-						${shop_inquiry.category}
-						${shop_inquiry.name}
-						${shop_inquiry.email}
-						${shop_inquiry.tel}
-						${shop_inquiry.contents}
-					</div>`;
-				});
-				let targetJson = {
-					"meta": { "languages": ["kor"], "linebreak": "<br>", },
-					"contents":
-					{
-						"franchise_inquiry": {"kor": franchise_CardHTML},
-						"shop_inquiry": {"kor": shop_CardHTML}
+					if(shop_inquiry.status==='접수'){
+						shop_inquiry_submitted_CardHTML += 
+						`<div id="${shop_inquiry._id}_el" class="shop_inquiry ${shop_inquiry.status} ${shop_inquiry.category}">
+							<p class="shop_inquiry_time">${shop_inquiry.timeStamp}</p>
+							<hr>
+							<p class="shop_inquiry_category">문의종류 : ${shop_inquiry.category}</p>
+							<p class="shop_inquiry_name">이름 : ${shop_inquiry.name}</p>
+							<p class="shop_inquiry_email">이메일 : ${shop_inquiry.email} </p>
+							<p class="shop_inquiry_tel">전화 : ${shop_inquiry.tel} </p>
+							<p class="shop_inquiry_contents">내용 : ${shop_inquiry.contents}</p>
+							<button id="${shop_inquiry._id}" class="shop_inquiry_changeStatus button_inactive">완료 상태로 변경</button>
+						</div>`;
+					}else{
+						shop_inquiry_resolved_CardHTML += 
+						`<div id="${shop_inquiry._id}_el" class="shop_inquiry ${shop_inquiry.status} ${shop_inquiry.category}">
+							<p class="shop_inquiry_time">${shop_inquiry.timeStamp}</p>
+							<hr>
+							<p class="shop_inquiry_category">문의종류 : ${shop_inquiry.category}</p>
+							<p class="shop_inquiry_name">이름 : ${shop_inquiry.name}</p>
+							<p class="shop_inquiry_email">이메일 : ${shop_inquiry.email} </p>
+							<p class="shop_inquiry_tel">전화 : ${shop_inquiry.tel} </p>
+							<p class="shop_inquiry_contents">내용 : ${shop_inquiry.contents}</p>
+							<button id="${shop_inquiry._id}" class="shop_inquiry_changeStatus button_inactive">접수 상태로 되돌리기</button>
+						</div>`;
 					}
-				}
-				const mulang_home = new mulang({
-					sourceHtml: sourceHtml,
-					targetJson: targetJson
-				})
-				res.send(mulang_home.render().kor)
+				});
+
+				/* menu */
+				mongoFind('menu',{},(result)=>{
+					if (result.length > 0) result = sortObjectArrayByTheKey(result,'productName');
+					let menu_CardHTML = '';
+					result.forEach((menu)=>{
+						menu_CardHTML += 
+						`<div id="${menu._id}_el" class="menu ${menu.status} ${menu.category}">
+							${'<select> <option value="메인메뉴">메인메뉴</option><option value="도우종류">도우종류</option><option value="세트메뉴">세트메뉴</option><option value="사이드메뉴">사이드메뉴</option></select>'.replace('\"'+menu.categoryName+'\"','\"'+menu.categoryName+'\" selected')}
+							<hr>
+							<input type="text" class="menu_productName" value="${menu.productName}">
+							<hr>
+							<img src="public/menuImage/${menu.imageURL}">
+							<p class="menu_imageURL">${menu.imageURL}</p>
+							<input type="file" name="filetoupload">
+							<hr>
+							<p class="menu_price">${JSON.stringify(menu.price)}</p>
+							<hr>
+							<input type="text" class="menu_description" value="${menu.description.short}">
+							<hr>
+							<input type="text" lass="menu_description" value="${menu.description.long}">
+							<hr>
+							<p class="menu_description">${menu.mainPage}</p>
+							<hr>
+							<button id="${menu._id}" class="updateCard">수정하기</button>
+							<button id="${menu._id}" class="deleteCard">삭제하기</button>
+						</div>`;
+					});
+
+					/* shop */
+					mongoFind('shop',{},(result)=>{
+						if (result.length > 0) result = sortObjectArrayByTheKey(result,'name');
+						let shop_CardHTML = '';
+						result.forEach((shop)=>{
+							shop_CardHTML += 
+							`<div id="${shop._id}_el" class="shop">
+								<input type="text" class="shop_name" value="${shop.name}">
+								<hr>
+								<p class="shop_address">${shop.address}</p>
+								<p class="shop_city">(${shop.city})</p>
+								<p class="shop_district">(${shop.district})</p>
+								<button class="shop_address_searchButton">주소 변경하기</button>
+								<hr>
+								<input type="tel" class="shop_phone" value="${shop.phone}">
+								<hr>
+								${'<select id="open" name="open"> <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option> </select>'.replace('\"'+shop.openingHours[0]+'\"','\"'+shop.openingHours[0]+'\" selected')}
+								${'<select id="close" name="close"> <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option> </select>'.replace('\"'+shop.openingHours[1]+'\"','\"'+shop.openingHours[1]+'\" selected')}
+								<hr>
+								<button id="${shop._id}" class="updateCard">수정하기</button>
+								<button id="${shop._id}" class="deleteCard">삭제하기</button>
+							</div>`;
+						});
+
+						/* mulang */
+						let targetJson = {
+							"meta": { "languages": ["kor"], "linebreak": "<br>", },
+							"contents":
+							{
+								"franchise_inquiry_submitted": {"kor": franchise_inquiry_submitted_CardHTML},
+								"franchise_inquiry_resolved": {"kor": franchise_inquiry_resolved_CardHTML},
+								"shop_inquiry_submitted": {"kor": shop_inquiry_submitted_CardHTML},
+								"shop_inquiry_resolved": {"kor": shop_inquiry_resolved_CardHTML},
+								"menu_list": {"kor": menu_CardHTML},
+								"shop_list": {"kor": shop_CardHTML}
+							}
+						}
+						const mulang_home = new mulang({
+							sourceHtml: sourceHtml,
+							targetJson: targetJson
+						})
+						res.send(mulang_home.render().kor)
+					});
+				});
 			}); 
 		});//{ $exists: true }
 	}else{
@@ -543,31 +701,37 @@ app.post('/admin/logout',(req,res)=>{
 	res.redirect('/admin')
 });
 
-//-------------------- SHOP - INQUIRY UPDATE --------------------//
-app.post('/admin/shopInquiry/statusUpdate',(req,res)=>{
-	console.log( req.body );
-	data = {
-		"targetID": "",
-		"newStatus": "접수/완료"
-	}
-});
 
-//-------------------- FRANCHISE - INQUIRY UPDATE --------------------//
+//---------------------------------------------------------//
+//-------------------- UPDATE & DELETE --------------------//
+//---------------------------------------------------------//
+
 app.post('/admin/franchiseInquiry/statusUpdate',(req,res)=>{
 	console.log( req.body );
-	data = {
-		"targetID": "",
-		"newStatus": "접수/완료"
-	}
+	data = req.body;
+	mongoUpdate_id(data.collection, data.id, data.document, function(result){
+		res.send('success');
+	});
+});
+
+app.post('/admin/shopInquiry/statusUpdate',(req,res)=>{
+	console.log( req.body );
+	data = req.body;
+	mongoUpdate_id(data.collection, data.id, data.document, function(result){
+		res.send('success');
+	});
 });
 
 
 
 
 
-//---------------------------------------------------//
-//-------------------- Kakao API --------------------//
-//---------------------------------------------------//
+
+//---------------------------------------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------------------------------------//
+//-------------------------------------------------- Kakao API --------------------------------------------------//
+//---------------------------------------------------------------------------------------------------------------//
+//---------------------------------------------------------------------------------------------------------------//
 
 app.get('/admin/searchAddress',(req,res)=>{
 

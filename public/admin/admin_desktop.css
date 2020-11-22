@@ -1,0 +1,158 @@
+
+/*----------------------------------------------*/
+/*-------------------- 공통 --------------------*/
+/*----------------------------------------------*/
+
+* {
+    font-family: 'NanumSquare', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+}
+html, body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+p,h1,h2,h3,h4,h5,h6,a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+button:hover, a:hover {
+    cursor: pointer;
+}
+:root {
+    --color-blue: #4C95F7;
+    --color-pink:  #FF6672;
+    --color-light-gray: #D9D9D9;
+    --color-dark-gray: #6d6d6d;
+
+    --color-tint-gray: #F0F0F0;
+    --shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
+}
+[hidden] { display: none !important; }
+
+/*-------------------- button colors --------------------*/
+.button_inactive {
+    background: #FFF;
+    border: 1px solid var(--color-light-gray);
+    color: black;
+    font-weight: 500;
+}
+.button_active {
+    background: var(--color-blue);
+    border: 1px solid var(--color-light-gray);
+    color: white;
+    font-weight: 700;
+}
+
+/*----------------------------------------------*/
+/*-------------------- main --------------------*/
+/*----------------------------------------------*/
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgb(0, 0, 0);
+}
+section {
+    border: 1px solid white;
+    background-color: #3f3f3f;
+    padding: 10px;
+    margin-top: 40px;
+}
+section > h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.category_button{
+    display: flex;
+}
+.card_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 10px;
+}
+
+
+/*-----------------------------------------------*/
+/*-------------------- cards --------------------*/
+/*-----------------------------------------------*/
+
+.franchise_inquiry{ 
+    background: #FFF;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.franchise_inquiry>p{
+    line-height: 130%;
+} 
+
+/* shop_inquiry */
+.shop_inquiry {
+    background: #FFF;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.shop_inquiry > p{
+    line-height: 100%;
+}
+
+/* menu */
+.menu {
+    background: #FFF;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.menu > p{
+    line-height: 100%;
+}
+
+/* shop */
+.shop {
+    background: #FFF;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.shop > p{
+    line-height: 100%;
+}
+
+
+/*-----------------------------------------------------*/
+/*-------------------- input popup --------------------*/
+/*-----------------------------------------------------*/
+.popup {
+    height: 400px;
+    z-index: 10;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 4px;
+    background: #FFF;
+    box-shadow: var(--shadow);
+
+    display: grid;
+}
+input[type="text"] {
+    display: block;
+    padding: 5px;
+    font-size: 1em;
+    width: calc(100% - 10px);
+    margin-left: auto;
+    margin-right: auto;
+}
+input[type="file"] {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1em;
+}
