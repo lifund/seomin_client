@@ -131,8 +131,9 @@ section > h2 {
 /*-----------------------------------------------------*/
 /*-------------------- input popup --------------------*/
 /*-----------------------------------------------------*/
-.popup {
-    height: 400px;
+#addressSearch {
+    height: 600px;
+    width: 400px;
     z-index: 10;
 
     position: fixed;
@@ -144,20 +145,29 @@ section > h2 {
     background: #FFF;
     box-shadow: var(--shadow);
 
-    display: grid;
+    padding: 20px;
 }
-input[type="text"] {
-    display: block;
-    padding: 5px;
-    font-size: 1em;
-    width: calc(100% - 10px);
+#addressSearch_removePopup{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#addressSearch_query {
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-}
-input[type="file"] {
-    display: block;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1em;
+    height: 40px;
+}
+#addressSearch_submit{
+    width: 100%;
+    height: 40px;
+}
+.addressSearch_addressCard{
+    border: 1px solid var(--color-dark-gray);
+    padding: 10px;
+    margin-top: 10px;
+}
+.addressSearch_addressCard_select {
+    float: right;
 }

@@ -657,14 +657,14 @@ app.get('/admin',(req,res)=>{
 								<input type="text" class="shop_name" value="${shop.name}">
 								<hr>
 								<p class="shop_address">${shop.address}</p>
-								<p class="shop_city">(${shop.city})</p>
-								<p class="shop_district">(${shop.district})</p>
+								<p class="shop_city">${shop.city}</p>
+								<p class="shop_district">${shop.district}</p>
 								<button class="shop_address_searchButton">주소 변경하기</button>
 								<hr>
 								<input type="tel" class="shop_phone" value="${shop.phone}">
 								<hr>
-								${'<select id="open" name="open"> <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option> </select>'.replace('\"'+shop.openingHours[0]+'\"','\"'+shop.openingHours[0]+'\" selected')}
-								${'<select id="close" name="close"> <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option> </select>'.replace('\"'+shop.openingHours[1]+'\"','\"'+shop.openingHours[1]+'\" selected')}
+								${'<select class="open" name="open"> <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option> </select>'.replace('\"'+shop.openingHours[0]+'\"','\"'+shop.openingHours[0]+'\" selected')}
+								${'<select class="close" name="close"> <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option> </select>'.replace('\"'+shop.openingHours[1]+'\"','\"'+shop.openingHours[1]+'\" selected')}
 								<hr>
 								<button id="${shop._id}" class="updateCard">수정하기</button>
 								<button id="${shop._id}" class="deleteCard">삭제하기</button>
@@ -731,26 +731,47 @@ app.post('/admin/logout',(req,res)=>{
 
 app.post('/admin/franchiseInquiry/statusUpdate',(req,res)=>{
 	data = req.body;
-	mongoUpdate_id(data.collection, data.id, data.document, function(result){
+	mongoUpdate_id('franchise_inquiry', data.id, data.document, function(result){
 		res.send('success');
 	});
 });
 app.post('/admin/franchiseInquiry/delete',(req,res)=>{
 	data = req.body;
-	mongoDelete(data.collection, data.id, function(result){
+	mongoDelete('franchise_inquiry', data.id, function(result){
 		res.send('success');
 	});
 });
 
 app.post('/admin/shopInquiry/statusUpdate',(req,res)=>{
 	data = req.body;
-	mongoUpdate_id(data.collection, data.id, data.document, function(result){
+	mongoUpdate_id('shop_inquiry', data.id, data.document, function(result){
 		res.send('success');
 	});
 });
 app.post('/admin/shopInquiry/delete',(req,res)=>{
 	data = req.body;
-	mongoDelete(data.collection, data.id, function(result){
+	mongoDelete('shop_inquiry', data.id, function(result){
+		res.send('success');
+	});
+});
+
+
+app.post('/admin/shop/update',(req,res)=>{
+	data = req.body;
+	mongoUpdate_id('shop', data.id, data.document, function(result){
+		res.send('success');
+	});
+});
+app.post('/admin/shop/insert',(req,res)=>{
+	data = req.body;
+	console.log(data.document);
+	mongoInsert('shop', data.document, function(result){
+		res.send('success');
+	});
+});
+app.post('/admin/shop/delete',(req,res)=>{
+	data = req.body;
+	mongoDelete('shop', data.id, function(result){
 		res.send('success');
 	});
 });
@@ -766,10 +787,13 @@ app.post('/admin/shopInquiry/delete',(req,res)=>{
 //---------------------------------------------------------------------------------------------------------------//
 //---------------------------------------------------------------------------------------------------------------//
 
-app.get('/admin/searchAddress',(req,res)=>{
+app.post('/admin/searchAddress',(req,res)=>{
 
-	const queryString = encodeURIComponent(req.query.keyword);
-	const url = 'https://dapi.kakao.com/v2/local/search/address.json?page=1&size=10&query='+queryString;
+	let queryString = req.body.keyword;
+	if(queryString.length == 0){
+		queryString = 'null'
+	}
+	const url = 'https://dapi.kakao.com/v2/local/search/address.json?page=1&size=10&query='+encodeURIComponent(queryString);
 
 	fetch(url, {
 		method: 'get',

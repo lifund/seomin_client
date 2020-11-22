@@ -128,7 +128,9 @@ main {
     margin-left: auto;
     margin-right: auto;
     padding-top: 48px;
+    padding-bottom: 80px;
 }
+
 #titleContainer {
     display: grid;
     grid-template-columns: auto max-content;
@@ -144,7 +146,19 @@ main {
     color: #FFF;
     border-radius: 20px;
 }
-.franchise_container {
+main > h2 {
+    margin-left: 16px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+main > h3 {
+    margin-left: 16px;
+    margin-bottom: 20px;
+}
+
+/*-------------------- step --------------------*/
+
+.step_container {
     padding: 30px 20px;
     margin: 20px 10px;
 
@@ -152,4 +166,76 @@ main {
     color: var(--color-dark-gray);
     background-color: #fff;
     box-shadow: var(--shadow);
+}
+.step_container > h3{
+    font-size: 18px;
+}
+.step_container > p{
+    margin-top: 20px;
+}
+
+/*-------------------- cost --------------------*/
+
+#cost_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 10px;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.cost_container {
+    padding: 30px 20px;
+
+    font-size: 14px;
+    color: var(--color-dark-gray);
+    background-color: #fff;
+    box-shadow: var(--shadow);
+}
+.cost_container > h3{
+    font-size: 18px;
+}
+.cost_container > h4{
+    margin-top: 10px;
+}
+.cost_container > p{
+    margin-top: 20px;
+}
+
+/*-------------------- revenue --------------------*/
+
+#revenue_grid{
+    display: grid;
+    grid-template-columns: max-content auto;
+    width: 100%;
+    overflow: hidden;
+
+    margin: 10px 10px;
+    box-shadow: var(--shadow);
+}
+tr, th, td {
+    border-collapse: collapse;
+    border-bottom: 1px solid var(--color-light-gray);
+    padding: 5px;
+}
+#revenue_table_left{
+    background: var(--color-dark-gray);
+    color: white;
+    padding: 10px;
+    box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.70);
+    z-index: 10;
+}
+#revenue_table_right_container{
+    width: calc(100% - 20px);
+    overflow-x: scroll;
+}
+#revenue_table_right{
+    background: #FFF;
+    padding: 10px;
+    min-width: max-content;
+    width: 100%;
+    z-index: -1;
+}
+main > h5{
+    margin-left: 16px;
+    font-weight: 500;
 }

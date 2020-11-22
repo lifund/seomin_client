@@ -31,8 +31,8 @@
                 xhr.open("POST", url);
                 xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
                 xhr.onload = function () {
-                    if(this.responseText === 'success'){
-                        successCallback();
+                    if(this.status === 200){
+                        successCallback(this.responseText);
                     }else{
                         errorCallback();
                     }
@@ -186,58 +186,197 @@
             };
         </script>
 
-        <!--
 
         <section>
             <h2>가맹점 데이터</h2>
-            <button>가맹점 추가하기</button>
+            <button id="shop_add">가맹점 추가하기</button>
             
-            <div class="card_container m__shop_list"></div>
+            <div id="shop_container" class="card_container m__shop_list"></div>
         </section>
-        
 
+        <script>
+
+            var used_ids = [];
+
+            function isduplicate_id(id) {
+                for (let i = 0; i < used_ids.length; i++) {
+                    if(id === used_ids[i]){
+                        return true
+                    }
+                }
+                return false
+            }
+                
+            function make_id() {
+                var new_id = parseInt(Math.random()*1000).toString();
+                if (isduplicate_id(new_id)){
+                    make_id();
+                } else {
+                    used_ids.push(new_id);
+                    return new_id
+                }
+            }
+            var shop_CardHTML_new = ''; 
+            shop_CardHTML_new += '<div class="shop">';
+            shop_CardHTML_new += '<input type="text" class="shop_name">';
+            shop_CardHTML_new += '<hr>';
+            shop_CardHTML_new += '<p class="shop_address">(전체주소 : 주소 선택시 자동입력)</p>';
+            shop_CardHTML_new += '<p class="shop_city">(시/도: 주소 선택시 자동입력)</p>';
+            shop_CardHTML_new += '<p class="shop_district">(군/구: 주소 선택시 자동입력)</p>';
+            shop_CardHTML_new += '<button class="shop_address_searchButton">주소 변경하기</button>';
+            shop_CardHTML_new += '<hr>';
+            shop_CardHTML_new += '<input type="tel" class="shop_phone">';
+            shop_CardHTML_new += '<hr>';
+            shop_CardHTML_new += '<select class="open" name="open"> <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option> </select>';
+            shop_CardHTML_new += '<select class="close" name="close"> <option value="00:00">00:00</option><option value="01:00">01:00</option><option value="02:00">02:00</option><option value="03:00">03:00</option><option value="04:00">04:00</option><option value="05:00">05:00</option><option value="06:00">06:00</option><option value="07:00">07:00</option><option value="08:00">08:00</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option><option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option><option value="24:00">24:00</option> </select>';
+            shop_CardHTML_new += '<hr>';
+            shop_CardHTML_new += '<button class="addCard">추가하기</button>';
+            shop_CardHTML_new += '<button class="abort">취소하기</button>';
+            shop_CardHTML_new += '</div>';
+            var domparser = new DOMParser();
+            var shop_CardDOM_new = domparser.parseFromString(shop_CardHTML_new, 'text/html').getElementsByClassName('shop')[0];
+            
+            document.getElementById('shop_add').addEventListener('click',function(ev){
+                var shop_CardDOM_clone = shop_CardDOM_new.cloneNode(true);
+                shop_CardDOM_clone.id = make_id();
+                shop_CardDOM_clone.getElementsByClassName('shop_address_searchButton')[0].addEventListener('click',function(ev){
+                    document.getElementById('addressSearch_cardId').innerText = ev.currentTarget.parentNode.id;
+                    document.getElementById('addressSearch').removeAttribute('hidden');
+                });
+                shop_CardDOM_clone.getElementsByClassName('abort')[0].addEventListener('click',function(ev){
+                    ev.currentTarget.parentNode.parentNode.removeChild(ev.currentTarget.parentNode);
+                });
+                shop_CardDOM_clone.getElementsByClassName('addCard')[0].addEventListener('click',function(ev){
+                    if(
+                        ev.currentTarget.parentNode.getElementsByClassName('shop_name')[0].value.trim()==''
+                        || ev.currentTarget.parentNode.getElementsByClassName('shop_address')[0].innerText=='(전체주소 : 주소 선택시 자동입력)'
+                        || ev.currentTarget.parentNode.getElementsByClassName('shop_phone')[0].value.trim()==''
+                    ){
+                        alert('가게이름/주소/전화번호를 모두 입력해주세요')
+                    }else{
+                        request_post('/admin/shop/insert',{
+                            id:ev.currentTarget.id,
+                            document: { 
+                                "name" : ev.currentTarget.parentNode.getElementsByClassName('shop_name')[0].value, 
+                                "address" : ev.currentTarget.parentNode.getElementsByClassName('shop_address')[0].innerText,
+                                "city" : ev.currentTarget.parentNode.getElementsByClassName('shop_city')[0].innerText, 
+                                "district" : ev.currentTarget.parentNode.getElementsByClassName('shop_district')[0].innerText, 
+                                "phone" : ev.currentTarget.parentNode.getElementsByClassName('shop_phone')[0].value, 
+                                "openingHours" : [ 
+                                    ev.currentTarget.parentNode.getElementsByClassName('open')[0].value, 
+                                    ev.currentTarget.parentNode.getElementsByClassName('close')[0].value
+                                ] 
+                            }
+                        },function(result){
+                            window.location = '/admin'
+                        });
+                    }
+                });
+                document.getElementById('shop_container').prepend(shop_CardDOM_clone);
+            });
+
+            var shop_updateCard_Array = document.getElementsByClassName('updateCard');
+            for (let i = 0; i < shop_updateCard_Array.length; i++) {
+                var shop_updateCard = shop_updateCard_Array[i];
+                shop_updateCard.addEventListener('click',function(ev){
+                    request_post('/admin/shop/update',{
+                        id:ev.currentTarget.id,
+                        document: { $set: { 
+                            "name" : ev.currentTarget.parentNode.getElementsByClassName('shop_name')[0].value, 
+                            "address" : ev.currentTarget.parentNode.getElementsByClassName('shop_address')[0].innerText,
+                            "city" : ev.currentTarget.parentNode.getElementsByClassName('shop_city')[0].innerText, 
+                            "district" : ev.currentTarget.parentNode.getElementsByClassName('shop_district')[0].innerText, 
+                            "phone" : ev.currentTarget.parentNode.getElementsByClassName('shop_phone')[0].value, 
+                            "openingHours" : [ 
+                                ev.currentTarget.parentNode.getElementsByClassName('open')[0].value, 
+                                ev.currentTarget.parentNode.getElementsByClassName('close')[0].value
+                            ] 
+                        }}
+                    },function(result){
+                        window.location = '/admin'
+                    });
+                });
+            }
+
+            var shop_deleteCard_Array = document.getElementsByClassName('deleteCard');
+            for (let i = 0; i < shop_deleteCard_Array.length; i++) {
+                var shop_deleteCard = shop_deleteCard_Array[i];
+                shop_deleteCard.addEventListener('click',function(ev){
+                    request_post('/admin/shop/delete',{
+                        id:ev.currentTarget.id
+                    },function(result){
+                        window.location = '/admin'
+                    });
+                });
+            }
+            
+
+        </script>
+
+        <!--
         <section>
             <h2>메뉴 데이터</h2>
             <button>메뉴 추가하기</button>
 
             <div class="card_container m__menu_list"></div>
-
         </section>
-
-     
         -->
 
 
-        
-        <!------------------------------------------------------------------------------------>
-        <!--------------------------------------- 팝업 ---------------------------------------->
-        <!------------------------------------------------------------------------------------>
-
+        <!--------------------------------------------------------------------------------------------->
         <!--------------------------------------- 주소검색 ---------------------------------------->
+        <!--------------------------------------------------------------------------------------------->
 
         <div id="addressSearch" class="popup" hidden>
-            <a id="removeMenuPopup_address"><!-- menu_fold --><svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"/><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"/></svg></a>
+            <p id="addressSearch_cardId" hidden></p>
+            <a id="addressSearch_removePopup"><!-- menu_fold --><svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"/><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"/></svg></a>
             <h2>주소 검색하기</h2>
-            <input type="text" name="addressQuery" id="addressQuery" placeholder="주소 입력">
-            <input type="submit" value="검색">
-            <table id="addressList">
-                <tr>
-                    <th>지번주소</th>
-                    <th>도로명주소</th>
-                    <th>시/도</th>
-                    <th>군/구</th>
-                </tr>
-            </table>
+            <input type="text" id="addressSearch_query" class="button_inactive" placeholder="주소 입력">
+            <button id="addressSearch_submit" class="button_inactive">검색</button>
+            <div id="addressSearch_list"></div>
         </div>
         <script>
             var shop_address_searchButton = document.getElementsByClassName('shop_address_searchButton');
             for (let i = 0; i < shop_address_searchButton.length; i++) {
                 shop_address_searchButton[i].addEventListener('click',function(ev){
+                    document.getElementById('addressSearch_cardId').innerText = ev.currentTarget.parentNode.id;
                     document.getElementById('addressSearch').removeAttribute('hidden');
                 });
             }
-            document.getElementById('removeMenuPopup_address').addEventListener('click',function(ev){
+            document.getElementById('addressSearch_removePopup').addEventListener('click',function(ev){
                 document.getElementById('addressSearch').setAttribute('hidden','');
+            });
+            document.getElementById('addressSearch_submit').addEventListener('click',function(ev){
+                request_post('/admin/searchAddress',{keyword:document.getElementById('addressSearch_query').value},function(responseText){
+                    document.getElementById('addressSearch_list').innerHTML = '';
+                    if(responseText=='일치하는 주소가 없습니다.'){
+                        document.getElementById('addressSearch_list').innerHTML = '일치하는 주소가 없습니다.'
+                    }else{
+                        var responseObjectArray = JSON.parse(responseText);
+
+                        responseObjectArray.forEach(responseObject => {
+                            var addressSearch_addressCard = document.createElement('div');
+                            addressSearch_addressCard.classList.add('addressSearch_addressCard');
+                            addressSearch_addressCard.innerHTML += '<div class="address_region">'+responseObject.address+'</div>';
+                            addressSearch_addressCard.innerHTML += '<div class="address_road">'+responseObject.road_address+'</div>';
+                            addressSearch_addressCard.innerHTML += '<div class="address_city">'+responseObject.city+'</div>';
+                            addressSearch_addressCard.innerHTML += '<div class="address_district">'+responseObject.district+'</div>';
+                            var addressSearch_addressCard_select = document.createElement('button');
+                            addressSearch_addressCard_select.classList.add('addressSearch_addressCard_select');
+                            addressSearch_addressCard_select.innerText = '선택';
+                            addressSearch_addressCard_select.addEventListener('click',function(ev){
+                                document.getElementById(document.getElementById('addressSearch_cardId').innerText).getElementsByClassName('shop_address')[0].innerText = ev.currentTarget.parentNode.getElementsByClassName('address_region')[0].innerText;
+                                document.getElementById(document.getElementById('addressSearch_cardId').innerText).getElementsByClassName('shop_city')[0].innerText = ev.currentTarget.parentNode.getElementsByClassName('address_city')[0].innerText;
+                                document.getElementById(document.getElementById('addressSearch_cardId').innerText).getElementsByClassName('shop_district')[0].innerText = ev.currentTarget.parentNode.getElementsByClassName('address_district')[0].innerText;
+                                document.getElementById('addressSearch').setAttribute('hidden','');
+                            });
+
+                            addressSearch_addressCard.appendChild(addressSearch_addressCard_select);
+
+                            document.getElementById('addressSearch_list').append(addressSearch_addressCard);
+                        });
+                    }
+                });
             });
         </script>
 
@@ -248,7 +387,7 @@
 
 
     <!--------------------------------------------------------------------------------------------->
-    <!------------------------------------------ SCRIPT ------------------------------------------->
+    <!------------------------------------------ LOGIN ------------------------------------------->
     <!--------------------------------------------------------------------------------------------->
     <script>
 
