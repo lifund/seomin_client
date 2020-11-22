@@ -305,7 +305,7 @@ app.get('/shop/inquiry',(req,res)=>{
 	res.send(sourceHtml);
 });
 
-//-------------------- FRANCHISE - INQUIRY - POST --------------------//
+//-------------------- SHOP - INQUIRY - POST --------------------//
 app.post('/shop/inquiry',(req,res)=>{
 	const date = new Date();
 	const recaptcha_body = `secret=${process.env.recaptcha}&response=${req.body.token}`;
@@ -327,7 +327,7 @@ app.post('/shop/inquiry',(req,res)=>{
 				"name":req.body.name,
 				"email":req.body.email,
 				"tel":req.body.tel,
-				"contents":req.body.contents.replace(/(\r\n|\n|\r)/gm,'<br><br>')
+				"contents":req.body.contents.replace(/(\r\n|\n|\r)/gm,'<br>')
 			}
 			mongoInsert('shop_inquiry',inquiryData,(result)=>{
 				console.log('[고객의소리] 접수됨');
@@ -384,7 +384,7 @@ app.post('/franchise/inquiry',(req,res)=>{
 				"name":req.body.name,
 				"email":req.body.email,
 				"tel":req.body.tel,
-				"contents":req.body.contents.replace(/(\r\n|\n|\r)/gm,'<br><br>')
+				"contents":req.body.contents.replace(/(\r\n|\n|\r)/gm,'<br>')
 			}
 			mongoInsert('franchise_inquiry',inquiryData,(result)=>{
 				console.log('[프렌차이즈 문의] 접수됨');
