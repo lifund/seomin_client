@@ -59,6 +59,7 @@
                 document.getElementById('franchise_inquiry_submitted_button').classList.remove('button_active');
             });
 
+
             var franchise_inquiry_changeStatus = document.getElementsByClassName('franchise_inquiry_changeStatus');
             for (let i = 0; i < franchise_inquiry_changeStatus.length; i++) {
                 var element = franchise_inquiry_changeStatus[i];
@@ -90,7 +91,18 @@
                                 window.location = '/admin';
                             }
                         );
-                        
+                    }
+                    if (ev.currentTarget.innerText == '삭제하기'){
+                        request_post(
+                            '/admin/franchiseInquiry/delete',
+                            {
+                                "collection":"franchise_inquiry",
+                                "id":ev.currentTarget.id,
+                            },
+                            function(){
+                                window.location = '/admin';
+                            }
+                        );
                     }
                 });
             };
@@ -157,7 +169,18 @@
                                 window.location = '/admin';
                             }
                         );
-                        
+                    }
+                    if (ev.currentTarget.innerText == '삭제하기'){
+                        request_post(
+                            '/admin/shopInquiry/delete',
+                            {
+                                "collection":"shop_inquiry",
+                                "id":ev.currentTarget.id,
+                            },
+                            function(){
+                                window.location = '/admin';
+                            }
+                        );
                     }
                 });
             };

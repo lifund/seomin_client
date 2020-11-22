@@ -327,7 +327,7 @@ app.post('/shop/inquiry',(req,res)=>{
 				"name":req.body.name,
 				"email":req.body.email,
 				"tel":req.body.tel,
-				"contents":req.body.contents
+				"contents":req.body.contents.replace(/(\r\n|\n|\r)/gm,'<br><br>')
 			}
 			mongoInsert('shop_inquiry',inquiryData,(result)=>{
 				console.log('[고객의소리] 접수됨');
@@ -384,7 +384,7 @@ app.post('/franchise/inquiry',(req,res)=>{
 				"name":req.body.name,
 				"email":req.body.email,
 				"tel":req.body.tel,
-				"contents":req.body.contents
+				"contents":req.body.contents.replace(/(\r\n|\n|\r)/gm,'<br><br>')
 			}
 			mongoInsert('franchise_inquiry',inquiryData,(result)=>{
 				console.log('[프렌차이즈 문의] 접수됨');
@@ -458,6 +458,19 @@ const mongoUpdate_id = (collection="",id,document={},callback=function(){}) => {
 	});
 }
 
+const mongoDelete = (collection="",id,callback=function(){}) => {
+	MongoClient.connect(mongoUrl, mongoOption, function(err, db) {
+		if (err) throw err;
+		var dbo = db.db('seomin');
+		dbo.collection(collection).deleteOne({ _id: ObjectId(id)},function(err,result){
+			if (err) throw err;
+			db.close();
+			callback(result);
+		});
+	});
+}
+
+
 // make another for key depth > 1 occasions.
 function sortObjectArrayByTheKey(objArr=[],key=""){
 	var sorted = [];
@@ -522,11 +535,11 @@ app.get('/admin',(req,res)=>{
 		// read HTML template
 		let sourceHtml = fs.readFileSync(path.join(__dirname,'public/admin/admin.html'),'utf-8');
 		// STYLE SHEET : MOBILE/DEKSTOP
-		if(req.useragent.isMobile){
-			sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="public/admin/admin_mobile.css">`)
-		}else{
+		//if(req.useragent.isMobile){
+		//	sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="public/admin/admin_mobile.css">`)
+		//}else{
 			sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="public/admin/admin_desktop.css">`)
-		}
+		//}
 
 		
 		/* franchise_inquiry */
@@ -544,7 +557,9 @@ app.get('/admin',(req,res)=>{
 						<p class="franchise_inquiry_name">이름 : ${franchise_inquiry.name}</p>
 						<p class="franchise_inquiry_email">이메일 : ${franchise_inquiry.email}</p>
 						<p class="franchise_inquiry_tel">전화 : ${franchise_inquiry.tel}</p>
+						<hr>
 						<p class="franchise_inquiry_contents">내용 : ${franchise_inquiry.contents}</p>
+						<hr>
 						<button id="${franchise_inquiry._id}" class="franchise_inquiry_changeStatus button_inactive">완료 상태로 변경</button>
 					</div>`;
 				}else{
@@ -555,8 +570,11 @@ app.get('/admin',(req,res)=>{
 							<p class="franchise_inquiry_name">이름 : ${franchise_inquiry.name}</p>
 						<p class="franchise_inquiry_email">이메일 : ${franchise_inquiry.email} </p>
 						<p class="franchise_inquiry_tel">전화 : ${franchise_inquiry.tel} </p>
+						<hr>
 						<p class="franchise_inquiry_contents">내용 : ${franchise_inquiry.contents}</p>
+						<hr>
 						<button id="${franchise_inquiry._id}" class="franchise_inquiry_changeStatus button_inactive">접수 상태로 되돌리기</button>
+						<button id="${franchise_inquiry._id}" class="franchise_inquiry_changeStatus button_inactive">삭제하기</button>
 					</div>`;
 				}
 			});
@@ -578,7 +596,9 @@ app.get('/admin',(req,res)=>{
 							<p class="shop_inquiry_name">이름 : ${shop_inquiry.name}</p>
 							<p class="shop_inquiry_email">이메일 : ${shop_inquiry.email} </p>
 							<p class="shop_inquiry_tel">전화 : ${shop_inquiry.tel} </p>
+							<hr>
 							<p class="shop_inquiry_contents">내용 : ${shop_inquiry.contents}</p>
+							<hr>
 							<button id="${shop_inquiry._id}" class="shop_inquiry_changeStatus button_inactive">완료 상태로 변경</button>
 						</div>`;
 					}else{
@@ -590,9 +610,12 @@ app.get('/admin',(req,res)=>{
 							<p class="shop_inquiry_name">이름 : ${shop_inquiry.name}</p>
 							<p class="shop_inquiry_email">이메일 : ${shop_inquiry.email} </p>
 							<p class="shop_inquiry_tel">전화 : ${shop_inquiry.tel} </p>
+							<hr>
 							<p class="shop_inquiry_contents">내용 : ${shop_inquiry.contents}</p>
+							<hr>
 							<button id="${shop_inquiry._id}" class="shop_inquiry_changeStatus button_inactive">접수 상태로 되돌리기</button>
-						</div>`;
+							<button id="${shop_inquiry._id}" class="shop_inquiry_changeStatus button_inactive">삭제하기</button>
+							</div>`;
 					}
 				});
 
@@ -707,17 +730,27 @@ app.post('/admin/logout',(req,res)=>{
 //---------------------------------------------------------//
 
 app.post('/admin/franchiseInquiry/statusUpdate',(req,res)=>{
-	console.log( req.body );
 	data = req.body;
 	mongoUpdate_id(data.collection, data.id, data.document, function(result){
 		res.send('success');
 	});
 });
+app.post('/admin/franchiseInquiry/delete',(req,res)=>{
+	data = req.body;
+	mongoDelete(data.collection, data.id, function(result){
+		res.send('success');
+	});
+});
 
 app.post('/admin/shopInquiry/statusUpdate',(req,res)=>{
-	console.log( req.body );
 	data = req.body;
 	mongoUpdate_id(data.collection, data.id, data.document, function(result){
+		res.send('success');
+	});
+});
+app.post('/admin/shopInquiry/delete',(req,res)=>{
+	data = req.body;
+	mongoDelete(data.collection, data.id, function(result){
 		res.send('success');
 	});
 });

@@ -82,6 +82,11 @@ section > h2 {
 /*-----------------------------------------------*/
 /*-------------------- cards --------------------*/
 /*-----------------------------------------------*/
+.franchise_inquiry_contents, .shop_inquiry_contents{
+    height: 200px;
+    padding: 10px 0;
+    overflow-y: scroll;
+}
 
 .franchise_inquiry{ 
     background: #FFF;
@@ -99,7 +104,7 @@ section > h2 {
     margin-bottom: 10px;
 }
 .shop_inquiry > p{
-    line-height: 100%;
+    line-height: 130%;
 }
 
 /* menu */
@@ -109,7 +114,7 @@ section > h2 {
     margin-bottom: 10px;
 }
 .menu > p{
-    line-height: 100%;
+    line-height: 130%;
 }
 
 /* shop */
