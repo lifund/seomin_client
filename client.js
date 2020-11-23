@@ -81,7 +81,9 @@ app.get('/home',(req,res)=>{
 		result.forEach((menu)=>{
 			menuCardHTML += `
 			<div class="menuCard" data-all="${encodeURIComponent(JSON.stringify(menu))}">
+				<div class="menuCard_imgContainer">
 				<img src="public/menuImage/${menu.imageURL}" alt="이미지 준비중">
+				</div>
 				<p> ${menu.productName} </p>`
 			menu.price.forEach((priceTag)=>{
 				menuCardHTML+=`<div class="menuCard_price">`
@@ -153,7 +155,9 @@ app.get('/menu',(req,res)=>{
 			let tempCardHTML = '';
 			tempCardHTML += 
 			`<div class="menuCard" data-all="${encodeURIComponent(JSON.stringify(menu))}">
-				<img src="public/menuImage/${menu.imageURL}" alt="이미지 준비중">
+				<div class="menuCard_imgContainer">
+					<img src="public/menuImage/${menu.imageURL}" onError="this.onerror=null; this.src='public/menuImage/test.png';">
+				</div>
 				<p class="menuCard_productName"> ${menu.productName} </p>`
 			menu.price.forEach((priceTag)=>{
 				tempCardHTML+=`<div class="menuCard_price">`
@@ -403,7 +407,7 @@ app.get('/termsofservice',(req,res)=>{
 });
 
 //-------------------- Privacy Statement --------------------//
-app.get('/termsofservice',(req,res)=>{
+app.get('/privacystatement',(req,res)=>{
 	res.send("개인정보처리방침");
 });
 

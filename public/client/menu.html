@@ -139,7 +139,9 @@
                 priceHTML += '<p class="popup_price_value">'+menuData.price[i].value+'</p><p class="popup_price_won">원</p>'
             }
 
-            content += '<img src="public/menuImage/'+menuData.imageURL+'" alt="이미지 준비중">'
+            content += '<div id="menuPopup_imgContainer">'
+            + '<img src="public/menuImage/'+menuData.imageURL+'" onError="this.onerror=null; this.src=\'public/menuImage/test.png\';">'
+            + '</div>'
             + '<a id="removeMenuPopup"><!-- menu_fold --><svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"/><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"/></svg></a>'
             + '<div id="popup_container">'
             +   '<h2 id="popup_productName">' + menuData.productName + '</h2>'

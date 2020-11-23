@@ -40,6 +40,7 @@ button:hover, a:hover {
     width: 100%;
     background: #fff;
     height: 56px;
+    z-index: 1;
 }
 #headerContainer{
     display: flex;
@@ -61,6 +62,7 @@ nav {
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
+    z-index: 1;
 }
 nav > a{
     margin-left: 64px;
@@ -88,6 +90,7 @@ nav > a > p {
     bottom: -1px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 #lowerBanner_container {
     max-width: 400px;
@@ -207,12 +210,30 @@ main {
 .menuCard:hover{
     cursor: pointer;
 }
-.menuCard > img {
-    width: 100%;
+.menuCard_imgContainer {
+    position: relative;
+    width: calc(100vw / 5); /* The size you want */
+}
+.menuCard_imgContainer::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+}
+.menuCard_imgContainer > img {
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: 100%; /* This if for the object-fit */
+    height: 100%; /* This if for the object-fit */
+    object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+    object-position: center;
 }
 .menuCard > p {
     font-weight: 700;
     margin-top: 4px;
+    white-space: pre-line;
 }
 .menuCard_price {
     margin-top: 10px;
@@ -246,6 +267,117 @@ main {
     font-size: 14px;
 }
 
+
+/*-------------------- menu detail popup --------------------*/
+#menuPopupOverlay {
+
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.8);
+}
+#menuPopup {
+    height: 400px;
+    z-index: 10;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 4px;
+    background: #FFF;
+    box-shadow: var(--shadow);
+
+    display: flex;
+}
+
+#menuPopup_imgContainer{
+    position: relative;
+    width: 400px; /* The size you want */
+}
+#menuPopup_imgContainer::after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+#menuPopup_imgContainer> img{
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: 100%; /* This if for the object-fit */
+    height: 100%; /* This if for the object-fit */
+    object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+    object-position: center;  
+}
+#removeMenuPopup {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/* text contents */
+#popup_container {
+    width: 300px;
+    margin-top: 20px;
+}
+#popup_productName {
+    display: block;
+    font-weight: 700;
+    margin-left: 16px;
+}
+#popup_price {
+    margin-top: 20px;
+    margin-right: 2px;
+    margin-left: 16px;
+    display: flex;
+}
+.popup_price_size {
+    display: inline-block;
+    width: 16px;
+    border-radius: 10px;
+    
+    height: 8px;
+    padding-top: 8px;
+    line-height: 0px;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    color: white;
+    background: var(--color-pink);
+} 
+.popup_price_value {
+    padding-top: 2px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-pink);
+}
+.popup_price_won {
+    padding-top: 2px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+#popup_description_long {
+    display: block;
+    height: 80px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    margin-top: 20px;
+    margin-left: 16px;
+    padding-bottom: 20px;
+
+    font-size: 14px;
+    font-weight: 500;
+}
 
 
 /*-------------------- 섹션 구분선 --------------------*/
@@ -317,97 +449,3 @@ footer {
     font-size: 14px;
 }
 
-
-/*-------------------- menu detail popup --------------------*/
-#menuPopupOverlay {
-
-    width: 100vw;
-    height: 100vh;
-    
-    z-index: 1;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    background: rgba(0,0,0,0.8);
-}
-#menuPopup {
-    height: 400px;
-    z-index: 10;
-
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    border-radius: 4px;
-    background: #FFF;
-    box-shadow: var(--shadow);
-
-    display: flex;
-}
-#menuPopup > img{
-    height: 100%;
-    border-radius: 4px 0 0 4px;
-}
-#removeMenuPopup {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-/* text contents */
-#popup_container {
-    width: 300px;
-    margin-top: 20px;
-}
-#popup_productName {
-    display: block;
-    font-weight: 700;
-    margin-left: 16px;
-}
-#popup_price {
-    margin-top: 20px;
-    margin-right: 2px;
-    margin-left: 16px;
-    display: flex;
-}
-.popup_price_size {
-    display: inline-block;
-    width: 16px;
-    border-radius: 10px;
-    
-    height: 8px;
-    padding-top: 8px;
-    line-height: 0px;
-    text-align: center;
-
-    font-size: 12px;
-    font-weight: 900;
-    color: white;
-    background: var(--color-pink);
-} 
-.popup_price_value {
-    padding-top: 2px;
-
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--color-pink);
-}
-.popup_price_won {
-    padding-top: 2px;
-    font-size: 14px;
-    margin-right: 10px;
-}
-#popup_description_long {
-    display: block;
-    height: 80px;
-
-    overflow-y: scroll;
-    overflow-x: hidden;
-
-    margin-top: 20px;
-    margin-left: 16px;
-    padding-bottom: 20px;
-
-    font-size: 14px;
-    font-weight: 500;
-}

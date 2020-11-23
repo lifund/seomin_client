@@ -36,6 +36,7 @@ button:hover, a:hover {
 
 /*-------------------- header container --------------------*/
 #headerMaster{
+    z-index: 1;
     width: 100%;
     background: #fff;
     height: 56px;
@@ -57,6 +58,7 @@ nav > a > svg {
     display: none;
 }
 nav {
+    z-index: 1;
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
@@ -134,12 +136,30 @@ main {
 .menuCard:hover{
     cursor: pointer;
 }
-.menuCard > img {
-    width: 100%;
+.menuCard_imgContainer {
+    position: relative;
+    width: 100%; /* The size you want */
+}
+.menuCard_imgContainer::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+}
+.menuCard_imgContainer > img {
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: 100%; /* This if for the object-fit */
+    height: 100%; /* This if for the object-fit */
+    object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+    object-position: center;
 }
 .menuCard_productName {
     font-weight: 700;
     margin-top: 4px;
+    white-space: pre-line;
 }
 .menuCard_price {
     margin-top: 10px;
@@ -204,10 +224,28 @@ main {
 
     display: flex;
 }
-#menuPopup > img{
-    height: 100%;
-    border-radius: 4px 0 0 4px;
+
+#menuPopup_imgContainer{
+    position: relative;
+    width: 400px; /* The size you want */
 }
+#menuPopup_imgContainer::after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+#menuPopup_imgContainer> img{
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: 100%; /* This if for the object-fit */
+    height: 100%; /* This if for the object-fit */
+    object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+    object-position: center;  
+}
+
 #removeMenuPopup {
     position: absolute;
     right: 0;

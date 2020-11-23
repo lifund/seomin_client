@@ -41,6 +41,7 @@ header {
     height: 56px;
     display: flex;
     background: #fff;
+    z-index: 1;
 }
 header > a {
     margin: auto;
@@ -86,6 +87,7 @@ nav {
     clip-path: inset(0 0 100% 0);
     padding-top: 5px;
     padding-bottom: 5px;
+    z-index: 1;
 }
 .navButton {
     height: 56px;
@@ -118,6 +120,7 @@ nav {
     height: 56px;
     bottom: -1px;
     width: 100%;
+    z-index: 1;
 }
 #lowerBanner_container {
     max-width: 1000px;
@@ -230,17 +233,36 @@ main {
     vertical-align: top;
     scroll-snap-align: center;
     width: calc(100vw / 3);
-    height: calc(calc(100vw / 3) + 80px);
+  
 }
 .menuCard:hover{
     cursor: pointer;
 }
-.menuCard > img {
-    width: 100%;
+.menuCard_imgContainer {
+    position: relative;
+    width: 100%; /* The size you want */
+}
+.menuCard_imgContainer::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+}
+.menuCard_imgContainer > img {
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: 100%; /* This if for the object-fit */
+    height: 100%; /* This if for the object-fit */
+    object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+    object-position: center;
 }
 .menuCard > p {
+    display: block;
     font-weight: 700;
     margin-top: 4px;
+    white-space: pre-line;
 }
 .menuCard_price {
     margin-top: 10px;
@@ -368,10 +390,30 @@ footer {
     background: #FFF;
     box-shadow: var(--shadow);
 }
-#menuPopup > img{
-    width: 100%;
+
+
+#menuPopup_imgContainer{
+    position: relative;
+    width: calc(100vw - 40px); /* The size you want */
+}
+#menuPopup_imgContainer::after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+#menuPopup_imgContainer> img{
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: 100%; /* This if for the object-fit */
+    height: 100%; /* This if for the object-fit */
+    object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+    object-position: center;  
     border-radius: 20px 20px 0 0;
 }
+
 #removeMenuPopup {
     position: absolute;
     right: 0;
