@@ -730,50 +730,79 @@ app.post('/admin/logout',(req,res)=>{
 //---------------------------------------------------------//
 
 app.post('/admin/franchiseInquiry/statusUpdate',(req,res)=>{
-	data = req.body;
-	mongoUpdate_id('franchise_inquiry', data.id, data.document, function(result){
-		res.send('success');
-	});
+	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		data = req.body;
+		mongoUpdate_id('franchise_inquiry', data.id, data.document, function(result){
+			res.send('success');
+		});
+	}else{
+		res.send('admin info error')
+	}
 });
 app.post('/admin/franchiseInquiry/delete',(req,res)=>{
-	data = req.body;
-	mongoDelete('franchise_inquiry', data.id, function(result){
-		res.send('success');
-	});
+	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		data = req.body;
+		mongoDelete('franchise_inquiry', data.id, function(result){
+			res.send('success');
+		});
+	}else{
+		res.send('admin info error')
+	}
 });
 
 app.post('/admin/shopInquiry/statusUpdate',(req,res)=>{
-	data = req.body;
-	mongoUpdate_id('shop_inquiry', data.id, data.document, function(result){
-		res.send('success');
-	});
+	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		data = req.body;
+		mongoUpdate_id('shop_inquiry', data.id, data.document, function(result){
+			res.send('success');
+		});
+	}else{
+		res.send('admin info error')
+	}
 });
 app.post('/admin/shopInquiry/delete',(req,res)=>{
-	data = req.body;
-	mongoDelete('shop_inquiry', data.id, function(result){
-		res.send('success');
-	});
+	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		data = req.body;
+		mongoDelete('shop_inquiry', data.id, function(result){
+			res.send('success');
+		});
+	}else{
+		res.send('admin info error')
+	}
 });
 
 
 app.post('/admin/shop/update',(req,res)=>{
-	data = req.body;
-	mongoUpdate_id('shop', data.id, data.document, function(result){
-		res.send('success');
-	});
+	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		data = req.body;
+		console.log(data.document);
+		mongoUpdate_id('shop', data.id, data.document, function(result){
+			res.send('success');
+		});
+	}else{
+		res.send('admin info error')
+	}
 });
 app.post('/admin/shop/insert',(req,res)=>{
-	data = req.body;
-	console.log(data.document);
-	mongoInsert('shop', data.document, function(result){
-		res.send('success');
-	});
+	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		data = req.body;
+		console.log(data.document);
+		mongoInsert('shop', data.document, function(result){
+			res.send('success');
+		});
+	}else{
+		res.send('admin info error')
+	}
 });
 app.post('/admin/shop/delete',(req,res)=>{
-	data = req.body;
-	mongoDelete('shop', data.id, function(result){
-		res.send('success');
-	});
+	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		data = req.body;
+		mongoDelete('shop', data.id, function(result){
+			res.send('success');
+		});
+	}else{
+		res.send('admin info error')
+	}
 });
 
 
