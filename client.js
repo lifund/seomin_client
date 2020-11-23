@@ -478,26 +478,28 @@ const mongoDelete = (collection="",id,callback=function(){}) => {
 // make another for key depth > 1 occasions.
 function sortObjectArrayByTheKey(objArr=[],key=""){
 	var sorted = [];
-	sorted[0] = objArr[0];
+	sorted.push(objArr[0]);
 
 	for (let i = 1; i < objArr.length; i++) {
 		const obj = objArr[i];
-		if (obj[key] <= sorted[0][key]) {sorted.unshift(obj); continue;}
+		if (obj[key] < sorted[0][key]) {sorted.unshift(obj); continue;}
 		if (obj[key] >= sorted[sorted.length-1][key]) {sorted.push(obj); continue}
 		for (let j = 0; j < sorted.length-1; j++) {
-			if (sorted[j][key] < obj[key] && obj[key] < sorted[j+1][key]){
-				let temp = sorted.slice(0,j+1);
-				temp.push(obj[key]);
-				temp.push(sorted.slice(j+1));
+
+			if (sorted[j][key] <= obj[key] && obj[key] < sorted[j+1][key]){
+				let temp = [];
+				temp = temp.concat(sorted.slice(0,j+1));
+				temp.push(obj);
+				temp = temp.concat(sorted.slice(j+1,sorted.length+1));
 				sorted = temp;
-				continue;
+				break;
 			}
 		}
 	}
 	return sorted;
 }
 
-
+// sortObjectArrayByTheKey(menu,"productName").length
 
 //-----------------------------------------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------------------------------------//
@@ -625,8 +627,9 @@ app.get('/admin',(req,res)=>{
 
 				/* menu */
 				mongoFind('menu',{},(result)=>{
-					if (result.length > 0) result = sortObjectArrayByTheKey(result,'productName');
+					if (result.length > 0) { result = sortObjectArrayByTheKey(result,'productName'); }
 					let menu_CardHTML = '';
+					console.log(result);
 					result.forEach((menu)=>{
 						menu_CardHTML += 
 						`<div id="${menu._id}_el" class="menu ${menu.status} ${menu.category}">
