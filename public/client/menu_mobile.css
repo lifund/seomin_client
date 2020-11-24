@@ -254,7 +254,7 @@ main {
 
     border-radius: 20px;
 
-    background: #FFF;
+    background: var(--color-tint-gray);
     box-shadow: var(--shadow);
 }
 

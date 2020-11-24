@@ -317,6 +317,7 @@ main {
     height: 100%; /* This if for the object-fit */
     object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;  
+    border-radius: 2px 0 0 2px;
 }
 #removeMenuPopup {
     position: absolute;
@@ -326,7 +327,8 @@ main {
 /* text contents */
 #popup_container {
     width: 300px;
-    margin-top: 20px;
+    padding-top: 20px;
+    background: var(--color-tint-gray);
 }
 #popup_productName {
     display: block;

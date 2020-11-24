@@ -221,7 +221,7 @@ main {
     transform: translate(-50%, -50%);
 
     border-radius: 4px;
-    background: #FFF;
+    background: var(--color-tint-gray);
     box-shadow: var(--shadow);
 
     display: flex;
@@ -246,6 +246,7 @@ main {
     height: 100%; /* This if for the object-fit */
     object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;  
+    border-radius: 2px 0 0 2px;
 }
 
 #removeMenuPopup {
