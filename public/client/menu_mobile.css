@@ -275,7 +275,7 @@ main {
     right: 0; /* Make the picture taking the size of it's parent */
     width: 100%; /* This if for the object-fit */
     height: 100%; /* This if for the object-fit */
-    object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+    object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;  
     border-radius: 20px 20px 0 0;
 }
