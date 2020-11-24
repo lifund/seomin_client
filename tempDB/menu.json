@@ -1,72 +1,72 @@
 [
     {
-        "categoryName": "메인메뉴", "imageURL":"페퍼로니.jpg", "productName":"페퍼로니", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"페퍼로니" ,"long":"페퍼로니"}, "mainPage":false
+        "categoryName": "메인메뉴_기본토핑", "imageURL":"페퍼로니.jpg", "productName":"페퍼로니", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"페퍼로니" ,"long":"페퍼로니"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"콤비네이션.jpg", "productName":"콤비네이션", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"콤비네이션" ,"long":"콤비네이션"}, "mainPage":false
+        "categoryName": "메인메뉴_기본토핑", "imageURL":"콤비네이션.jpg", "productName":"콤비네이션", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"콤비네이션" ,"long":"콤비네이션"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"불고기.jpg", "productName":"불고기", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"불고기" ,"long":"불고기"}, "mainPage":false
+        "categoryName": "메인메뉴_기본토핑", "imageURL":"불고기.jpg", "productName":"불고기", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"불고기" ,"long":"불고기"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"벌짚고구마.jpg", "productName":"벌짚고구마", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"벌짚고구마" ,"long":"벌짚고구마"}, "mainPage":false
+        "categoryName": "메인메뉴_기본토핑", "imageURL":"벌짚고구마.jpg", "productName":"벌짚고구마", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"벌짚고구마" ,"long":"벌짚고구마"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"이탈리안치즈.jpg", "productName":"이탈리안치즈", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"이탈리안치즈" ,"long":"이탈리안치즈"}, "mainPage":false
+        "categoryName": "메인메뉴_기본토핑", "imageURL":"이탈리안치즈.jpg", "productName":"이탈리안치즈", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"이탈리안치즈" ,"long":"이탈리안치즈"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"스위트베이컨.jpg", "productName":"스위트베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위트베이컨" ,"long":"스위트베이컨"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"스위트베이컨.jpg", "productName":"스위트베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위트베이컨" ,"long":"스위트베이컨"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"포테이토.jpg", "productName":"포테이토", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"포테이토" ,"long":"포테이토"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"포테이토.jpg", "productName":"포테이토", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"포테이토" ,"long":"포테이토"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"통고구마.jpg", "productName":"통고구마", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"통고구마" ,"long":"통고구마"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"통고구마.jpg", "productName":"통고구마", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"통고구마" ,"long":"통고구마"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"핫불고기.jpg", "productName":"핫불고기", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"핫불고기" ,"long":"핫불고기"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"핫불고기.jpg", "productName":"핫불고기", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"핫불고기" ,"long":"핫불고기"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"핫치킨.jpg", "productName":"핫치킨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"핫치킨" ,"long":"핫치킨"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"핫치킨.jpg", "productName":"핫치킨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"핫치킨" ,"long":"핫치킨"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"하와이안치킨.jpg", "productName":"하와이안치킨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"하와이안치킨" ,"long":"하와이안치킨"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"하와이안치킨.jpg", "productName":"하와이안치킨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"하와이안치킨" ,"long":"하와이안치킨"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"통베이컨.jpg", "productName":"통베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"통베이컨" ,"long":"통베이컨"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"통베이컨.jpg", "productName":"통베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"통베이컨" ,"long":"통베이컨"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"불갈비스페셜.jpg", "productName":"불갈비스페셜", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"불갈비스페셜" ,"long":"불갈비스페셜"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"불갈비스페셜.jpg", "productName":"불갈비스페셜", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"불갈비스페셜" ,"long":"불갈비스페셜"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"쉬림프베이컨.jpg", "productName":"쉬림프베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"쉬림프베이컨" ,"long":"쉬림프베이컨"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"쉬림프베이컨.jpg", "productName":"쉬림프베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"쉬림프베이컨" ,"long":"쉬림프베이컨"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"스위티베이컨.jpg", "productName":"스위티베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위티베이컨" ,"long":"스위티베이컨"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"스위티베이컨.jpg", "productName":"스위티베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위티베이컨" ,"long":"스위티베이컨"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"반반피자(토핑선택).jpg", "productName":"반반피자(토핑선택)", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"반반피자(토핑선택)" ,"long":"반반피자(토핑선택)"}, "mainPage":true
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"반반피자(토핑선택).jpg", "productName":"반반피자(토핑선택)", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"반반피자(토핑선택)" ,"long":"반반피자(토핑선택)"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"사색피자.jpg", "productName":"사색피자", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"사색피자" ,"long":"사색피자"}, "mainPage":true
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"사색피자.jpg", "productName":"사색피자", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"사색피자" ,"long":"사색피자"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"불새.jpg", "productName":"불새", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"불새" ,"long":"불새"}, "mainPage":true
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"불새.jpg", "productName":"불새", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"불새" ,"long":"불새"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"슈퍼콤비네이션.jpg", "productName":"슈퍼콤비네이션", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"슈퍼콤비네이션" ,"long":"슈퍼콤비네이션"}, "mainPage":true
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"슈퍼콤비네이션.jpg", "productName":"슈퍼콤비네이션", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"슈퍼콤비네이션" ,"long":"슈퍼콤비네이션"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"러블리치즈볼.jpg", "productName":"러블리치즈볼", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"러블리치즈볼" ,"long":"러블리치즈볼"}, "mainPage":true
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"러블리치즈볼.jpg", "productName":"러블리치즈볼", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"러블리치즈볼" ,"long":"러블리치즈볼"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"통베이컨치즈볼.jpg", "productName":"통베이컨치즈볼", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"통베이컨치즈볼" ,"long":"통베이컨치즈볼"}, "mainPage":true
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"통베이컨치즈볼.jpg", "productName":"통베이컨치즈볼", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"통베이컨치즈볼" ,"long":"통베이컨치즈볼"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"어니언트리플.jpg", "productName":"어니언트리플", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"어니언트리플" ,"long":"어니언트리플"}, "mainPage":true
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"어니언트리플.jpg", "productName":"어니언트리플", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"어니언트리플" ,"long":"어니언트리플"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"스윗게살쉬림프.jpg", "productName":"스윗게살쉬림프", "price":[{"size":"M","value":18000},{"size":"L","value":21000}], "description":{"short":"스윗게살쉬림프" ,"long":"스윗게살쉬림프"}, "mainPage":true
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"스윗게살쉬림프.jpg", "productName":"스윗게살쉬림프", "price":[{"size":"M","value":18000},{"size":"L","value":21000}], "description":{"short":"스윗게살쉬림프" ,"long":"스윗게살쉬림프"}, "mainPage":true
     },
     {
         "categoryName": "도우종류", "imageURL":"스크린.jpg", "productName":"스크린", "price":[{"size":"+","value":0}], "description":{"short":"스크린" ,"long":"스크린"}, "mainPage":false

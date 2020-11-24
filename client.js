@@ -146,7 +146,8 @@ app.get('/menu',(req,res)=>{
 
 	mongoFind('menu',{},(result)=>{
 		// make menu card (main)
-		let menuCardHTML_main = ''
+		let menuCardHTML_main_basic = ''
+		let menuCardHTML_main_special = ''
 		let menuCardHTML_dough = ''
 		let menuCardHTML_set = ''
 		let menuCardHTML_side = ''
@@ -159,6 +160,7 @@ app.get('/menu',(req,res)=>{
 					<img src="public/menuImage/${menu.imageURL}" onError="this.onerror=null; this.src='public/menuImage/test.png';">
 				</div>
 				<p class="menuCard_productName"> ${menu.productName} </p>`
+			/* 가격 뺌
 			menu.price.forEach((priceTag)=>{
 				tempCardHTML+=`<div class="menuCard_price">`
 				if(priceTag.size!=''){
@@ -170,11 +172,15 @@ app.get('/menu',(req,res)=>{
 					<p class="menuCard_price_won"> 원 </p>
 				</div>`
 			})
+			*/
 			tempCardHTML+=
 			`<p class="menuCard_description_short">${menu.description.short}</p>
 			</div>`
-			if(menu.categoryName == "메인메뉴"){
-				menuCardHTML_main += tempCardHTML;
+			if(menu.categoryName == "메인메뉴_기본토핑"){
+				menuCardHTML_main_basic += tempCardHTML;
+			}
+			if(menu.categoryName == "메인메뉴_스페셜토핑"){
+				menuCardHTML_main_special += tempCardHTML;
 			}
 			if(menu.categoryName == "도우종류"){
 				menuCardHTML_dough += tempCardHTML;
@@ -195,7 +201,8 @@ app.get('/menu',(req,res)=>{
 			},
 			"contents":
 			{
-				"menu_main": {"kor": menuCardHTML_main},
+				"menu_main_basic": {"kor": menuCardHTML_main_basic},
+				"menu_main_special": {"kor": menuCardHTML_main_special},
 				"menu_dough": {"kor": menuCardHTML_dough},
 				"menu_set": {"kor": menuCardHTML_set},
 				"menu_side": {"kor": menuCardHTML_side}

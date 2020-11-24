@@ -136,6 +136,13 @@ main > h3 {
 .step_container > p{
     margin-top: 20px;
 }
+.step_number {
+    position: absolute;
+    right: 20px;
+    font-size: 100px;
+    color: var(--color-tint-gray);
+    line-height: 60%;
+}
 
 /*-------------------- cost --------------------*/
 
@@ -155,12 +162,30 @@ main > h3 {
 .cost_container > h3{
     font-size: 18px;
 }
+.cost_container > hr { 
+    border: 1px solid var(--color-tint-gray);
+}
 .cost_container > h4{
     margin-top: 10px;
 }
 .cost_container > p{
     margin-top: 20px;
 }
+#cost_alert {
+    margin-left: 10px;
+    margin-top: 10px;
+    color: var(--color-dark-gray);
+    font-weight: 500;
+    font-size: 14px;
+}
+.span_delete {
+    text-decoration-line: line-through;
+    color: var(--color-light-gray);
+}
+.span_emphasize {
+    color: var(--color-pink);
+}
+
 
 /*-------------------- revenue --------------------*/
 
@@ -168,6 +193,8 @@ main > h3 {
     display: grid;
     grid-template-columns: max-content auto;
 
+    width: calc(100% - 20px);
+    height: max-content;
     margin: 10px 10px;
     box-shadow: var(--shadow);
 }
@@ -183,6 +210,7 @@ tr, th, td {
 }
 #revenue_table_right_container{
     width: 100%;
+    height: max-content;
     overflow-x: scroll;
 }
 #revenue_table_right{

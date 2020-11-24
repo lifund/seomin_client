@@ -114,10 +114,32 @@ main {
 
     font-size: 16px;
     font-weight: 700;
+    cursor: pointer;
 }
 .activeTab{
     color: var(--color-pink);
     border-bottom: 2px solid var(--color-pink);    
+}
+
+#main_topping {
+    display: grid;
+    grid-template-columns: max-content max-content;
+}
+.main_topping_button {
+    display: inline-block;
+    width: max-content;
+    color: var(--color-dark-gray);
+    padding: 10px;
+    background: #FFF;
+    border-radius: 100px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+.activeToppingButton{
+    background: var(--color-blue);
+    color: white;
 }
 
 /*-------------------- menu containers --------------------*/
@@ -127,7 +149,7 @@ main {
 
 .menuCard {
     margin-left: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
     display: inline-block;
     vertical-align: top;
     width: calc(calc(100% - 40px) / 3);
@@ -160,7 +182,7 @@ main {
 }
 .menuCard_productName {
     font-weight: 700;
-    margin-top: 4px;
+    margin-top: 10px;
     white-space: pre-line;
 }
 .menuCard_price {
@@ -230,6 +252,8 @@ main {
 #menuPopup_imgContainer{
     position: relative;
     width: 400px; /* The size you want */
+    background: #FFF;
+    border-radius: 2px 0 0 2px;
 }
 #menuPopup_imgContainer::after{
     content: "";

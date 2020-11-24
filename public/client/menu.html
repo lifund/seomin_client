@@ -57,7 +57,15 @@
             <p id="side" class="category_button">사이드메뉴</p>
         </div>
 
-        <div id="mainMenu" class="menu_container m__menu_main"></div>
+        <div id="mainMenu" class="menu_container m__menu_main">
+            <div id="main_topping">
+                <p id="basic" class="main_topping_button activeToppingButton">기본토핑</p>
+                <p id="special" class="main_topping_button">스페셜토핑</p>
+            </div>
+            <div id="mainMenu_basic" class="m__menu_main_basic"></div>
+            <div id="mainMenu_special" class="m__menu_main_special" hidden></div>
+
+        </div>
 
         <div id="doughMenu" class="menu_container m__menu_dough" hidden></div>
 
@@ -124,6 +132,27 @@
                     }
                 }
             },false);
+        });
+        var topping_container_list = ['basic','special'];
+        document.querySelectorAll('.main_topping_button').forEach(function(main_topping_button){
+            main_topping_button.addEventListener('click',function(ev){
+                var topping_container = document.getElementById('mainMenu_'+ev.currentTarget.id);
+
+                document.querySelectorAll('.main_topping_button').forEach(function(menuCard2){
+                    if(menuCard2.classList.contains('activeToppingButton')){
+                        menuCard2.classList.remove('activeToppingButton');
+                    }
+                });
+                ev.currentTarget.className += " activeToppingButton";
+
+                document.getElementById('mainMenu_'+ev.currentTarget.id).removeAttribute('hidden');
+
+                for(var i=0; i<topping_container_list.length; i++){
+                    if(topping_container_list[i]!=ev.currentTarget.id){
+                        document.getElementById('mainMenu_'+topping_container_list[i]).setAttribute('hidden','');
+                    }
+                }
+            });
         });
 
         /*-------------------- MENU DETAILS POPUP --------------------*/

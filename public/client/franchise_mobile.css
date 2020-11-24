@@ -43,6 +43,7 @@ header {
     height: 56px;
     display: flex;
     background: #fff;
+    z-index: 100;
 }
 header > a {
     margin: auto;
@@ -88,6 +89,7 @@ nav {
     clip-path: inset(0 0 100% 0);
     padding-top: 5px;
     padding-bottom: 5px;
+    z-index: 100;
 }
 .navButton {
     height: 56px;
@@ -172,6 +174,7 @@ main > h3 {
 /*-------------------- step --------------------*/
 
 .step_container {
+    position: relative;
     padding: 30px 20px;
     margin: 20px 10px;
 
@@ -186,12 +189,19 @@ main > h3 {
 .step_container > p{
     margin-top: 20px;
 }
+.step_number {
+    position: absolute;
+    right: 10px;
+    font-size: 100px;
+    color: rgba(0,0,0,0.05);
+    line-height: 60%;
+}
 
 /*-------------------- cost --------------------*/
 
 #cost_grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     margin: 0 10px;
     column-gap: 10px;
     row-gap: 10px;
@@ -207,22 +217,42 @@ main > h3 {
 .cost_container > h3{
     font-size: 18px;
 }
+.cost_container > hr { 
+    border: 1px solid var(--color-tint-gray);
+}
 .cost_container > h4{
     margin-top: 10px;
 }
 .cost_container > p{
     margin-top: 20px;
 }
+#cost_alert {
+    margin-left: 10px;
+    margin-top: 10px;
+    color: var(--color-dark-gray);
+    font-weight: 500;
+    font-size: 14px;
+}
+.span_delete {
+    text-decoration-line: line-through;
+    color: var(--color-light-gray);
+}
+.span_emphasize {
+    color: var(--color-pink);
+}
+
 
 /*-------------------- revenue --------------------*/
 
 #revenue_grid{
     display: grid;
     grid-template-columns: max-content auto;
-    width: 100%;
+    width: calc(100% - 20px);
     overflow: hidden;
 
-    margin: 10px 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0;
     box-shadow: var(--shadow);
 }
 tr, th, td {
@@ -238,7 +268,7 @@ tr, th, td {
     z-index: 10;
 }
 #revenue_table_right_container{
-    width: calc(100% - 20px);
+    width: 100%;
     overflow-x: scroll;
 }
 #revenue_table_right{
@@ -249,6 +279,7 @@ tr, th, td {
     z-index: -1;
 }
 main > h5{
+    margin-top: 10px;
     margin-left: 16px;
     font-weight: 500;
 }

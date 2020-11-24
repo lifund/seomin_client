@@ -337,11 +337,23 @@ main {
     font-size: 24px;
     font-weight: 900;
 }
+/* 내용 */
 .franchise_button > p:first-of-type {
     margin-top: 16px;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 32px;
+    word-break: keep-all;
 }
+.franchise_emphasize {
+    border: 2px solid white;
+    background: #FFF;
+    color: var(--color-pink);
+    font-size: 18px;
+    padding: 2px 4px;
+    padding-top: 4px;
+}
+/* 자세히보기 */
 .franchise_button > p:last-of-type {
     margin-top: 24px;
 }
@@ -397,6 +409,8 @@ footer {
 #menuPopup_imgContainer{
     position: relative;
     width: calc(100vw - 40px); /* The size you want */
+    background: #FFF;
+    border-radius: 20px 20px 0 0;
 }
 #menuPopup_imgContainer::after{
     content: "";
