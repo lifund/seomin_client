@@ -143,7 +143,7 @@ main {
 .menuCard_imgContainer::after {
     content: "";
     display: block;
-    padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+    padding-bottom: 100%; /* The  padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
     background: #FFF; 
     box-shadow: var(--shadow);
 }

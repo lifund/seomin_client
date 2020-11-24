@@ -170,7 +170,7 @@ main {
 }
 .menuCard_imgContainer {
     position: relative;
-    width: 100%; /* The size you want */
+    width: 100%; /* The size you want  */
 }
 .menuCard_imgContainer::after {
     content: "";
@@ -187,7 +187,7 @@ main {
     right: 0; /* Make the picture taking the size of it's parent */
     width: 100%; /* This if for the object-fit */
     height: 100%; /* This if for the object-fit */
-    object-fit: fill; /* Equivalent of the background-size: cover; of a background-image */
+    object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;
 }
 
