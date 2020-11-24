@@ -87,28 +87,28 @@
         "categoryName": "세트메뉴", "imageURL":"피자+순살치킨.jpeg", "productName":"피자+순살치킨", "price":[{"size":"M","value":22000},{"size":"L","value":25000}], "description":{"short":"피자+순살치킨" ,"long":"피자+순살치킨"}, "mainPage":false
     },
     {
-        "categoryName": "세트메뉴", "imageURL":"스크린피자M+사이드1선택.jpeg", "productName":"스크린피자M+사이드1선택", "price":[{"size":"","value":17000}], "description":{"short":"스크린피자M+사이드1선택" ,"long":"스크린피자M+사이드1선택"}, "mainPage":false
+        "categoryName": "세트메뉴", "imageURL":"세트1번.jpeg", "productName":"세트1번", "price":[{"size":"","value":17000}], "description":{"short":"스크린피자M+사이드1선택" ,"long":"스크린피자M+사이드1선택"}, "mainPage":false
     },
     {
-        "categoryName": "세트메뉴", "imageURL":"스크린피자M+사이드2선택.jpeg", "productName":"스크린피자M+사이드2선택", "price":[{"size":"","value":20000}], "description":{"short":"스크린피자M+사이드2선택" ,"long":"스크린피자M+사이드2선택"}, "mainPage":false
+        "categoryName": "세트메뉴", "imageURL":"세트2번.jpeg", "productName":"세트2번", "price":[{"size":"","value":20000}], "description":{"short":"스크린피자M+사이드2선택" ,"long":"스크린피자M+사이드2선택"}, "mainPage":false
     },
     {
-        "categoryName": "세트메뉴", "imageURL":"스크린피자M+사이드3선택.jpeg", "productName":"스크린피자M+사이드3선택", "price":[{"size":"","value":23000}], "description":{"short":"스크린피자M+사이드3선택" ,"long":"스크린피자M+사이드3선택"}, "mainPage":false
+        "categoryName": "세트메뉴", "imageURL":"세트3번.jpeg", "productName":"스크린피자M+사이드3선택", "price":[{"size":"","value":23000}], "description":{"short":"스크린피자M+사이드3선택" ,"long":"스크린피자M+사이드3선택"}, "mainPage":false
     },
     {
-        "categoryName": "세트메뉴", "imageURL":"치즈크러스트피자+사이드2선택.jpeg", "productName":"치즈크러스트피자+사이드2선택", "price":[{"size":"L","value":25000},{"size":"M","value":23000}], "description":{"short":"치즈크러스트피자+사이드2선택" ,"long":"치즈크러스트피자+사이드2선택"}, "mainPage":false
+        "categoryName": "세트메뉴", "imageURL":"치즈크러스트세트.jpeg", "productName":"치즈크러스트세트", "price":[{"size":"L","value":25000},{"size":"M","value":23000}], "description":{"short":"치즈크러스트피자+사이드2선택" ,"long":"치즈크러스트피자+사이드2선택"}, "mainPage":false
     },
     {
-        "categoryName": "세트메뉴", "imageURL":"바이트피자+사이드2선택.jpeg", "productName":"바이트피자+사이드2선택", "price":[{"size":"L","value":29000},{"size":"M","value":27000}], "description":{"short":"바이트피자+사이드2선택" ,"long":"바이트피자+사이드2선택"}, "mainPage":false
+        "categoryName": "세트메뉴", "imageURL":"바이트세트.jpeg", "productName":"바이트세트", "price":[{"size":"L","value":29000},{"size":"M","value":27000}], "description":{"short":"바이트피자+사이드2선택" ,"long":"바이트피자+사이드2선택"}, "mainPage":false
     },
     {
-        "categoryName": "세트메뉴", "imageURL":"골드피자+사이드2선택.jpeg", "productName":"골드피자+사이드2선택", "price":[{"size":"L","value":29000},{"size":"M","value":27000}], "description":{"short":"골드피자+사이드2선택" ,"long":"골드피자+사이드2선택"}, "mainPage":false
+        "categoryName": "세트메뉴", "imageURL":"리치골드세트.jpeg", "productName":"리치골드세트", "price":[{"size":"L","value":29000},{"size":"M","value":27000}], "description":{"short":"골드피자+사이드2선택" ,"long":"골드피자+사이드2선택"}, "mainPage":false
     },
     {
-        "categoryName": "세트메뉴", "imageURL":"치즈볼피자+사이드2선택.jpeg", "productName":"치즈볼피자+사이드2선택", "price":[{"size":"L","value":30000},{"size":"M","value":28000}], "description":{"short":"치즈볼피자+사이드2선택" ,"long":"치즈볼피자+사이드2선택"}, "mainPage":false
+        "categoryName": "세트메뉴", "imageURL":"치즈볼세트.jpeg", "productName":"치즈볼세트", "price":[{"size":"L","value":30000},{"size":"M","value":28000}], "description":{"short":"치즈볼피자+사이드2선택" ,"long":"치즈볼피자+사이드2선택"}, "mainPage":false
     },
     {
-        "categoryName": "세트메뉴", "imageURL":"러블리치즈볼피자+사이드2선택.jpeg", "productName":"러블리치즈볼피자+사이드2선택", "price":[{"size":"L","value":30000},{"size":"M","value":28000}], "description":{"short":"러블리치즈볼피자+사이드2선택" ,"long":"러블리치즈볼피자+사이드2선택"}, "mainPage":false
+        "categoryName": "세트메뉴", "imageURL":"러블리세트.jpeg", "productName":"러블리세트", "price":[{"size":"L","value":30000},{"size":"M","value":28000}], "description":{"short":"러블리치즈볼피자+사이드2선택" ,"long":"러블리치즈볼피자+사이드2선택"}, "mainPage":false
     },
     {
         "categoryName": "사이드메뉴", "imageURL":"훈제치킨.jpeg", "productName":"훈제치킨", "price":[{"size":"","value":"-"}], "description":{"short":"훈제치킨" ,"long":"훈제치킨"}, "mainPage":false
