@@ -96,7 +96,7 @@ main {
 }
 #titleContainer {
     display: grid;
-    grid-template-columns: auto max-content;
+    grid-template-columns: auto max-content max-content;
     align-items: center;
 }
 #titleContainer > h2 {

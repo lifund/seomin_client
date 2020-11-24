@@ -401,14 +401,9 @@ app.post('/franchise/inquiry',(req,res)=>{
 
 
 
-//-------------------- Terms Of Service --------------------//
-app.get('/termsofservice',(req,res)=>{
-	res.send("이용약관");
-});
-
 //-------------------- Privacy Statement --------------------//
 app.get('/privacystatement',(req,res)=>{
-	res.send("개인정보처리방침");
+	res.sendFile(path.join(__dirname,'public/client/privacystatement.html'));
 });
 
 

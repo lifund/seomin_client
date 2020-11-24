@@ -134,10 +134,22 @@ main {
 #titleContainer {
     display: grid;
     grid-template-columns: auto max-content;
-    align-items: center;
+    grid-template-rows: auto max-content;
+    grid-template-areas: 
+    'title callNow'
+    'title writeForm';
+    width: 100%;
+    row-gap: 10px;
 }
 #titleContainer > h2 {
     margin-left: 16px;
+    grid-area: title;
+}
+#writeForm {
+    grid-area: writeForm;
+}
+#callNow{
+    grid-area: callNow;
 }
 #titleContainer > a {
     margin-right: 16px;
@@ -145,6 +157,7 @@ main {
     padding: 0.5em 1em;
     color: #FFF;
     border-radius: 20px;
+    width: max-content;
 }
 main > h2 {
     margin-left: 16px;
