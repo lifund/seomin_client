@@ -15,7 +15,7 @@
         "categoryName": "메인메뉴", "imageURL":"이탈리안치즈.jpeg", "productName":"이탈리안치즈", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"이탈리안치즈" ,"long":"이탈리안치즈"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"스위트베이컨.jpeg", "productName":"스위트베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위트베이컨" ,"long":"스위트베이컨"}, "mainPage":false
+        "categoryName": "메인메뉴", "imageURL":"스위트베이컨.png", "productName":"스위트베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위트베이컨" ,"long":"스위트베이컨"}, "mainPage":false
     },
     {
         "categoryName": "메인메뉴", "imageURL":"포테이토.jpeg", "productName":"포테이토", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"포테이토" ,"long":"포테이토"}, "mainPage":false
@@ -39,10 +39,10 @@
         "categoryName": "메인메뉴", "imageURL":"불갈비스페셜.jpeg", "productName":"불갈비스페셜", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"불갈비스페셜" ,"long":"불갈비스페셜"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"쉬림프베이컨.jpeg", "productName":"쉬림프베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"쉬림프베이컨" ,"long":"쉬림프베이컨"}, "mainPage":false
+        "categoryName": "메인메뉴", "imageURL":"쉬림프베이컨.png", "productName":"쉬림프베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"쉬림프베이컨" ,"long":"쉬림프베이컨"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"스위티베이컨.jpeg", "productName":"스위티베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위티베이컨" ,"long":"스위티베이컨"}, "mainPage":false
+        "categoryName": "메인메뉴", "imageURL":"스위티베이컨.png", "productName":"스위티베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위티베이컨" ,"long":"스위티베이컨"}, "mainPage":false
     },
     {
         "categoryName": "메인메뉴", "imageURL":"반반피자(토핑선택).jpeg", "productName":"반반피자(토핑선택)", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"반반피자(토핑선택)" ,"long":"반반피자(토핑선택)"}, "mainPage":true
@@ -54,16 +54,16 @@
         "categoryName": "메인메뉴", "imageURL":"불새.jpeg", "productName":"불새", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"불새" ,"long":"불새"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"슈퍼콤비네이션.jpeg", "productName":"슈퍼콤비네이션", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"슈퍼콤비네이션" ,"long":"슈퍼콤비네이션"}, "mainPage":true
+        "categoryName": "메인메뉴", "imageURL":"슈퍼콤비네이션.png", "productName":"슈퍼콤비네이션", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"슈퍼콤비네이션" ,"long":"슈퍼콤비네이션"}, "mainPage":true
     },
     {
         "categoryName": "메인메뉴", "imageURL":"러블리치즈볼.jpeg", "productName":"러블리치즈볼", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"러블리치즈볼" ,"long":"러블리치즈볼"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"통베이컨치즈볼.jpeg", "productName":"통베이컨치즈볼", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"통베이컨치즈볼" ,"long":"통베이컨치즈볼"}, "mainPage":true
+        "categoryName": "메인메뉴", "imageURL":"통베이컨치즈볼.png", "productName":"통베이컨치즈볼", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"통베이컨치즈볼" ,"long":"통베이컨치즈볼"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴", "imageURL":"어니언트리플.jpeg", "productName":"어니언트리플", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"어니언트리플" ,"long":"어니언트리플"}, "mainPage":true
+        "categoryName": "메인메뉴", "imageURL":"어니언트리플.png", "productName":"어니언트리플", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"어니언트리플" ,"long":"어니언트리플"}, "mainPage":true
     },
     {
         "categoryName": "메인메뉴", "imageURL":"스윗게살쉬림프.jpeg", "productName":"스윗게살쉬림프", "price":[{"size":"M","value":18000},{"size":"L","value":21000}], "description":{"short":"스윗게살쉬림프" ,"long":"스윗게살쉬림프"}, "mainPage":true
