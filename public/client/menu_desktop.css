@@ -144,6 +144,8 @@ main {
     content: "";
     display: block;
     padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+    background: #FFF; 
+    box-shadow: var(--shadow);
 }
 .menuCard_imgContainer > img {
     position: absolute; /* Take your picture out of the flow */
