@@ -42,7 +42,7 @@
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"핫불고기.jpg", "productName":"핫불고기", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"핫불고기" ,"long":"핫불고기"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"스위트베이컨.jpg", "productName":"스위트베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위트베이컨" ,"long":"스위트베이컨"}, "mainPage":false
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"스위티베이컨.jpg", "productName":"스위티베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위티베이컨" ,"long":"스위티베이컨"}, "mainPage":false
     },
     {
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"포테이토.jpg", "productName":"포테이토", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"포테이토" ,"long":"포테이토"}, "mainPage":false
@@ -64,9 +64,6 @@
     },
     {
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"러블리치즈볼.jpg", "productName":"러블리치즈볼", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"얇은 씬도우로 고르곤졸라 느낌의 피자 피자소스대신 러블리한 크림치즈를깔고 그위에 치즈볼과 체다치즈까지!" ,"long":"얇은 씬도우로 고르곤졸라 느낌의 피자 피자소스대신 러블리한 크림치즈를깔고 그위에 치즈볼과 체다치즈까지!"}, "mainPage":true
-    },
-    {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"통베이컨.jpg", "productName":"통베이컨치즈볼", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"통베이컨치즈볼" ,"long":"통베이컨치즈볼"}, "mainPage":true
     },
     {
         "categoryName": "도우종류", "imageURL":"스크린.jpg", "productName":"스크린", "price":[{"size":"+","value":0}], "description":{"short":"기름기를 쏙뺀 담백한오리지널도우" ,"long":"기름기를 쏙뺀 담백한오리지널도우"}, "mainPage":false
@@ -135,7 +132,7 @@
         "categoryName": "사이드메뉴", "imageURL":"윙.jpg", "productName":"윙", "price":[{"size":"","value":"-"}], "description":{"short":"윙" ,"long":"윙"}, "mainPage":false
     },
     {
-        "categoryName": "사이드메뉴", "imageURL":"포테이토.jpg", "productName":"포테이토", "price":[{"size":"","value":"-"}], "description":{"short":"포테이토" ,"long":"포테이토"}, "mainPage":false
+        "categoryName": "사이드메뉴", "imageURL":"사이드포테이토.jpg", "productName":"포테이토", "price":[{"size":"","value":"-"}], "description":{"short":"포테이토" ,"long":"포테이토"}, "mainPage":false
     },
     {
         "categoryName": "사이드메뉴", "imageURL":"콘치즈.jpg", "productName":"콘치즈", "price":[{"size":"","value":"-"}], "description":{"short":"콘치즈" ,"long":"콘치즈"}, "mainPage":false
