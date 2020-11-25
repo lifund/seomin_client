@@ -156,30 +156,58 @@ app.get('/menu',(req,res)=>{
 
 		result.forEach((menu)=>{
 			let tempCardHTML = '';
-			tempCardHTML += 
-			`<div class="menuCard" data-all="${encodeURIComponent(JSON.stringify(menu))}">
-				<div class="menuCard_imgContainer">
-					<img src="public/menuImage/${menu.imageURL}" onError="this.onerror=null; this.src='public/menuImage/test.png';">
-				</div>
-				<p class="menuCard_productName"> ${menu.productName} </p>`
-			/* 가격 뺌
-			menu.price.forEach((priceTag)=>{
-				tempCardHTML+=`<div class="menuCard_price">`
-				if(priceTag.size!=''){
+
+			if(menu.categoryName != "도우종류"){
+				tempCardHTML += 
+				`<div class="menuCard" data-all="${encodeURIComponent(JSON.stringify(menu))}">
+					<div class="menuCard_imgContainer">
+						<img src="public/menuImage/${menu.imageURL}" onError="this.onerror=null; this.src='public/menuImage/test.png';">
+					</div>
+					<p class="menuCard_productName"> ${menu.productName} </p>`
+				/* 가격 뺌
+				menu.price.forEach((priceTag)=>{
+					tempCardHTML+=`<div class="menuCard_price">`
+					if(priceTag.size!=''){
+						tempCardHTML+=`
+						<p class="menuCard_price_size">${priceTag.size}</p>`
+					}
 					tempCardHTML+=`
-					<p class="menuCard_price_size">${priceTag.size}</p>`
-				}
-				tempCardHTML+=`
-					<p class="menuCard_price_value">${priceTag.value}</p>
-					<p class="menuCard_price_won"> 원 </p>
-				</div>`
-			})
-			*/
-			/* 설명 뺌
-			tempCardHTML+=
-			`<p class="menuCard_description_short">${menu.description.short}</p>₩
-			*/
-			tempCardHTML+=`</div>`
+						<p class="menuCard_price_value">${priceTag.value}</p>
+						<p class="menuCard_price_won"> 원 </p>
+					</div>`
+				})
+				*/
+				/* 설명 뺌
+				tempCardHTML+=
+				`<p class="menuCard_description_short">${menu.description.short}</p>`
+				*/
+				tempCardHTML+=`</div>`
+			} else {
+				tempCardHTML += 
+				`<div class="menuCard" data-all="${encodeURIComponent(JSON.stringify(menu))}">
+					<p class="menuCard_productName"> ${menu.productName} </p>`
+				/* 가격 뺌
+				menu.price.forEach((priceTag)=>{
+					tempCardHTML+=`<div class="menuCard_price">`
+					if(priceTag.size!=''){
+						tempCardHTML+=`
+						<p class="menuCard_price_size">${priceTag.size}</p>`
+					}
+					tempCardHTML+=`
+						<p class="menuCard_price_value">${priceTag.value}</p>
+						<p class="menuCard_price_won"> 원 </p>
+					</div>`
+				})
+				*/
+				tempCardHTML+=
+				`<p class="menuCard_description_short">${menu.description.short}</p>`
+				tempCardHTML+=`</div>`
+			}
+
+
+			
+
+
 			if(menu.categoryName == "메인메뉴_기본토핑"){
 				menuCardHTML_main_basic += tempCardHTML;
 			}

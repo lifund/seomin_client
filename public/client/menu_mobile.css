@@ -192,6 +192,11 @@ main {
     width: calc(calc(100% - 30px) / 2);
     height: auto;
 }
+#doughMenu > .menuCard {
+    width: calc(calc(100% - 60px));
+    background: #FFF;
+    padding: 20px;
+}
 .menuCard:hover{
     cursor: pointer;
 }
@@ -222,6 +227,9 @@ main {
     font-weight: 700;
     margin-top: 10px;
     white-space: pre-line;
+}
+#doughMenu > .menuCard > .menuCard_productName {
+    margin-top: 0;
 }
 .menuCard_price {
     margin-top: 10px;
@@ -256,6 +264,9 @@ main {
 }
 .menuCard_description_short {
     padding-top: 10px;
+}
+#doughMenu > .menuCard > .menuCard_description_short {
+    line-height: 150%;
 }
 
 /*-------------------- menu detail popup --------------------*/
@@ -371,3 +382,4 @@ main {
     line-height: 150%;
     color: var(--color-dark-gray);
 }
+ 

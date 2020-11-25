@@ -160,6 +160,11 @@ main {
     width: calc(calc(100% - 40px) / 3);
     height: calc(calc(100% / 3) + 100px);
 }
+#doughMenu > .menuCard {
+    width: calc(100% - 60px);
+    background: #FFF;
+    padding: 20px;
+}
 .menuCard:hover{
     cursor: pointer;
 }
@@ -189,6 +194,9 @@ main {
     font-weight: 700;
     margin-top: 10px;
     white-space: pre-line;
+}
+#doughMenu > .menuCard > .menuCard_productName {
+    margin-top: 0;
 }
 .menuCard_price {
     margin-top: 10px;
@@ -223,6 +231,9 @@ main {
 }
 .menuCard_description_short {
     padding-top: 10px;
+}
+#doughMenu > .menuCard > .menuCard_description_short {
+    line-height: 150%;
 }
 
 
