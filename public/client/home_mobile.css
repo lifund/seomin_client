@@ -274,7 +274,7 @@ main {
     font-weight: 700;
     margin-top: 10px;
     white-space: pre-wrap;
-    text-align-last: center;
+    text-align: center;
     padding: 0 1px;
 }
 .menuCard_price {
@@ -435,11 +435,12 @@ footer {
     bottom: 0;
     left: 0;
     right: 0; /* Make the picture taking the size of it's parent */
-    width: 100%; /* This if for the object-fit */
-    height: 100%; /* This if for the object-fit */
+    width: calc(100% - 20px); /* This if for the object-fit */
+    height: calc(100% - 20px); /* This if for the object-fit */
     object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;  
     border-radius: 20px 20px 0 0;
+    padding: 10px;
 }
 
 

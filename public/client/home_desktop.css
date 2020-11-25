@@ -202,6 +202,11 @@ main {
     padding: 20px 0;
     position: relative;
 }
+@media only screen and (max-width: 1000px){
+    #recommendation_slider_insetShadow {
+        display: none;
+    }
+}
 #recommendation_slider_insetShadow {
     position: absolute;
     top: 532px;
@@ -316,18 +321,18 @@ main {
     top: 50%;
     transform: translate(-50%, -50%);
 
-    border-radius: 4px;
     background: #FFF;
     box-shadow: var(--shadow);
 
     display: flex;
+    border-radius: 20px;
 }
 
 #menuPopup_imgContainer{
     position: relative;
     width: 400px; /* The size you want */
     background: #FFF;
-    border-radius: 2px 0 0 2px;
+    border-radius: 20px 0 0 20px;
 }
 #menuPopup_imgContainer::after{
     content: "";
@@ -340,11 +345,11 @@ main {
     bottom: 0;
     left: 0;
     right: 0; /* Make the picture taking the size of it's parent */
-    width: 100%; /* This if for the object-fit */
-    height: 100%; /* This if for the object-fit */
+    width: calc(100% - 20px); /* This if for the object-fit */
+    height: calc(100% - 20px); /* This if for the object-fit */
     object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;  
-    border-radius: 2px 0 0 2px;
+    padding: 10px;
 }
 #removeMenuPopup {
     position: absolute;
@@ -356,6 +361,7 @@ main {
     width: 300px;
     padding-top: 20px;
     background: var(--color-tint-gray);
+    border-radius: 0 20px 20px 0;
 }
 #popup_productName {
     display: block;
