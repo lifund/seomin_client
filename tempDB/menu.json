@@ -63,7 +63,7 @@
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"스위티베이컨.jpg", "productName":"스위티베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위티베이컨" ,"long":"스위티베이컨"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"러블리치즈볼.jpg", "productName":"러블리치즈볼", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"앏은 씬도우로 고르곤졸라 느낌의 피자 피자소스대신 러블리한 크림치즈를깔고 그위에 치즈볼과 체다치즈까지!" ,"long":"앏은 씬도우로 고르곤졸라 느낌의 피자 피자소스대신 러블리한 크림치즈를깔고 그위에 치즈볼과 체다치즈까지!"}, "mainPage":true
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"러블리치즈볼.jpg", "productName":"러블리치즈볼", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"얇은 씬도우로 고르곤졸라 느낌의 피자 피자소스대신 러블리한 크림치즈를깔고 그위에 치즈볼과 체다치즈까지!" ,"long":"얇은 씬도우로 고르곤졸라 느낌의 피자 피자소스대신 러블리한 크림치즈를깔고 그위에 치즈볼과 체다치즈까지!"}, "mainPage":true
     },
     {
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"통베이컨치즈볼.jpg", "productName":"통베이컨치즈볼", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"통베이컨치즈볼" ,"long":"통베이컨치즈볼"}, "mainPage":true

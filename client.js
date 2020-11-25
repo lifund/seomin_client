@@ -175,9 +175,11 @@ app.get('/menu',(req,res)=>{
 				</div>`
 			})
 			*/
+			/* 설명 뺌
 			tempCardHTML+=
-			`<p class="menuCard_description_short">${menu.description.short}</p>
-			</div>`
+			`<p class="menuCard_description_short">${menu.description.short}</p>₩
+			*/
+			tempCardHTML+=`</div>`
 			if(menu.categoryName == "메인메뉴_기본토핑"){
 				menuCardHTML_main_basic += tempCardHTML;
 			}
