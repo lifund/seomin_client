@@ -85,6 +85,7 @@ app.get('/home',(req,res)=>{
 				<img src="public/menuImage/${menu.imageURL}" alt="이미지 준비중">
 				</div>
 				<p> ${menu.productName} </p>`
+			/*
 			menu.price.forEach((priceTag)=>{
 				menuCardHTML+=`<div class="menuCard_price">`
 				if(priceTag.size!=''){
@@ -96,6 +97,7 @@ app.get('/home',(req,res)=>{
 					<p class="menuCard_price_won"> 원 </p>
 				</div>`
 			})
+			*/
 			menuCardHTML+=`
 			</div>`
 		})

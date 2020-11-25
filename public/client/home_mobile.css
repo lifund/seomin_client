@@ -46,6 +46,10 @@ header {
 header > a {
     margin: auto;
 }
+header > a > svg{
+    padding: 10px 0;
+    height: 36px;
+}
 header > svg {
     position: absolute;
     right: 0;
@@ -263,7 +267,7 @@ main {
 .menuCard > p {
     display: block;
     font-weight: 700;
-    margin-top: 4px;
+    margin-top: 10px;
     white-space: pre-line;
 }
 .menuCard_price {

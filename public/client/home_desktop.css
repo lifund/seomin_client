@@ -50,6 +50,10 @@ button:hover, a:hover {
 
 
 /*-------------------- header --------------------*/
+header > a > svg{
+    padding: 10px 0;
+    height: 36px;
+}
 header > svg{
     display: none;
 }
@@ -234,7 +238,7 @@ main {
 }
 .menuCard > p {
     font-weight: 700;
-    margin-top: 4px;
+    margin-top: 10px;
     white-space: pre-line;
 }
 .menuCard_price {

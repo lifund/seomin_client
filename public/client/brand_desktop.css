@@ -49,6 +49,10 @@ button:hover, a:hover {
 
 
 /*-------------------- header --------------------*/
+header > a > svg{
+    padding: 10px 0;
+    height: 36px;
+}
 header > svg{
     display: none;
 }

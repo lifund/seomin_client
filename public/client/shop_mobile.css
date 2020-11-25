@@ -46,6 +46,10 @@ header {
 header > a {
     margin: auto;
 }
+header > a > svg{
+    padding: 10px 0;
+    height: 36px;
+}
 header > svg {
     position: absolute;
     right: 0;

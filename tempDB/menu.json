@@ -15,6 +15,33 @@
         "categoryName": "메인메뉴_기본토핑", "imageURL":"이탈리안치즈.jpg", "productName":"이탈리안치즈", "price":[{"size":"M","value":14000},{"size":"L","value":17000}], "description":{"short":"이탈리안치즈" ,"long":"이탈리안치즈"}, "mainPage":false
     },
     {
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"반반피자(토핑선택).jpg", "productName":"반반피자(토핑선택)", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"반반피자(토핑선택)" ,"long":"반반피자(토핑선택)"}, "mainPage":true
+    },
+    {
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"사색피자.jpg", "productName":"사색피자", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"사색피자" ,"long":"사색피자"}, "mainPage":true
+    },
+    {
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"스윗게살쉬림프.jpg", "productName":"스윗게살쉬림프", "price":[{"size":"M","value":18000},{"size":"L","value":21000}], "description":{"short":"스윗게살쉬림프" ,"long":"스윗게살쉬림프"}, "mainPage":true
+    },
+    {
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"어니언트리플.jpg", "productName":"어니언트리플", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"어니언트리플" ,"long":"어니언트리플"}, "mainPage":true
+    },
+    {
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"불새.jpg", "productName":"불새", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"불새" ,"long":"불새"}, "mainPage":true
+    },
+    {
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"통베이컨.jpg", "productName":"통베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"통베이컨" ,"long":"통베이컨"}, "mainPage":false
+    },
+    {
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"슈퍼콤비네이션.jpg", "productName":"슈퍼콤비네이션", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"슈퍼콤비네이션" ,"long":"슈퍼콤비네이션"}, "mainPage":true
+    },
+    {
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"핫치킨.jpg", "productName":"핫치킨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"핫치킨" ,"long":"핫치킨"}, "mainPage":false
+    },
+    {
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"핫불고기.jpg", "productName":"핫불고기", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"핫불고기" ,"long":"핫불고기"}, "mainPage":false
+    },
+    {
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"스위트베이컨.jpg", "productName":"스위트베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위트베이컨" ,"long":"스위트베이컨"}, "mainPage":false
     },
     {
@@ -24,16 +51,7 @@
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"통고구마.jpg", "productName":"통고구마", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"통고구마" ,"long":"통고구마"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"핫불고기.jpg", "productName":"핫불고기", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"핫불고기" ,"long":"핫불고기"}, "mainPage":false
-    },
-    {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"핫치킨.jpg", "productName":"핫치킨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"핫치킨" ,"long":"핫치킨"}, "mainPage":false
-    },
-    {
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"하와이안치킨.jpg", "productName":"하와이안치킨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"하와이안치킨" ,"long":"하와이안치킨"}, "mainPage":false
-    },
-    {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"통베이컨.jpg", "productName":"통베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"통베이컨" ,"long":"통베이컨"}, "mainPage":false
     },
     {
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"불갈비스페셜.jpg", "productName":"불갈비스페셜", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"불갈비스페셜" ,"long":"불갈비스페셜"}, "mainPage":false
@@ -45,43 +63,31 @@
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"스위티베이컨.jpg", "productName":"스위티베이컨", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"스위티베이컨" ,"long":"스위티베이컨"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"반반피자(토핑선택).jpg", "productName":"반반피자(토핑선택)", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"반반피자(토핑선택)" ,"long":"반반피자(토핑선택)"}, "mainPage":true
-    },
-    {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"사색피자.jpg", "productName":"사색피자", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"사색피자" ,"long":"사색피자"}, "mainPage":true
-    },
-    {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"불새.jpg", "productName":"불새", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"불새" ,"long":"불새"}, "mainPage":true
-    },
-    {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"슈퍼콤비네이션.jpg", "productName":"슈퍼콤비네이션", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"슈퍼콤비네이션" ,"long":"슈퍼콤비네이션"}, "mainPage":true
-    },
-    {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"러블리치즈볼.jpg", "productName":"러블리치즈볼", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"러블리치즈볼" ,"long":"러블리치즈볼"}, "mainPage":true
+        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"러블리치즈볼.jpg", "productName":"러블리치즈볼", "price":[{"size":"M","value":16000},{"size":"L","value":19000}], "description":{"short":"앏은 씬도우로 고르곤졸라 느낌의 피자 피자소스대신 러블리한 크림치즈를깔고 그위에 치즈볼과 체다치즈까지!" ,"long":"앏은 씬도우로 고르곤졸라 느낌의 피자 피자소스대신 러블리한 크림치즈를깔고 그위에 치즈볼과 체다치즈까지!"}, "mainPage":true
     },
     {
         "categoryName": "메인메뉴_스페셜토핑", "imageURL":"통베이컨치즈볼.jpg", "productName":"통베이컨치즈볼", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"통베이컨치즈볼" ,"long":"통베이컨치즈볼"}, "mainPage":true
     },
     {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"어니언트리플.jpg", "productName":"어니언트리플", "price":[{"size":"M","value":19000},{"size":"L","value":22000}], "description":{"short":"어니언트리플" ,"long":"어니언트리플"}, "mainPage":true
+        "categoryName": "도우종류", "imageURL":"스크린.jpg", "productName":"스크린", "price":[{"size":"+","value":0}], "description":{"short":"기름기를 쏙뺀 담백한오리지널도우" ,"long":"기름기를 쏙뺀 담백한오리지널도우"}, "mainPage":false
     },
     {
-        "categoryName": "메인메뉴_스페셜토핑", "imageURL":"스윗게살쉬림프.jpg", "productName":"스윗게살쉬림프", "price":[{"size":"M","value":18000},{"size":"L","value":21000}], "description":{"short":"스윗게살쉬림프" ,"long":"스윗게살쉬림프"}, "mainPage":true
+        "categoryName": "도우종류", "imageURL":"치즈크러스트.jpg", "productName":"치즈크러스트", "price":[{"size":"+","value":1000}], "description":{"short":"빵속에 쭉늘어나는 치즈가 가득한도우" ,"long":"빵속에 쭉늘어나는 치즈가 가득한도우"}, "mainPage":false
     },
     {
-        "categoryName": "도우종류", "imageURL":"스크린.jpg", "productName":"스크린", "price":[{"size":"+","value":0}], "description":{"short":"스크린" ,"long":"스크린"}, "mainPage":false
+        "categoryName": "도우종류", "imageURL":"골드.jpg", "productName":"리치골드", "price":[{"size":"+","value":2000}], "description":{"short":"빵끝에 모짜렐라치즈,달콤한고구마무스 2종류,체다치즈 까지!" ,"long":"빵끝에 모짜렐라치즈,달콤한고구마무스 2종류,체다치즈 까지!"}, "mainPage":false
     },
     {
-        "categoryName": "도우종류", "imageURL":"치즈크러스트.jpg", "productName":"치즈크러스트", "price":[{"size":"+","value":1000}], "description":{"short":"치즈크러스트" ,"long":"치즈크러스트"}, "mainPage":false
+        "categoryName": "도우종류", "imageURL":"바이트.jpg", "productName":"치즈바이트", "price":[{"size":"+","value":2000}], "description":{"short":"빵속에 모짜렐라치즈와 달콤한고구마무스 맛있게 하나씩 때어 먹는 재미!" ,"long":"빵속에 모짜렐라치즈와 달콤한고구마무스 맛있게 하나씩 때어 먹는 재미!"}, "mainPage":false
     },
     {
-        "categoryName": "도우종류", "imageURL":"골드.jpg", "productName":"골드", "price":[{"size":"+","value":2000}], "description":{"short":"골드" ,"long":"골드"}, "mainPage":false
+        "categoryName": "도우종류", "imageURL":"치즈볼.jpg", "productName":"치즈볼", "price":[{"size":"+","value":3000}], "description":{"short":"빵끝에 동그랗고 예쁜모양에 크림치즈와 달콤한고구마무스까지!" ,"long":"빵끝에 동그랗고 예쁜모양에 크림치즈와 달콤한고구마무스까지!"}, "mainPage":false
     },
     {
-        "categoryName": "도우종류", "imageURL":"바이트.jpg", "productName":"바이트", "price":[{"size":"+","value":2000}], "description":{"short":"바이트" ,"long":"바이트"}, "mainPage":false
+        "categoryName": "도우종류", "imageURL":"스윗크림치즈.jpg", "productName":"스윗크림치즈", "price":[{"size":"+","value":3000}], "description":{"short":"빵끝에 크림치즈무스와 달콤하고 예쁜 하얀설탕가루가 눈처럼 !" ,"long":"빵끝에 크림치즈무스와 달콤하고 예쁜 하얀설탕가루가 눈처럼 !"}, "mainPage":false
     },
     {
-        "categoryName": "도우종류", "imageURL":"치즈볼.jpg", "productName":"치즈볼", "price":[{"size":"+","value":3000}], "description":{"short":"치즈볼" ,"long":"치즈볼"}, "mainPage":false
+        "categoryName": "도우종류", "imageURL":"씬.jpg", "productName":"씬", "price":[{"size":"+","value":3000}], "description":{"short":"바싹하고 날씬한 얇은 도우!" ,"long":"바싹하고 날씬한 얇은 도우!"}, "mainPage":false
     },
     {
         "categoryName": "세트메뉴", "imageURL":"피자+순살치킨.jpeg", "productName":"피자+순살치킨", "price":[{"size":"M","value":22000},{"size":"L","value":25000}], "description":{"short":"피자+순살치킨" ,"long":"피자+순살치킨"}, "mainPage":false
