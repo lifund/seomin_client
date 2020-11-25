@@ -40,6 +40,8 @@ button:hover, a:hover {
     width: 100%;
     background: #fff;
     height: 56px;
+    box-shadow: var(--shadow);
+    position: fixed;
 }
 #headerContainer{
     display: flex;
@@ -69,7 +71,7 @@ nav {
     margin-bottom: auto;
 }
 nav > a{
-    margin-left: 64px;
+    margin-right: 64px;
     color: black;
     width: max-content;
 
@@ -96,7 +98,7 @@ html, body {
 }
 main {
     max-width: 1000px;
-    margin-top: 16px;
+    padding-top: 72px;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 80px;

@@ -40,6 +40,8 @@ button:hover, a:hover {
     width: 100%;
     background: #fff;
     height: 56px;
+    position: fixed;
+    box-shadow: var(--shadow);
 }
 #headerContainer{
     display: flex;
@@ -67,7 +69,7 @@ nav {
     margin-bottom: auto;
 }
 nav > a{
-    margin-left: 64px;
+    margin-right: 64px;
     color: black;
     width: max-content;
 
@@ -93,7 +95,7 @@ html, body {
 }
 main {
     max-width: 1000px;
-    margin-top: 56px;
+    padding-top: 72px;
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 80px;
@@ -102,6 +104,7 @@ main {
     display: grid;
     grid-template-columns: auto max-content max-content;
     align-items: center;
+    padding-top: 48px;
 }
 #titleContainer > h2 {
     margin-left: 16px;
@@ -115,7 +118,7 @@ main {
 }
 main > h2 {
     margin-left: 16px;
-    margin-top: 80px;
+    padding-top: 48px;
     margin-bottom: 20px;
 }
 main > h3 {

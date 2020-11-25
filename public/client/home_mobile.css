@@ -42,6 +42,7 @@ header {
     display: flex;
     background: #fff;
     z-index: 1;
+    box-shadow: var(--shadow);
 }
 header > a {
     margin: auto;
