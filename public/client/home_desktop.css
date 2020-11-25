@@ -30,7 +30,7 @@ button:hover, a:hover {
     --color-dark-gray: #6d6d6d;
 
     --color-tint-gray: #F0F0F0;
-    --shadow: 4px 8px 12px 0px rgba(0,0,0,0.08);
+    --shadow: 2px 4px 16px 4px rgba(0,0,0,0.08);
 }
 [hidden] { display: none !important; }
 
@@ -209,7 +209,7 @@ main {
     display: inline-block;
     vertical-align: top;
     scroll-snap-align: center;
-    width: calc(100vw / 5);
+    width: 200px;
     height: max-content;
     box-shadow: var(--shadow);
     padding-bottom: 40px;
@@ -220,7 +220,7 @@ main {
 }
 .menuCard_imgContainer {
     position: relative;
-    width: calc(100vw / 5); /* The size you want */
+    width: 200px; /* The size you want */
 }
 .menuCard_imgContainer::after {
     content: "";
