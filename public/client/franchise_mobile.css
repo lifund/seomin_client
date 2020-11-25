@@ -230,6 +230,8 @@ main > h3 {
 }
 .cost_container > p{
     margin-top: 20px;
+    line-height: 150%;
+    word-break: keep-all;
 }
 #cost_alert {
     margin-left: 10px;
