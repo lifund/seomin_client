@@ -42,6 +42,7 @@ button:hover, a:hover {
     height: 56px;
     position: fixed;
     box-shadow: var(--shadow);
+    z-index: 1;
 }
 #headerContainer{
     display: flex;
@@ -149,6 +150,12 @@ main > h3 {
     font-size: 100px;
     color: var(--color-tint-gray);
     line-height: 60%;
+}
+
+@media only screen and (min-width: 1000px){
+    .step_number {
+        right: calc(calc(100% - 1000px) / 2 + 20px);
+    }
 }
 
 /*-------------------- cost --------------------*/
