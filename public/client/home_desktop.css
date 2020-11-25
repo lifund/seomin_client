@@ -30,7 +30,7 @@ button:hover, a:hover {
     --color-dark-gray: #6d6d6d;
 
     --color-tint-gray: #F0F0F0;
-    --shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
+    --shadow: 4px 8px 12px 0px rgba(0,0,0,0.08);
 }
 [hidden] { display: none !important; }
 
@@ -165,7 +165,7 @@ main {
 
 /*-------------------- 추천 메뉴 --------------------*/
 #recommendation {
-    padding-top: 48px;
+    padding-top: 64px;
 }
 /* title */
 #recommendation_title {
@@ -191,10 +191,11 @@ main {
     margin-top: 16px;
     width: 100%;
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-y: visible;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    padding: 20px 0;
 }
 /* menu card */
 .menuCard:first-child {
@@ -209,7 +210,10 @@ main {
     vertical-align: top;
     scroll-snap-align: center;
     width: calc(100vw / 5);
-    height: calc(calc(100vw / 5) + 80px);
+    height: max-content;
+    box-shadow: var(--shadow);
+    padding-bottom: 40px;
+    border-radius: 40px;
 }
 .menuCard:hover{
     cursor: pointer;
@@ -223,7 +227,7 @@ main {
     display: block;
     padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
     background: #FFF; 
-    box-shadow: var(--shadow);
+    border-radius: 40px;
 }
 .menuCard_imgContainer > img {
     position: absolute; /* Take your picture out of the flow */
@@ -231,15 +235,17 @@ main {
     bottom: 0;
     left: 0;
     right: 0; /* Make the picture taking the size of it's parent */
-    width: 100%; /* This if for the object-fit */
-    height: 100%; /* This if for the object-fit */
+    width: calc(100% - 20px); /* This if for the object-fit */
+    height: calc(100% - 20px); /* This if for the object-fit */
     object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;
+    padding: 10px;
 }
 .menuCard > p {
-    font-weight: 700;
     margin-top: 10px;
-    white-space: pre-line;
+    font-weight: 700;
+    white-space: pre-wrap;
+    text-align-last: center;
 }
 .menuCard_price {
     margin-top: 10px;

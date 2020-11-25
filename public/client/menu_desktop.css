@@ -29,7 +29,7 @@ button:hover, a:hover {
     --color-light-gray: #D9D9D9;
     --color-dark-gray: #6d6d6d;
     --color-tint-gray: #F0F0F0;
-    --shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
+    --shadow: 4px 8px 12px 0px rgba(0,0,0,0.08);
 }
 [hidden] { display: none !important; }
 
@@ -129,6 +129,9 @@ main {
 #main_topping {
     display: grid;
     grid-template-columns: max-content max-content;
+    margin: 40px 0;
+    margin-left: 20px;
+    column-gap: 10px;
 }
 .main_topping_button {
     display: inline-block;
@@ -137,8 +140,6 @@ main {
     padding: 10px;
     background: #FFF;
     border-radius: 100px;
-    margin-left: 10px;
-    margin-bottom: 20px;
     cursor: pointer;
     box-shadow: var(--shadow);
 }
@@ -152,22 +153,48 @@ main {
     margin-top: 20px;
 }
 
+#setMenu, 
+#doughMenu, 
+#sideMenu {
+    margin-top: 40px;
+}
+#doughMenu {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content max-content max-content max-content ;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+
 .menuCard {
-    margin-left: 10px;
-    margin-bottom: 32px;
+    margin-left: 20px;
+    margin-bottom: 64px;
     display: inline-block;
     vertical-align: top;
-    width: calc(calc(100% - 40px) / 3);
+    width: calc(calc(100% - 80px) / 3);
     height: calc(calc(100% / 3) + 100px);
+    background: #FFF;    
+    border-radius: 40px;
+    padding-bottom: 40px;
 }
+
 #doughMenu > .menuCard {
     width: calc(100% - 60px);
+    height: calc(100% - 60px);
     background: #FFF;
-    padding: 20px;
+    padding: 30px;
+    margin: 0;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
 }
 .menuCard:hover{
     cursor: pointer;
 }
+#doughMenu > .menuCard:hover {
+    cursor: default;
+}
+
 .menuCard_imgContainer {
     position: relative;
     width: 100%; /* The size you want */
@@ -177,7 +204,7 @@ main {
     display: block;
     padding-bottom: 100%; /* The  padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
     background: #FFF; 
-    box-shadow: var(--shadow);
+    border-radius: 40px;
 }
 .menuCard_imgContainer > img {
     position: absolute; /* Take your picture out of the flow */
@@ -185,17 +212,21 @@ main {
     bottom: 0;
     left: 0;
     right: 0; /* Make the picture taking the size of it's parent */
-    width: 100%; /* This if for the object-fit */
-    height: 100%; /* This if for the object-fit */
+    width: calc(100% - 20px); /* This if for the object-fit */
+    height: calc(100% - 20px); /* This if for the object-fit */
     object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;
+    padding: 10px;
 }
 .menuCard_productName {
+    font-size: 16px;
     font-weight: 700;
     margin-top: 10px;
     white-space: pre-line;
+    text-align: center;
 }
 #doughMenu > .menuCard > .menuCard_productName {
+    text-align: left;
     margin-top: 0;
 }
 .menuCard_price {
