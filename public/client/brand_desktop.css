@@ -2,6 +2,14 @@
 /*----------------------------------------------*/
 /*-------------------- 공통 --------------------*/
 /*----------------------------------------------*/
+@font-face {
+    font-family: 'chosun_ilbo_myungjo.ttfRg';
+    src: url('chosun_ilbo_myungjo.woff2') format('woff2'),
+         url('chosun_ilbo_myungjo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 * {
     font-family: 'NanumSquare', sans-serif;
@@ -54,6 +62,7 @@ button:hover, a:hover {
 header > a > svg{
     padding: 10px 0;
     height: 36px;
+    width: 56px;
 }
 header > svg{
     display: none;
@@ -69,7 +78,7 @@ nav {
     margin-bottom: auto;
 }
 nav > a{
-    margin-right: 64px;
+    margin-left: 64px;
     color: black;
     width: max-content;
 
@@ -99,18 +108,41 @@ main {
     padding-top: 72px;
     margin-left: auto;
     margin-right: auto;
-
+    padding-bottom: 80px;
 }
-main > h2 {
-    padding-top: 48px;
-    margin-left: 16px;
+.container {
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    column-gap: 100px;
 }
-.brand_container {
-    padding: 30px 20px;
-    margin: 20px 10px;
-
-    font-size: 14px;
+.title {    
+    font-size: 60px;
+    font-family: 'chosun_ilbo_myungjo.ttfRg', serif;
+    font-weight: 100;
+    color: #b9adad;
+}
+#concept_text {
+    font-size: 18px;
+    line-height: 200%;
     color: var(--color-dark-gray);
-    background-color: #fff;
-    box-shadow: var(--shadow);
+}
+#concept_quote {
+    font-size: 20px;
+    font-family: 'chosun_ilbo_myungjo.ttfRg', serif;
+    color:  #998282;
+}
+
+#history_container{
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    column-gap: 100px;
+}
+
+.history_text{
+    font-size: 18px;
+    line-height: 200%;
+    color: var(--color-dark-gray);
+    margin-bottom: 20px;
 }

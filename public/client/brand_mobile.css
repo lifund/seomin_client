@@ -130,18 +130,43 @@ main {
     margin-top: 56px;
     margin-left: auto;
     margin-right: auto;
-
+    padding-bottom: 80px;
 }
-main > h2 {
-    padding-top: 48px;
-    margin-left: 16px;
+.container {
+    padding: 0 20px;
+    padding-top: 80px;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+    row-gap: 60px;
 }
-.brand_container {
-    padding: 30px 20px;
-    margin: 20px 10px;
-
-    font-size: 14px;
+.title {    
+    font-size: 60px;
+    font-family: 'chosun_ilbo_myungjo.ttfRg', serif;
+    font-weight: 100;
+    color: #b9adad;
+}
+#concept_text {
+    font-size: 16px;
+    line-height: 200%;
     color: var(--color-dark-gray);
-    background-color: #fff;
-    box-shadow: var(--shadow);
+
+}
+#concept_quote {
+    font-size: 20px;
+    font-family: 'chosun_ilbo_myungjo.ttfRg', serif;
+    color:  #998282;
+}
+
+#history_container{
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    column-gap: 100px;
+}
+
+.history_text{
+    font-size: 18px;
+    line-height: 200%;
+    color: var(--color-dark-gray);
+    margin-bottom: 20px;
 }

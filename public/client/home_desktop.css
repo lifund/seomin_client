@@ -50,11 +50,11 @@ button:hover, a:hover {
     margin: auto;
 }
 
-
 /*-------------------- header --------------------*/
 header > a > svg{
     padding: 10px 0;
     height: 36px;
+    width: 56px;
 }
 header > svg{
     display: none;
@@ -71,7 +71,7 @@ nav {
     z-index: 1;
 }
 nav > a{
-    margin-right: 64px;
+    margin-left: 64px;
     color: black;
     width: max-content;
 
