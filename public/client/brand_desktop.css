@@ -202,6 +202,8 @@ main {
     padding-left: 4px;
     display: inline-block;
     color: var(--color-main);
+    font-size: 18px;
+    font-weight: 900;
 }
 #image_title > h4 {
     margin-top: 10px;
