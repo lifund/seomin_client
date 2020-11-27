@@ -341,7 +341,7 @@ main {
     right: 0;
     top: 0;
     background: rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
+    border-radius: 100px;
 }
 #popup_productName {
     font-weight: 700;

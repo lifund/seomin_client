@@ -448,6 +448,7 @@ footer {
     position: absolute;
     right: 0;
     top: 0;
+    border-radius: 100;
 }
 #popup_productName {
     font-weight: 700;

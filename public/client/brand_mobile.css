@@ -245,25 +245,18 @@ main {
 
 
 #imagePopup {
+    width: auto;
+    height: auto;
     z-index: 10;
-    
+
     position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 80vw;
-    margin: 0 auto;
-
-    border-radius: 4px;
-    background: white;
-    box-shadow: var(--shadow);
-
-    padding: 15px 5px;
-    display: flex;
+    left: 10px;
+    top: 50vh;
+    transform: translateY(-50%);
 }
 #imagePopup > img {
-    max-width: 100%;
+    width: calc(100vw - 20px);
+    border-radius: 4px;
 }
 #imagePopup > svg {
     background: white;
@@ -273,6 +266,10 @@ main {
     margin-top: 10px;
     margin-right: 10px;
     cursor: pointer;
+
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 #imagePopup > svg:hover{
     filter: opacity(1);
