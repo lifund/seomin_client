@@ -262,6 +262,7 @@ main {
     display: flex;
 }
 #imagePopup > img {
+    height: auto;
     max-width: 90vw;
 }
 #imagePopup > svg {
