@@ -45,7 +45,7 @@ header {
     display: flex;
     background: #fff;
     box-shadow: var(--shadow);
-    z-index: 1;
+    z-index: 3;
 }
 header > a {
     margin: auto;
@@ -390,7 +390,7 @@ main > h5{
     width: 100vw;
     height: 100vh;
     
-    z-index: 2;
+    z-index: 4;
     position: fixed;
     top: 0px;
     left: 0px;
