@@ -142,6 +142,7 @@
 
 
         <h2>매출 대비 수익성</h2>
+        <h5>( 가격표를 오른쪽으로 스크롤해보세요 )</h5>
         <div id="revenue_grid">
             <table id="revenue_table_left">
                 <tr>
@@ -232,16 +233,87 @@
                 </table>
             </div>
         </div>
-        <h5>( 가격표를 오른쪽으로 스크롤해보세요 )</h5>
         <h4 id="cost_alert">*위는 예상 매출 및 수익성에 관한내용이며 점포 환경에 따라 달라 질수있습니다.</h4>
 
-
-
-
+        <div id="grid_bottom">
+            <div id="grid_bottom_title">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.99 2C19.99 0.9 19.1 0 18 0H2C0.9 0 0 0.9 0 2V14C0 15.1 0.9 16 2 16H16L20 20L19.99 2ZM18 2V15.17L16.83 14H2V2H18ZM16 10H4V12H16V10ZM4 7H16V9H4V7ZM16 4H4V6H16V4Z" fill="#A02828"/></svg>
+                <h3>서민피자의 많은 후기들</h3>
+            </div>
+            <h4>이미지를 클릭하여 크게 보기 +</h4>
+            <div id="grid_bottom_imageContainer">
+                <img class="grid_bottom_image" src="public/review/1.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/2.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/3.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/4.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/5.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/6.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/7.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/8.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/9.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/10.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/11.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/12.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/13.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/14.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/15.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/16.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/17.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/18.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/19.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/20.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/21.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/22.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/23.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/24.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/25.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/26.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/27.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/28.jpeg" alt="">
+                <img class="grid_bottom_image" src="public/review/29.jpeg" alt="">
+            </div>
+        </div>
+        
+        <div id="imagePopup" hidden>
+            <svg id="imagePopup_close" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"/><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div id="imagePopupOverlay" hidden></div>
 
     </main>
 
     <script>
+
+        /*-------------------- Review popup --------------------*/
+        var imagePopup = document.getElementById('imagePopup');
+        var imagePopupOverlay = document.getElementById('imagePopupOverlay');
+        var grid_bottom_image = document.getElementsByClassName('grid_bottom_image');
+
+        function removePopup() {
+            imagePopup.setAttribute('hidden','');
+            imagePopupOverlay.setAttribute('hidden','');
+        }
+
+        for (let i = 0; i < grid_bottom_image.length; i++) {
+            var image = grid_bottom_image[i];
+            image.addEventListener('click',function (ev) {
+                imagePopup.innerHTML = '';
+                var popupImage = document.createElement('img');
+                popupImage.src = ev.currentTarget.src;
+                imagePopup.appendChild(popupImage);
+                imagePopup.innerHTML += '<svg id="imagePopup_close" width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"/><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"/></svg>'
+                var imagePopup_close = document.getElementById('imagePopup_close');
+                imagePopup_close.addEventListener('click',function (ev) {
+                    removePopup();
+                });
+                imagePopup.removeAttribute('hidden');
+                imagePopupOverlay.removeAttribute('hidden');
+            })
+        }
+        imagePopupOverlay.addEventListener('click',function (ev) {
+            removePopup();
+        });
+        
+
         /*-------------------- NAV CSS --------------------*/
         var nav = document.querySelector('nav');
         var navButton_enter = document.getElementById('navButton_enter');
