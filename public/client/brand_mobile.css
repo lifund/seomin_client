@@ -245,7 +245,6 @@ main {
 
 
 #imagePopup {
-    height: auto;
     max-width: 80vw;
     z-index: 10;
 
@@ -262,7 +261,6 @@ main {
     display: flex;
 }
 #imagePopup > img {
-    height: auto;
     max-width: 80vw;
 }
 #imagePopup > svg {
