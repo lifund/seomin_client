@@ -360,6 +360,7 @@ main {
 #popup_container {
     width: 300px;
     padding-top: 20px;
+    padding-right: 20px;
     background: var(--color-tint-gray);
     border-radius: 0 20px 20px 0;
 }

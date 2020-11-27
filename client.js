@@ -34,7 +34,7 @@ app.get('/robots.txt',(req,res)=>{
 	res.sendFile(path.join(__dirname,'public/robots.txt'));
 })
 app.get('/',(req,res)=>{
-	res.redirect('/temp');
+	res.redirect('/home');
 });
 app.get('/temp',(req,res)=>{
 	res.sendFile(path.join(__dirname,'public/temp.html'));
