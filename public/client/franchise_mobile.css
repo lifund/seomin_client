@@ -44,7 +44,6 @@ header {
     height: 56px;
     display: flex;
     background: #fff;
-    z-index: 100;
     box-shadow: var(--shadow);
 }
 header > a {
