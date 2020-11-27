@@ -127,7 +127,6 @@ nav {
 html, body {
     background-color: var(--color-tint-gray);
 }
-img { max-width: 100%;}
 main {
     padding: 72px 10px;
     margin-left: auto;
@@ -208,6 +207,7 @@ main {
     grid-column: auto / span 2;
 }
 #grid_all > img {
+    max-width: 100%;
 
     transition: all .2s ease-in-out;
     margin-bottom: 20px;
