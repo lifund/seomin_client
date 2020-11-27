@@ -119,7 +119,7 @@ main {
     max-width: 1000px;
     
     display: grid;
-    grid-template-columns: 450px 450px;
+    grid-template-columns: 550px 350px;
     grid-template-areas: 
     'grid_left grid_right'
     'grid_bottom grid_bottom';
@@ -137,6 +137,7 @@ main {
 
 #grid_left > h2 {
     margin-top: 80px;
+    padding-bottom: 20px;
     
     color: var(--color-main);
     font-size: 18px;
@@ -144,7 +145,7 @@ main {
 }
 #grid_left > p {
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 32px;
     line-height: 170%;
     color: var(--color-dark-gray);
     word-break: keep-all;
@@ -178,7 +179,7 @@ main {
 
 
 #grid_bottom {
-    margin-top: 80px;
+    margin-top: 40px;
 }
 #grid_bottom_title {
     margin: auto;
