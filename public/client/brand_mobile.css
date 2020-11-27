@@ -245,7 +245,7 @@ main {
 
 
 #imagePopup {
-    max-width: 90vw;
+    max-height: 80vw;
     z-index: 10;
 
     position: fixed;
@@ -261,8 +261,8 @@ main {
     display: flex;
 }
 #imagePopup > img {
-    height: auto;
-    max-width: 90vw;
+    width: auto;
+    max-height: 80vw;
 }
 #imagePopup > svg {
     background: white;
