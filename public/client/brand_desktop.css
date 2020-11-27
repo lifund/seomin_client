@@ -278,7 +278,6 @@ main {
 #imagePopup > img {
     
     max-width: 50vw;
-    height: auto;
     max-height: 80vh;
 }
 #imagePopup > svg {
