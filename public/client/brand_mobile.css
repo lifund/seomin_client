@@ -245,13 +245,15 @@ main {
 
 
 #imagePopup {
-    max-width: 80vw;
     z-index: 10;
-
+    
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+
+    max-width: 80vw;
+    margin: 0 auto;
 
     border-radius: 4px;
     background: white;
@@ -261,7 +263,7 @@ main {
     display: flex;
 }
 #imagePopup > img {
-    max-width: 80vw;
+    max-width: 100%;
 }
 #imagePopup > svg {
     background: white;
