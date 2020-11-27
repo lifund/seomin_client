@@ -299,27 +299,20 @@ main > h5{
 
 
 
-
 #imagePopup {
-    max-width: 80vw;
-    max-height: 80vh;
+    width: auto;
+    height: auto;
     z-index: 10;
 
     position: fixed;
-    left: 50%;
-    top: 50%;
+    left: 50vw;
+    top: 50vh;
     transform: translate(-50%, -50%);
-
-    border-radius: 4px;
-    background: white;
-    box-shadow: var(--shadow);
-
-    padding: 15px 5px;
-    display: flex;
 }
 #imagePopup > img {
+    max-height: 90vh;
     max-width: 50vw;
-    max-height: 80vh;
+    border-radius: 4px;
 }
 #imagePopup > svg {
     background: white;
@@ -329,6 +322,10 @@ main > h5{
     margin-top: 10px;
     margin-right: 10px;
     cursor: pointer;
+
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 #imagePopup > svg:hover{
     filter: opacity(1);
@@ -337,7 +334,7 @@ main > h5{
     width: 100vw;
     height: 100vh;
     
-    z-index: 1;
+    z-index: 4;
     position: fixed;
     top: 0px;
     left: 0px;
