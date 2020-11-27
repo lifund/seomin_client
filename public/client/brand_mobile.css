@@ -252,7 +252,7 @@ main {
     top: 50%;
     transform: translate(-50%, -50%);
 
-    max-width: 80vw;
+    width: 80vw;
     margin: 0 auto;
 
     border-radius: 4px;
