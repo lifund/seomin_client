@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 
 /*----------------------------------------------*/
 /*-------------------- 공통 --------------------*/
@@ -41,9 +48,12 @@ button:hover, a:hover {
     background: #fff;
     height: 56px;
     position: fixed;
-    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
 }
 #headerContainer{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     max-width: 1000px;
     margin: auto;
@@ -66,6 +76,8 @@ nav > a > svg {
     display: none;
 }
 nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
@@ -73,6 +85,8 @@ nav {
 nav > a{
     margin-left: 64px;
     color: black;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
 
 }
@@ -154,7 +168,8 @@ main > h2 {
     margin-right: auto;
     width: 400px;
     background: #FFF;
-    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
 
     padding-bottom: 10px;
 }
@@ -188,6 +203,8 @@ main > h2 {
 .regionList {
     border-top: 1px solid var(--color-light-gray);
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 .regionList:hover{
@@ -204,7 +221,9 @@ main > h2 {
 
 /*-------------------- shop list --------------------*/
 #shopList{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 80px;
 }
@@ -216,16 +235,23 @@ main > h2 {
     padding: 16px;
     background: #FFF;
 
+    display: -ms-grid;
+
     display: grid;
-    grid-template-areas: 
+        grid-template-areas: 
     'shopName shopName callButton'
     'shopAddress shopAddress callButton'
     'shopPhone shopPhone callButton'
     'shopHours shopHours callButton';
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     row-gap: 8px;
 }
 .shopName {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     display: inline-block;
     font-size: 16px;
     grid-area: shopName;
@@ -234,21 +260,33 @@ main > h2 {
     margin-left: 10px;
 }
 .shopAddress{
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     font-size: 14px;
     color: var(--color-dark-gray);
     grid-area: shopAddress;
 }
 .shopPhone{
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     font-size: 14px;
     color: var(--color-dark-gray);
     grid-area: shopPhone;
 }
 .shopHours{
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
     font-size: 14px;
     color: var(--color-dark-gray);
     grid-area: shopHours;
 }
 .shopCard > a {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 7;
+    -ms-grid-column: 3;
     text-align: right;
     grid-area: callButton;
 }
