@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 
 /*----------------------------------------------*/
 /*-------------------- 공통 --------------------*/
@@ -49,11 +56,14 @@ button:hover, a:hover {
     width: 100%;
     background: #fff;
     height: 56px;
-    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
     position: fixed;
     z-index: 1;
 }
 #headerContainer{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     max-width: 1000px;
     margin: auto;
@@ -75,6 +85,8 @@ nav > a > svg {
     display: none;
 }
 nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
@@ -83,6 +95,8 @@ nav {
 nav > a{
     margin-left: 64px;
     color: black;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
 
 }
@@ -121,26 +135,38 @@ main {
 @media only screen and (max-width: 1000px) {
     main { 
         padding: 72px 20px;
+        -ms-grid-columns: calc(50vw - 50px) 60px calc(50vw - 50px);
         grid-template-columns: calc(50vw - 50px) calc(50vw - 50px);
-        column-gap: 60px;
+        -webkit-column-gap: 60px;
+           -moz-column-gap: 60px;
+                column-gap: 60px;
     }
 }
 
 #grid_all{
     margin-top: 80px;
 
+    display: -ms-grid;
+
     display: grid;
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr;
     grid-template-columns: repeat(12,1fr);
+    -ms-grid-rows: (1fr)[fit-content];
+    grid-template-rows: repeat(-webkit-fit-content,1fr);
     grid-template-rows: repeat(fit-content,1fr);
-    grid-template-areas: 
+        grid-template-areas: 
     'text_title image_title'
     'text_container ';
-    column-gap: 20px;
+    -webkit-column-gap: 20px;
+       -moz-column-gap: 20px;
+            column-gap: 20px;
 }
 
 
 
 #text_title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
     grid-area: text_title;
     grid-column: auto / span 8;
 
@@ -151,6 +177,8 @@ main {
     font-weight: 900;
 }
 #text_container{
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
     padding-right: 80px;
 
     grid-area: text_container;
@@ -188,15 +216,23 @@ main {
 
 
 #image_title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
     grid-area: image_title;
     grid-column: auto / span 4;
     
     padding-bottom: 20px;
 }
 #image_title_top{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: -webkit-max-content -webkit-max-content;
+    -ms-grid-columns: max-content max-content;
+    grid-template-columns: -webkit-max-content -webkit-max-content;
     grid-template-columns: max-content max-content;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 #image_title_top > h3 {
     padding-left: 4px;
@@ -225,25 +261,34 @@ main {
 #grid_all > img {
     grid-column: auto / span 4;
 
+    -webkit-transition: all .2s ease-in-out;
+
+    -o-transition: all .2s ease-in-out;
+
     transition: all .2s ease-in-out;
     margin-bottom: 20px;
 
     padding: 20px 0;
     background: #FFF;
-    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
     border-radius: 4px;
     
     margin-bottom: 20px;
 }
 #grid_all > img:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
 }
 
 
 
 
 #reviewImage { 
+    -webkit-transition: all .2s ease-in-out; 
+    -o-transition: all .2s ease-in-out; 
     transition: all .2s ease-in-out;
     padding: 15px 5px;
     width: calc(100% - 20px);
@@ -252,7 +297,9 @@ main {
 }
 #reviewImage:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
 }
 
 
@@ -269,7 +316,9 @@ main {
     position: fixed;
     left: 50vw;
     top: 50vh;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 #imagePopup > img {
     max-height: 90vh;
@@ -278,8 +327,10 @@ main {
 }
 #imagePopup > svg {
     background: white;
-    filter: opacity(0.7);
-    box-shadow: var(--shadow);
+    -webkit-filter: opacity(0.7);
+            filter: opacity(0.7);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
     border-radius: 100px;
     margin-top: 10px;
     margin-right: 10px;
@@ -290,7 +341,8 @@ main {
     top: 0;
 }
 #imagePopup > svg:hover{
-    filter: opacity(1);
+    -webkit-filter: opacity(1);
+            filter: opacity(1);
 }
 #imagePopupOverlay {
     width: 100vw;
