@@ -1,0 +1,508 @@
+/*----------------------------------------------*/
+/*-------------------- 공통 --------------------*/
+/*----------------------------------------------*/
+
+* {
+    font-family: 'NanumSquare', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+}
+html, body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+p,h1,h2,h3,h4,h5,h6,a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+button:hover, a:hover {
+    cursor: pointer;
+}
+
+:root {
+    --color-blue: #4C95F7;
+    --color-pink:  #FF6672;
+    --color-light-gray: #D9D9D9;
+    --color-dark-gray: #6d6d6d;
+    --color-tint-gray: #F0F0F0;
+    --shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+}
+[hidden] { display: none !important; }
+
+
+/*-------------------- header --------------------*/
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    background: #fff;
+    z-index: 1;
+    box-shadow: var(--shadow);
+}
+header > a {
+    margin: auto;
+}
+header > a > svg{
+    padding: 10px 0;
+    height: 36px;
+}
+header > svg {
+    position: absolute;
+    right: 0;
+}
+
+/*-------------------- nav --------------------*/
+@keyframes nav_enter {
+    0% { 
+        clip-path: inset(0 0 100% 0);
+        background: rgba(255,255,255,0.5); 
+    }
+    100% { 
+        clip-path: inset(0);
+        background: rgba(255,255,255,1.0);
+    }
+}
+@keyframes nav_leave {
+    0% { 
+        clip-path: inset(0);
+        background: rgba(255,255,255,1.0);
+    }
+    100% { 
+        clip-path: inset(0 0 100% 0);
+        background: rgba(255,255,255,0.5);
+    }
+}
+.nav_enter {
+    animation: 0.3s nav_enter;
+    animation-fill-mode: forwards;
+}
+.nav_leave {
+    animation: 0.3s nav_leave; 
+    animation-fill-mode: forwards;
+}
+nav {
+    width: 100%;
+    position: fixed;
+    top: 56px;
+    clip-path: inset(0 0 100% 0);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    z-index: 1;
+}
+.navButton {
+    height: 56px;
+    width: calc(100% - 32px);
+    margin: auto;
+    border-bottom: 1px solid #999999;
+
+    display: flex;
+}
+.navButton:last-child {
+    border: none;
+}
+.navButton > svg {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.navButton > p {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    padding-left: 1rem;
+    font-weight: 700;
+    color: black;
+}
+
+/*-------------------- 하단 배너 (div) --------------------*/
+#lowerBanner {
+    position: fixed;
+    height: 56px;
+    bottom: -1px;
+    width: 100%;
+    z-index: 1;
+}
+#lowerBanner_container {
+    max-width: 1000px;
+    height: 100%;
+
+    padding: 0 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display : flex;
+    align-items : center;
+    justify-content: center;
+}
+#lowerBanner_container > p {
+    display: block;
+
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+}
+#lowerBanner_container > a {
+    margin-left: auto;
+    order: 2;
+    border-radius: 100px;
+
+    padding: 0rem 1.2rem ;
+    padding-top: 16px;
+    line-height: 0;
+    height: 16px;
+
+    color: white;
+    background-color: var(--color-blue);
+    font-size: 0.9rem;
+    font-weight: 900;
+}
+
+
+
+
+/*----------------------------------------------*/
+/*-------------------- main --------------------*/
+/*----------------------------------------------*/
+main {
+    margin-top: 56px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*-------------------- 배너 슬라이더 --------------------*/
+#banner_slider {
+    height: 100vw;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+#banner_slider img {
+    display: inline-block;
+    scroll-snap-align: center;
+    height: 100%;
+    width:100%;
+}
+
+/*-------------------- 추천 메뉴 --------------------*/
+#recommendation {
+    padding-top: 48px;
+}
+/* title */
+#recommendation_title {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    display: flex;
+}
+#recommendation_title > h2 {
+    margin-right: auto;
+    order: 1;
+}
+#recommendation_title > a {
+    margin-left: auto;
+    order: 2;
+    color: var(--color-blue);
+}
+#recommendation_title > a > svg {
+    display: block;
+    margin-top: 4px;
+}
+
+#recommendation_slider {
+    margin-top: 16px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+}
+/* menu card */
+.menuCard:first-child {
+    margin-left: 16px;
+}
+.menuCard:last-child {
+    margin-right: 16px;
+}
+.menuCard {
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    scroll-snap-align: center;
+    width: calc(100vw / 2.5);
+    background: #FFF; 
+    border-radius: 40px;
+    padding-bottom: 30px;
+    box-shadow: var(--shadow);
+}
+.menuCard:hover{
+    cursor: pointer;
+}
+.menuCard_imgContainer {
+    position: relative;
+    width: 100%; /* The size you want */
+}
+.menuCard_imgContainer::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+    border-radius: 40px;
+}
+.menuCard_imgContainer > img {
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: calc(100% - 20px); /* This if for the object-fit */
+    height: calc(100% - 20px); /* This if for the object-fit */
+    object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
+    object-position: center;
+    padding: 10px;
+}
+.menuCard > p {
+    display: block;
+    font-weight: 700;
+    margin-top: 10px;
+    white-space: pre-wrap;
+    text-align: center;
+    padding: 0 1px;
+}
+.menuCard_price {
+    margin-top: 10px;
+    display: flex;
+}
+.menuCard_price_size {
+    display: inline-block;
+    width: 16px;
+    border-radius: 10px;
+    
+    height: 8px;
+    padding-top: 8px;
+    line-height: 0;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    color: white;
+    background: var(--color-pink);
+} 
+.menuCard_price_value {
+    margin-left: 2px;
+    padding-top: 2px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-pink);
+}
+.menuCard_price_won {
+    padding-top: 2px;
+    font-size: 14px;
+}
+
+
+/*-------------------- 섹션 구분선 --------------------*/
+.section_line {
+    display: none;
+    height: 10px;
+    width: 100%;
+    margin-top: 48px;
+    background-color: #E5E5E5;
+}
+
+/*-------------------- 프렌차이즈 안내 --------------------*/
+#franchise {
+    margin-top: 48px;
+}
+#franchise > h2 {
+    margin-left: 16px;
+    margin-bottom: 16px;
+}
+.franchise_button {
+    display: block;
+    margin: 10px 10px;
+    width: calc(100% - 20px - 48px);
+
+    padding: 24px;
+    background-color: var(--color-pink);
+    color: white;
+}
+.franchise_button > div {
+    display: flex;
+}
+.franchise_button > div > p {
+    display: inline-block;
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    padding-left: 10px;
+    font-size: 24px;
+    font-weight: 900;
+}
+/* 내용 */
+.franchise_button > p:first-of-type {
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 32px;
+    word-break: keep-all;
+}
+.franchise_emphasize {
+    border: 2px solid white;
+    background: #FFF;
+    color: var(--color-pink);
+    font-size: 18px;
+    padding: 2px 4px;
+    padding-top: 4px;
+}
+/* 자세히보기 */
+.franchise_button > p:last-of-type {
+    margin-top: 24px;
+}
+
+/*-------------------- 푸터 --------------------*/
+footer {
+    margin-top: 48px;
+    padding: 16px;
+    padding-top: 32px;
+    padding-bottom: 80px;
+    background-color: var(--color-light-gray);
+
+    color: var(--color-dark-gray);
+}
+#footer_container > a {
+    margin-right: 10px;
+    font-size: 14px;
+}
+#footer_container > p {
+    font-size: 14px;
+    line-height: 120%;
+}
+
+
+/*-------------------- menu detail popup --------------------*/
+#menuPopupOverlay {
+
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.8);
+}
+#menuPopup {
+    width: calc(100vw - 40px);
+    padding-bottom: 20px;
+    
+    z-index: 10;
+    position: fixed;
+    top: calc( 80px - 20px );
+    left: 20px;
+
+    border-radius: 20px;
+
+    background: var(--color-tint-gray);
+    box-shadow: var(--shadow);
+}
+
+
+#menuPopup_imgContainer{
+    position: relative;
+    width: calc(100vw - 40px); /* The size you want */
+    background: #FFF;
+    border-radius: 20px 20px 0 0;
+}
+#menuPopup_imgContainer::after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+#menuPopup_imgContainer> img{
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: calc(100% - 20px); /* This if for the object-fit */
+    height: calc(100% - 20px); /* This if for the object-fit */
+    object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
+    object-position: center;  
+    border-radius: 20px 20px 0 0;
+    padding: 10px;
+}
+
+
+#removeMenuPopup {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 100;
+}
+#popup_productName {
+    font-weight: 700;
+    margin-top: 16px;
+    margin-left: 16px;
+}
+#popup_price {
+    margin-top: 10px;
+    margin-right: 2px;
+    margin-left: 16px;
+    display: flex;
+}
+.popup_price_size {
+    display: inline-block;
+    width: 16px;
+    border-radius: 10px;
+    
+    height: 8px;
+    padding-top: 8px;
+    line-height: 0px;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    color: white;
+    background: var(--color-pink);
+} 
+.popup_price_value {
+    padding-top: 2px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-pink);
+}
+.popup_price_won {
+    padding-top: 2px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+#popup_description_long {
+    display: block;
+    margin-top: 10px;
+    margin-left: 16px;
+    margin-right: 16px;
+
+    height: 100px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 150%;
+    color: var(--color-dark-gray);
+}
