@@ -66,3 +66,8 @@ nav {
     display: table-cell;
     display: flex;    
 }
+nav > a{
+    margin-left: 64px;
+    color: black;
+    width: max-content;
+}
