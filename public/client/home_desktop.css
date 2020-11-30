@@ -130,7 +130,6 @@ main {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 56px;
     padding-bottom: 80px;
 }
 
@@ -139,10 +138,12 @@ main {
     height: 370px;
     width: 1000px;
     margin: auto;
+
+    padding-top: 56px;
+
     overflow-x: hidden;
     overflow-y: hidden;
     white-space: nowrap;
-    scroll-behavior: smooth;
 }
 #banner_slider img {
     display: inline-block;
