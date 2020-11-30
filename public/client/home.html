@@ -236,14 +236,18 @@
             document.getElementById('menuPopupOverlay').setAttribute('hidden','');
         }
 
-        document.querySelectorAll('.menuCard').forEach(function(menuCard){
+
+
+        var menuCard_arr = document.getElementsByClassName('.menuCard');
+        for (let i = 0; i < menuCard_arr.length; i++) {
+            var menuCard = menuCard_arr[i];
             menuCard.addEventListener('click',function(ev){
                 var popup = document.querySelector('#menuPopup');
                 if (popup.hasAttribute('hidden')){
                     showMenuPopup( JSON.parse (decodeURIComponent( ev.currentTarget.getAttribute('data-all'))));
                 }
             },false)
-        });
+        }
 
         document.getElementById('menuPopupOverlay').addEventListener('click',function(ev){
             if(ev.target.id=='menuPopupOverlay'){
