@@ -137,11 +137,11 @@ main {
 /*-------------------- 배너 슬라이더 --------------------*/
 #banner_slider {
     height: 370px;
-    width: 100%;
-    overflow-x: scroll;
+    width: 1000px;
+    margin: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
     white-space: nowrap;
-    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
 #banner_slider img {
