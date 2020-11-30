@@ -183,7 +183,7 @@
         /*------------------------------------------------*/
         /*-------------------- ALL --------------------*/
         /*-------------------- BANNER SCROLL --------------------*/
-        setInterval(() => {
+        setInterval(function(){
             var scrollLeft = document.getElementById('banner_slider').scrollLeft;
             var imageCount = document.getElementsByClassName('banner_image').length;
             var scrollWidth = document.getElementById('banner_slider').scrollWidth/imageCount;
