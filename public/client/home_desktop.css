@@ -76,3 +76,13 @@ nav > a{
     padding-left: 64px;
     color: black;
 }
+
+/*-------------------- 하단 배너 (div) --------------------*/
+#lowerBanner {
+    position: fixed;
+    height: 80px;
+    bottom: -1px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
