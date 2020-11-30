@@ -86,3 +86,69 @@ nav > a{
     background-color: #fafafa;
     z-index: 1;
 }
+#lowerBanner_container {
+    max-width: 1000px;
+    height: 100%;
+    margin: auto;
+
+    padding: 0 16px;
+
+    display : table;
+}
+#lowerBanner_container > p {
+    display: table-cell;
+    vertical-align: middle;
+
+    color: #000000;
+    font-weight: 700;
+    font-size: 24px;
+}
+#lowerBanner_button_container {
+    display: table-cell;
+    vertical-align: middle;
+    border-spacing: 10px;
+    padding-left: 40px;
+}
+#lowerBanner_button_container > a {
+    display: table-cell;
+    padding: 0 20px;
+
+    height: 60px;
+    line-height: 60px;
+
+    color: white;
+    background-color: #4C95F7;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 100px;
+}
+
+
+/*-------------------- main --------------------*/
+/*----------------------------------------------*/
+main {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 56px;
+    padding-bottom: 80px;
+}
+
+/*-------------------- 배너 슬라이더 --------------------*/
+#banner_slider {
+    height: 370px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+#banner_slider img {
+    display: inline-block;
+    scroll-snap-align: center;
+    height: 100%;
+    width:100%;
+    object-fit: cover;
+}
+
