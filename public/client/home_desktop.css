@@ -153,3 +153,131 @@ main {
     object-fit: cover;
 }
 
+
+/*-------------------- 추천 메뉴 --------------------*/
+#recommendation {
+    padding-top: 64px;
+}
+/* title */
+#recommendation_title {
+    padding-left: 16px;
+}
+#recommendation_title > h2 {
+    display: inline;
+}
+#recommendation_title > a {
+    display: inline;
+    color: #4C95F7;
+}
+#recommendation_title > a > svg {
+    display: block;
+    margin-top: 4px;
+}
+
+/* slider */
+#recommendation_slider {
+    margin-top: 16px;
+    width: 100%;
+    padding: 20px 0;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+}
+@media only screen and (max-width: 1000px){
+    #recommendation_slider_insetShadow {
+        display: none;
+    }
+}
+#recommendation_slider_insetShadow {
+    position: absolute;
+    top: 532px;
+    right: calc(calc(100% - 1000px) / 2);
+    height:286px;
+    width: 20px;
+    box-shadow: -10px 0 4px -6px rgba(0,0,0,0.08) inset;
+    z-index: 1;
+}
+
+/* menu card */
+.menuCard:first-child {
+    margin-left: 16px;
+}
+.menuCard:last-child {
+    margin-right: 16px;
+}
+.menuCard {
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    scroll-snap-align: center;
+    width: 200px;
+    height: max-content;
+    box-shadow: var(--shadow);
+    padding-bottom: 40px;
+    border-radius: 40px;
+}
+.menuCard:hover{
+    cursor: pointer;
+}
+.menuCard_imgContainer {
+    position: relative;
+    width: 200px; /* The size you want */
+}
+.menuCard_imgContainer::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+    background: #FFF; 
+    border-radius: 40px;
+}
+.menuCard_imgContainer > img {
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: calc(100% - 20px); /* This if for the object-fit */
+    height: calc(100% - 20px); /* This if for the object-fit */
+    object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
+    object-position: center;
+    padding: 10px;
+}
+.menuCard > p {
+    margin-top: 10px;
+    font-weight: 700;
+    white-space: pre-wrap;
+    text-align-last: center;
+}
+.menuCard_price {
+    margin-top: 10px;
+    display: flex;
+}
+.menuCard_price_size {
+    display: inline-block;
+    width: 16px;
+    border-radius: 10px;
+    
+    height: 8px;
+    padding-top: 8px;
+    line-height: 0;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    color: white;
+    background: var(--color-pink);
+} 
+.menuCard_price_value {
+    margin-left: 2px;
+    padding-top: 2px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-pink);
+}
+.menuCard_price_won {
+    padding-top: 2px;
+    font-size: 14px;
+}
