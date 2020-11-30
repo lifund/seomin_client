@@ -233,6 +233,7 @@ main {
     object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;
     padding: 10px;
+    border-radius: 40px;
 }
 
 .menuCard_productName {
