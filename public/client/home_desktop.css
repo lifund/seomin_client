@@ -50,7 +50,7 @@ button:hover, a:hover {
     margin: auto;
 }
 /*-------------------- header --------------------*/
-header > a > svg {
+header > a > img {
     padding: 10px 0;
     height: 36px;
     width: 56px;
