@@ -34,8 +34,7 @@ button:hover, a:hover {
 [hidden] { display: none !important; }
 
 
-/*-------------------- header --------------------*/
-
+/*-------------------- header container --------------------*/
 #headerMaster {
     position: fixed;
 
@@ -50,6 +49,7 @@ button:hover, a:hover {
     max-width: 1000px;
     margin: auto;
 }
+/*-------------------- header --------------------*/
 header > a > svg {
     padding: 10px 0;
     height: 36px;
@@ -57,4 +57,12 @@ header > a > svg {
 }
 header > svg {
     display: none;
+}
+/*-------------------- nav --------------------*/
+nav > a > svg {
+    display: none;
+}
+nav {
+    display: table-cell;
+    display: flex;    
 }
