@@ -10,7 +10,7 @@ const mulang = require('@lifund/mulang');
 var useragent = require('express-useragent');
 app.use(useragent.express());
 
-const port = 3100;
+const port = 3000;
 
 app.listen(port, ()=>{console.log('seomin client listening port:', port)});
 app.set('trust proxy', true);
