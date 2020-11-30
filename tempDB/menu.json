@@ -84,6 +84,9 @@
         "categoryName": "도우종류", "imageURL":"씬.jpg", "productName":"씬", "price":[{"size":"+","value":3000}], "description":{"short":"바싹하고 날씬한 얇은 도우!" ,"long":"바싹하고 날씬한 얇은 도우!"}, "mainPage":false
     },
     {
+        "categoryName": "세트메뉴", "imageURL":"원플러스원.jpg", "productName":"원플러스원", "price":[{"size":"M","value":22000},{"size":"L","value":25000}], "description":{"short":"원플러스원" ,"long":"스크린 (M.L선택 토핑선택)<br>치즈크러스트(M.L선택 토핑선택)<br>리치골드(M.L선택 토핑선택)<br>바이트(M.L선택 토핑선택)<br>치즈볼(M.L선택 토핑선택)<br>스윗크림치즈(M.L선택 토핑선택)"}, "mainPage":false
+    },
+    {
         "categoryName": "세트메뉴", "imageURL":"피자+순살치킨.jpeg", "productName":"피자+순살치킨", "price":[{"size":"M","value":22000},{"size":"L","value":25000}], "description":{"short":"피자+순살치킨" ,"long":"피자+순살치킨"}, "mainPage":false
     },
     {
@@ -93,7 +96,7 @@
         "categoryName": "세트메뉴", "imageURL":"세트2번.jpg", "productName":"세트2번", "price":[{"size":"","value":20000}], "description":{"short":"스크린피자M+사이드2선택" ,"long":"스크린피자M+사이드2선택"}, "mainPage":false
     },
     {
-        "categoryName": "세트메뉴", "imageURL":"세트3번.jpg", "productName":"스크린피자M+사이드3선택", "price":[{"size":"","value":23000}], "description":{"short":"스크린피자M+사이드3선택" ,"long":"스크린피자M+사이드3선택"}, "mainPage":false
+        "categoryName": "세트메뉴", "imageURL":"세트3번.jpg", "productName":"세트3번", "price":[{"size":"","value":23000}], "description":{"short":"스크린피자M+사이드3선택" ,"long":"스크린피자M+사이드3선택"}, "mainPage":false
     },
     {
         "categoryName": "세트메뉴", "imageURL":"치즈크러스트세트.jpg", "productName":"치즈크러스트세트", "price":[{"size":"L","value":25000},{"size":"M","value":23000}], "description":{"short":"치즈크러스트피자+사이드2선택" ,"long":"치즈크러스트피자+사이드2선택"}, "mainPage":false
@@ -111,10 +114,25 @@
         "categoryName": "세트메뉴", "imageURL":"러블리세트.jpg", "productName":"러블리세트", "price":[{"size":"L","value":30000},{"size":"M","value":28000}], "description":{"short":"러블리치즈볼피자+사이드2선택" ,"long":"러블리치즈볼피자+사이드2선택"}, "mainPage":false
     },
     {
+        "categoryName": "사이드메뉴", "imageURL":"순살치킨.jpg", "productName":"순살치킨", "price":[{"size":"","value":"-"}], "description":{"short":"순살치킨" ,"long":"순살치킨"}, "mainPage":false
+    },
+    {
         "categoryName": "사이드메뉴", "imageURL":"훈제치킨.jpg", "productName":"훈제치킨", "price":[{"size":"","value":"-"}], "description":{"short":"훈제치킨" ,"long":"훈제치킨"}, "mainPage":false
     },
     {
-        "categoryName": "사이드메뉴", "imageURL":"스파게티.jpg", "productName":"스파게티", "price":[{"size":"","value":"-"}], "description":{"short":"스파게티" ,"long":"스파게티"}, "mainPage":false
+        "categoryName": "사이드메뉴", "imageURL":"치즈볼.jpg", "productName":"치즈볼", "price":[{"size":"","value":"-"}], "description":{"short":"치즈볼" ,"long":"치즈볼"}, "mainPage":false
+    },
+    {
+        "categoryName": "사이드메뉴", "imageURL":"미니핫도그.jpg", "productName":"미니핫도그", "price":[{"size":"","value":"-"}], "description":{"short":"미니핫도그" ,"long":"미니핫도그"}, "mainPage":false
+    },
+    {
+        "categoryName": "사이드메뉴", "imageURL":"새우링.jpg", "productName":"새우링", "price":[{"size":"","value":"-"}], "description":{"short":"새우링" ,"long":"새우링"}, "mainPage":false
+    },
+    {
+        "categoryName": "사이드메뉴", "imageURL":"양념웨지감자.jpg", "productName":"양념웨지감자", "price":[{"size":"","value":"-"}], "description":{"short":"양념웨지감자" ,"long":"양념웨지감자"}, "mainPage":false
+    },
+    {
+        "categoryName": "사이드메뉴", "imageURL":"치즈오븐스파게티.jpg", "productName":"스파게티", "price":[{"size":"","value":"-"}], "description":{"short":"스파게티" ,"long":"스파게티"}, "mainPage":false
     },
     {
         "categoryName": "사이드메뉴", "imageURL":"텐더치킨.jpg", "productName":"텐더치킨", "price":[{"size":"","value":"-"}], "description":{"short":"텐더치킨" ,"long":"텐더치킨"}, "mainPage":false
@@ -126,15 +144,9 @@
         "categoryName": "사이드메뉴", "imageURL":"샐러드.jpg", "productName":"샐러드", "price":[{"size":"","value":"-"}], "description":{"short":"샐러드" ,"long":"샐러드"}, "mainPage":false
     },
     {
-        "categoryName": "사이드메뉴", "imageURL":"윙.jpg", "productName":"윙", "price":[{"size":"","value":"-"}], "description":{"short":"윙" ,"long":"윙"}, "mainPage":false
+        "categoryName": "사이드메뉴", "imageURL":"핫윙.jpg", "productName":"윙", "price":[{"size":"","value":"-"}], "description":{"short":"윙" ,"long":"윙"}, "mainPage":false
     },
     {
         "categoryName": "사이드메뉴", "imageURL":"사이드포테이토.jpg", "productName":"포테이토", "price":[{"size":"","value":"-"}], "description":{"short":"포테이토" ,"long":"포테이토"}, "mainPage":false
-    },
-    {
-        "categoryName": "사이드메뉴", "imageURL":"콘치즈.jpg", "productName":"콘치즈", "price":[{"size":"","value":"-"}], "description":{"short":"콘치즈" ,"long":"콘치즈"}, "mainPage":false
-    },
-    {
-        "categoryName": "사이드메뉴", "imageURL":"양념감자.jpg", "productName":"양념감자", "price":[{"size":"","value":"-"}], "description":{"short":"양념감자" ,"long":"양념감자"}, "mainPage":false
     }
 ]
