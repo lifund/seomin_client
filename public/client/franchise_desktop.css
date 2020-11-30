@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 10 version
+*/
+
 
 /*----------------------------------------------*/
 /*-------------------- 공통 --------------------*/
@@ -42,10 +49,13 @@ button:hover, a:hover {
     background: #fff;
     height: 56px;
     position: fixed;
-    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
     z-index: 1;
 }
 #headerContainer{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     max-width: 1000px;
     margin: auto;
@@ -66,6 +76,8 @@ nav > a > svg {
     display: none;
 }
 nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
@@ -73,6 +85,8 @@ nav {
 nav > a{
     margin-left: 64px;
     color: black;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
 
 }
@@ -103,9 +117,15 @@ main {
     padding-bottom: 80px;
 }
 #titleContainer {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: auto -webkit-max-content -webkit-max-content;
+    -ms-grid-columns: auto max-content max-content;
+    grid-template-columns: auto -webkit-max-content -webkit-max-content;
     grid-template-columns: auto max-content max-content;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-top: 48px;
 }
 #titleContainer > h2 {
@@ -137,7 +157,8 @@ main > h3 {
     font-size: 14px;
     color: var(--color-dark-gray);
     background-color: #fff;
-    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
 }
 .step_container > h3{
     font-size: 18px;
@@ -162,7 +183,9 @@ main > h3 {
 /*-------------------- cost --------------------*/
 
 #cost_grid {
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
 }
 .cost_container {
@@ -172,7 +195,8 @@ main > h3 {
     font-size: 14px;
     color: var(--color-dark-gray);
     background-color: #fff;
-    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
 }
 .cost_container > h3{
     font-size: 18px;
@@ -194,7 +218,8 @@ main > h3 {
     font-size: 14px;
 }
 .span_delete {
-    text-decoration-line: line-through;
+    -webkit-text-decoration-line: line-through;
+            text-decoration-line: line-through;
     color: var(--color-light-gray);
 }
 .span_emphasize {
@@ -205,13 +230,20 @@ main > h3 {
 /*-------------------- revenue --------------------*/
 
 #revenue_grid{
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: -webkit-max-content auto;
+    -ms-grid-columns: max-content auto;
+    grid-template-columns: -webkit-max-content auto;
     grid-template-columns: max-content auto;
 
     width: calc(100% - 20px);
+    height: -webkit-max-content;
+    height: -moz-max-content;
     height: max-content;
     margin: 10px 10px;
-    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
 }
 tr, th, td {
     border-collapse: collapse;
@@ -225,12 +257,16 @@ tr, th, td {
 }
 #revenue_table_right_container{
     width: 100%;
+    height: -webkit-max-content;
+    height: -moz-max-content;
     height: max-content;
     overflow-x: scroll;
 }
 #revenue_table_right{
     background: #FFF;
     padding: 10px;
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
     min-width: max-content;
     width: 100%;
     z-index: -1;
@@ -249,9 +285,17 @@ main > h5{
 }
 #grid_bottom_title {
     margin: auto;
+    display: -ms-grid;
     display: grid;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
+    height: -webkit-max-content;
+    height: -moz-max-content;
     height: max-content;
+    -ms-grid-rows: -webkit-max-content 12px -webkit-max-content;
+    -ms-grid-rows: max-content 12px max-content;
+    grid-template-rows: -webkit-max-content -webkit-max-content;
     grid-template-rows: max-content max-content;
     row-gap: 12px;
     justify-items: center;
@@ -272,12 +316,20 @@ main > h5{
 #grid_bottom_imageContainer { 
     margin-top: 40px;
 
+    display: -ms-grid;
+
     display: grid;
+    -ms-grid-columns: 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr 20px 1fr;
     grid-template-columns: repeat(12,1fr);
+    grid-template-columns: repeat(-webkit-fit-content,1fr);
     grid-template-columns: repeat(fit-content,1fr);
 
+    grid-auto-rows: -webkit-max-content;
+
     grid-auto-rows: max-content;
-    column-gap: 20px;
+    -webkit-column-gap: 20px;
+       -moz-column-gap: 20px;
+            column-gap: 20px;
     row-gap: 20px;
 }
 #grid_bottom_imageContainer>img:nth-of-type(1),#grid_bottom_imageContainer>img:nth-of-type(2){
@@ -286,6 +338,8 @@ main > h5{
 }
 #grid_bottom_imageContainer > img { 
     grid-column: auto / span 2;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
     padding: 15px 5px;
     width: calc(100% - 20px);
@@ -294,7 +348,9 @@ main > h5{
 }
 #grid_bottom_imageContainer > img:hover {
     cursor: pointer;
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
 }
 
 
@@ -307,7 +363,9 @@ main > h5{
     position: fixed;
     left: 50vw;
     top: 50vh;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 #imagePopup > img {
     max-height: 90vh;
@@ -316,8 +374,10 @@ main > h5{
 }
 #imagePopup > svg {
     background: white;
-    filter: opacity(0.7);
-    box-shadow: var(--shadow);
+    -webkit-filter: opacity(0.7);
+            filter: opacity(0.7);
+    -webkit-box-shadow: var(--shadow);
+            box-shadow: var(--shadow);
     border-radius: 100px;
     margin-top: 10px;
     margin-right: 10px;
@@ -328,7 +388,8 @@ main > h5{
     top: 0;
 }
 #imagePopup > svg:hover{
-    filter: opacity(1);
+    -webkit-filter: opacity(1);
+            filter: opacity(1);
 }
 #imagePopupOverlay {
     width: 100vw;
