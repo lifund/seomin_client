@@ -69,11 +69,11 @@ app.get('/home',(req,res)=>{
 		let bannerHTML = ''
 		if(req.useragent.isMobile){
 			fs.readdirSync(path.join(__dirname,'public/banner/mobile'),'utf-8').forEach((bannerImage)=>{
-				bannerHTML += '<img class="banner_image" src="public/banner/mobile/'+bannerImage+'">';
+				bannerHTML += '<img class="banner_image" data-href="/brand" src="public/banner/mobile/'+bannerImage+'">';
 			});
 		}else{
 			fs.readdirSync(path.join(__dirname,'public/banner/desktop'),'utf-8').forEach((bannerImage)=>{
-				bannerHTML += '<img class="banner_image" src="public/banner/desktop/'+bannerImage+'">';
+				bannerHTML += '<img class="banner_image" data-href="/brand" src="public/banner/desktop/'+bannerImage+'">';
 			})
 		}
 		// make menu card
