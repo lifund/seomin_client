@@ -48,6 +48,9 @@ button:hover, a:hover {
 #headerContainer {
     max-width: 1000px;
     margin: auto;
+
+    display: table-cell;
+    display: flex;    
 }
 /*-------------------- header --------------------*/
 header > a > img {
@@ -65,6 +68,10 @@ nav > a > svg {
 nav {
     display: table-cell;
     display: flex;    
+    width: max-content;
+    z-index: 1;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 nav > a{
     margin-left: 64px;
