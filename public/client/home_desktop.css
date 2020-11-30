@@ -146,7 +146,7 @@ main {
     white-space: nowrap;
 }
 #banner_slider img {
-    display: inline-block;
+    display: inline;
     scroll-snap-align: center;
     height: 100%;
     width:100%;
