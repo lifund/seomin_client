@@ -27,7 +27,7 @@
                 <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"/></svg>
                 <h3>이름</h3>
             </div>
-            <input id="name" type="text" name="name" id="name" placeholder="이름을 입력하세요">
+            <input id="name" type="text" name="name" id="name" placeholder="이름을 입력해주세요">
 
 
             <!-- 연락처 | contacts -->
@@ -95,6 +95,27 @@
         /*------------------------------------------------*/
 
 
+
+        function containsClass(yourObj, yourClass) {
+            if(!yourObj || typeof yourClass !== 'string') {
+                return false;
+            } else if(yourObj.className && yourObj.className.trim().split(/\s+/gi).indexOf(yourClass) > -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function removeClass(yourObj, yourClass) {
+            var regex = new RegExp(yourClass, "g");
+            yourObj.className = yourObj.className.replace(regex, "");
+        }
+
+        function addClass(yourObj, yourClass) {
+            yourObj.className += ' ' + yourClass;
+        }
+
+
         /*-------------------- contact method swap --------------------*/
         document.getElementById('contact_change_tel').addEventListener('click',function(ev){
             document.getElementById('contact_email').setAttribute('hidden','');
@@ -115,12 +136,12 @@
         /*-------------------- agree --------------------*/
         var agreeButton = document.getElementById('agree');
         agreeButton.addEventListener('click',function(ev){
-            if(agreeButton.classList.contains('button_active')) {
-                agreeButton.classList.remove('button_active');
-                agreeButton.classList.add('button_inactive');
+            if(containsClass(agreeButton,'button_active')) {
+                removeClass(agreeButton,'button_active');
+                addClass(agreeButton,'button_inactive');
             } else {
-                agreeButton.classList.remove('button_inactive');
-                agreeButton.classList.add('button_active');
+                removeClass(agreeButton,'button_inactive');
+                addClass(agreeButton,'button_active');
             }
         });
 
@@ -141,7 +162,7 @@
             return isfulfilled;
         }
         function agreement_check(){
-            if(!document.getElementById('agree').classList.contains('button_active')){
+            if(!containsClass(document.getElementById('agree'),'button_active')){
                 return false;
             } else {
                 return true;

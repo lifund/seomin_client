@@ -90,7 +90,7 @@
                 <h2>추천 메뉴</h2>
                 <a href="/menu">
                     <p>전체 메뉴 보기
-                    <svg width="9" height="10" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.52005 6.5L0.324219 1.73716L1.67567 0.262848L8.47984 6.5L1.67567 12.7372L0.324219 11.2628L5.52005 6.5Z" fill="#9A9A9A"></path></svg>
+                    <svg width="9" height="10" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.52005 6.5L0.324219 1.73716L1.67567 0.262848L8.47984 6.5L1.67567 12.7372L0.324219 11.2628L5.52005 6.5Z" fill="#4C95F7"></path></svg>
                 </p>
                 </a>
             </div>
@@ -154,37 +154,33 @@
     </div>
 
     <script>
-        var mobile = window.matchMedia("(max-width: 800px)");
-        var desktop = window.matchMedia("(min-width: 800px)");
 
         /*------------------------------------------------*/
-        /*-------------------- MOBILE --------------------*/
+        /*-------------------- MOBILE ALL --------------------*/
         /*-------------------- NAV CSS --------------------*/
-        if (mobile.matches) { 
-            var nav = document.querySelector('nav');
-            var navButton_enter = document.getElementById('navButton_enter');
-            var navButton_leave = document.getElementById('navButton_leave');
+        var nav = document.querySelector('nav');
+        var navButton_enter = document.getElementById('navButton_enter');
+        var navButton_leave = document.getElementById('navButton_leave');
 
-            function navButtonFunction(ev){
-                if(nav.classList.contains('nav_enter')){
-                    nav.classList.add('nav_leave');
-                    nav.classList.remove('nav_enter');
-                    navButton_enter.style.display = 'block';
-                    navButton_leave.style.display = 'none';
-                }else{
-                    nav.classList.add('nav_enter');
-                    nav.classList.remove('nav_leave');
-                    navButton_enter.style.display = 'none';
-                    navButton_leave.style.display = 'block';
-                }
+        function navButtonFunction(ev){
+            if(nav.classList.contains('nav_enter')){
+                nav.classList.add('nav_leave');
+                nav.classList.remove('nav_enter');
+                navButton_enter.style.display = 'block';
+                navButton_leave.style.display = 'none';
+            }else{
+                nav.classList.add('nav_enter');
+                nav.classList.remove('nav_leave');
+                navButton_enter.style.display = 'none';
+                navButton_leave.style.display = 'block';
             }
-            navButton_enter.addEventListener('click', navButtonFunction, false);
-            navButton_leave.addEventListener('click', navButtonFunction, false);
         }
+        navButton_enter.addEventListener('click', navButtonFunction, false);
+        navButton_leave.addEventListener('click', navButtonFunction, false);
 
         
         /*------------------------------------------------*/
-        /*-------------------- ALL --------------------*/
+        /*-------------------- THIS FILE --------------------*/
         /*-------------------- BANNER SCROLL --------------------*/
         setInterval(function(){
             var scrollLeft = document.getElementById('banner_slider').scrollLeft;
@@ -207,52 +203,50 @@
             var priceHTML = '';
             for(var i=0; i<menuData.price.length; i++){
                 if(menuData.price[i].size != ''){
-                    priceHTML += '<div class="popup_price_size">'+menuData.price[i].size+'</div>'
+                    priceHTML += '<div class="popup_price_size">'+menuData.price[i].size+'</div>';
                 }
-                priceHTML += '<p class="popup_price_value">'+menuData.price[i].value+'</p><p class="popup_price_won">원</p>'
+                priceHTML += '<p class="popup_price_value">'+menuData.price[i].value+'</p><p class="popup_price_won">원</p>';
             }
 
             content += '<div id="menuPopup_imgContainer">'
-            + '<img src="public/menuImage/'+menuData.imageURL+'" onError="this.onerror=null; this.src=\'public/menuImage/test.png\';">'
+            + '<div style=\"background-image: url(\'public/menuImage/'+menuData.imageURL+'\');\"></div>'
             + '</div>'
             + '<a id="removeMenuPopup"><!-- menu_fold --><svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"></path><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"></path></svg></a>'
             + '<div id="popup_container">'
             +   '<h2 id="popup_productName">' + menuData.productName + '</h2>'
-            /*+   '<div id="popup_price">' + priceHTML + '</div>'*/
             +   '<h3 id="popup_description_long">' + menuData.description.long + '</h3>'
-            + '</div>'
-            ;
+            + '</div>';
             
-            var popup = document.querySelector('#menuPopup');
+            var popup = document.getElementById('menuPopup');
             popup.innerHTML = content;
             var removePopupButton = document.getElementById('removeMenuPopup');
             removePopupButton.addEventListener('click',function(ev){
-                removeMenuPopup()
+                removeMenuPopup();
             });
             popup.removeAttribute('hidden');
             document.getElementById('menuPopupOverlay').removeAttribute('hidden');
-            
         }
 
         function removeMenuPopup(){
-            document.querySelector('#menuPopup').setAttribute('hidden','');
+            document.getElementById('menuPopup').setAttribute('hidden','');
             document.getElementById('menuPopupOverlay').setAttribute('hidden','');
         }
 
 
-
-        var menuCard_arr = document.getElementsByClassName('.menuCard');
-        for (let i = 0; i < menuCard_arr.length; i++) {
+        var menuCard_arr = document.getElementsByClassName('menuCard');
+        console.log(menuCard_arr.length);
+        for (var i = 0; i < menuCard_arr.length; i++) {
             var menuCard = menuCard_arr[i];
             menuCard.addEventListener('click',function(ev){
-                var popup = document.querySelector('#menuPopup');
+                var popup = document.getElementById('menuPopup');
                 if (popup.hasAttribute('hidden')){
-                    showMenuPopup( JSON.parse (decodeURIComponent( ev.currentTarget.getAttribute('data-all'))));
+                    showMenuPopup( JSON.parse (decodeURIComponent( ev.currentTarget.getAttribute('data-all') ) ));
                 }
-            },false)
+            },false);
         }
 
-        document.getElementById('menuPopupOverlay').addEventListener('click',function(ev){
+        var menuPopupOverlay = document.getElementById('menuPopupOverlay');
+        menuPopupOverlay.addEventListener('click',function(ev){
             if(ev.target.id=='menuPopupOverlay'){
                 removeMenuPopup();
             }

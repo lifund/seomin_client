@@ -50,7 +50,7 @@ header {
 header > a {
     margin: auto;
 }
-header > a > svg{
+header > a > img{
     padding: 10px 0;
     height: 36px;
 }
@@ -144,8 +144,7 @@ main {
     grid-template-columns: auto max-content;
     grid-template-rows: auto max-content;
     grid-template-areas: 
-    'title callNow'
-    'title writeForm';
+    'title title_buttons';
     width: 100%;
     row-gap: 10px;
 }
@@ -153,19 +152,27 @@ main {
     margin-left: 16px;
     grid-area: title;
 }
+#titleContainer_buttons {
+    grid-area: title_buttons;
+    display: grid;
+    grid-template-areas: 
+    'writeForm' 'callNow';
+    row-gap: 10px;
+}
 #writeForm {
     grid-area: writeForm;
 }
 #callNow{
     grid-area: callNow;
 }
-#titleContainer > a {
+#titleContainer_buttons > a {
     margin-right: 16px;
     background: var(--color-blue);
     padding: 0.5em 1em;
     color: #FFF;
     border-radius: 20px;
     width: max-content;
+    white-space: nowrap;
 }
 main > h2 {
     margin-left: 16px;
@@ -370,7 +377,7 @@ main > h5{
     width: calc(100vw - 20px);
     border-radius: 4px;
 }
-#imagePopup > svg {
+#imagePopup > a {
     background: white;
     filter: opacity(0.7);
     box-shadow: var(--shadow);
@@ -383,7 +390,7 @@ main > h5{
     right: 0;
     top: 0;
 }
-#imagePopup > svg:hover{
+#imagePopup > a:hover{
     filter: opacity(1);
 }
 #imagePopupOverlay {

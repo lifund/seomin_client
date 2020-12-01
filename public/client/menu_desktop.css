@@ -1,0 +1,368 @@
+/*----------------------------------------------*/
+/*-------------------- 공통 --------------------*/
+/*----------------------------------------------*/
+
+* {
+    font-family: 'NanumSquare', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+}
+html, body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow-x:hidden;
+}
+p,h1,h2,h3,h4,h5,h6,a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+button:hover, a:hover {
+    cursor: pointer;
+}
+a, img {
+    border:none;
+    outline:none;
+}
+
+
+:root {
+    --color-main: #A02828;
+    --color-blue: #4C95F7;
+    --color-pink:  #FF6672;
+    --color-light-gray: #D9D9D9;
+    --color-dark-gray: #6d6d6d;
+    --color-tint-gray: #F0F0F0;
+    --shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+}
+[hidden] { display: none !important; }
+
+
+/*-------------------- header container --------------------*/
+#headerMaster {
+    position: fixed;
+
+    width: 100%;
+    height: 56px;
+
+    background: #ffffff;
+    z-index: 1;
+    box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+}
+#headerContainer {
+    width: 1000px;
+    margin: auto;
+
+    display: table;
+}
+/*-------------------- header --------------------*/
+header {
+    display: table-cell;
+}
+header > a > img {
+    padding: 10px 0;
+    height: 36px;
+    width: 56px;
+}
+header > svg {
+    display: none;
+}
+/*-------------------- nav --------------------*/
+nav > a > svg {
+    display: none;
+}
+nav {
+    display: table-cell;
+    vertical-align: middle;
+}
+nav > a{
+    display: table-cell;
+    padding-left: 64px;
+    color: black;
+    font-weight: 700;
+}
+nav > a:hover{
+    color: #FF6672;
+}
+
+
+
+/*----------------------------------------------*/
+/*-------------------- main --------------------*/
+/*----------------------------------------------*/
+main {
+    display: block;
+    width: 1000px;
+    margin: auto;
+    padding-top: 56px;
+    padding-bottom: 80px;
+}
+
+/*-------------------- category buttons --------------------*/
+
+#menu_category {
+    height: 40px;
+    border-bottom: 1px solid #D9D9D9;
+    width: 100%;
+    color: #6d6d6d;
+}
+#menu_category > p{
+    width: max-content;
+    display: table-cell;
+    padding: 0 16px;
+
+    padding-top: 20px;
+    line-height: 0;
+    height: 20px;
+
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.activeTab{
+    color: #FF6672;
+    border-bottom: 2px solid #FF6672;   
+}
+
+
+#main_topping {
+    display: table;
+    margin-top: 40px;
+    margin-left: 20px;
+    border-spacing: 10px;
+    border-collapse: separate;
+}
+.main_topping_button {
+    display: table-cell;
+    width: max-content;
+    color: #6d6d6d;
+    padding: 10px;
+    background: #FFF;
+    border-radius: 100px;
+    cursor: pointer;
+    box-shadow:  0px 4px 16px 2px rgba(0,0,0,0.08);
+}
+.activeToppingButton{
+    background: #4C95F7;
+    color: white;
+    font-weight: 700;
+}
+
+
+
+/*-------------------- menu containers --------------------*/
+.menu_container {
+    margin-top: 20px;
+}
+#mainMenu_basic,
+#mainMenu_special,
+#setMenu, 
+#doughMenu, 
+#sideMenu {
+    margin: auto;
+    margin-top: 40px;
+    height: auto;
+    width: 100%;
+}
+.menuCard {
+    vertical-align: top;
+    display: inline-block;
+    width: calc(100% / 3 - 45px);
+    padding: 10px;
+    margin: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+    border-radius: 60px;
+    cursor: pointer;
+}
+#doughMenu > .menuCard {
+    display: inline-block;
+    width: calc(100% / 2 - 80px);
+    height: calc(100% - 60px);
+    background: #FFF;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+}
+.menuCard:hover{
+    cursor: pointer;
+}
+#doughMenu > .menuCard:hover {
+    cursor: default;
+}
+
+.menuCard_imgContainer {
+    position: relative;
+    width: 100%; /* The size you want */
+}
+
+.menuCard_imgContainer::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; /* The  padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+    background: #FFFFFF; 
+    border-radius: 40px;
+    height: 100%;
+}
+.menuCard_imgContainer > div {
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: calc(100% - 20px); /* This if for the object-fit */
+    height: auto; /* This if for the object-fit */
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 60px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.menuCard_productName {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    white-space: pre-line;
+    text-align: center;
+}
+#doughMenu > .menuCard > .menuCard_productName {
+    margin: 20px 0;
+    text-align: left;
+    margin-top: 0;
+}
+#doughMenu > .menuCard > .menuCard_description_short {
+    line-height: 150%;
+}
+
+
+
+
+/*-------------------- menu detail popup --------------------*/
+#menuPopupOverlay {
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: 10;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.8);
+}
+#menuPopup {
+    height: 400px;
+    display: table;
+    z-index: 100;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background: #F0F0F0;
+    box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+
+    border-radius: 20px;
+}
+
+#menuPopup_imgContainer{
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    width: 400px; /* The size you want */
+    background: #FFF;
+    border-radius: 20px 0 0 20px;
+}
+#menuPopup_imgContainer::after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+#menuPopup_imgContainer> div{
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: calc(100% - 20px); /* This if for the object-fit */
+    height: auto; /* This if for the object-fit */
+    margin: 10px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;    
+}
+#removeMenuPopup {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* text contents */
+#popup_container {
+    width: 300px;
+    margin-top: 20px;
+    padding-right: 20px;
+    border-radius: 0 20px 20px 0;
+}
+#popup_productName {
+    display: block;
+    font-weight: 700;
+    margin-left: 16px;
+}
+#popup_description_long {
+    display: block;
+    height: 300px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    margin-top: 20px;
+    margin-left: 16px;
+    padding-bottom: 20px;
+
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 150%;
+    color: #6d6d6d;
+}
+
+
+
+
+
+
+
+/*----------------------------------------------*/
+/*-------------------- 푸터 --------------------*/
+/*----------------------------------------------*/
+footer {
+    margin-top: 80px;
+    width: calc(100vw - 32px);
+
+    padding: 16px;
+    padding-top: 32px;
+    padding-bottom: 100px;
+
+    background: #fafafa;
+    color: #6d6d6d;
+}
+#footer_container {
+    max-width: 1000px;
+    margin: auto;
+}
+#footer_container > a {
+    margin-right: 10px;
+    font-size: 14px;
+}
+#footer_container > p {
+    line-height: 120%;
+    font-size: 14px;
+}
+

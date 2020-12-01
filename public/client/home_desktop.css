@@ -12,6 +12,7 @@ html, body {
     height: 100vh;
     padding: 0;
     margin: 0;
+    overflow-x:hidden;
 }
 p,h1,h2,h3,h4,h5,h6,a {
     text-decoration: none;
@@ -22,6 +23,11 @@ p,h1,h2,h3,h4,h5,h6,a {
 button:hover, a:hover {
     cursor: pointer;
 }
+a, img {
+    border:none;
+    outline:none;
+}
+
 
 :root {
     --color-blue: #4C95F7;
@@ -75,6 +81,10 @@ nav > a{
     display: table-cell;
     padding-left: 64px;
     color: black;
+    font-weight: 700;
+}
+nav > a:hover{
+    color: #FF6672;
 }
 
 /*-------------------- 하단 배너 (div) --------------------*/
@@ -85,6 +95,7 @@ nav > a{
     width: 100%;
     background-color: #fafafa;
     z-index: 1;
+    box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
 }
 #lowerBanner_container {
     max-width: 1000px;
@@ -154,20 +165,25 @@ main {
 }
 
 
+
 /*-------------------- 추천 메뉴 --------------------*/
 #recommendation {
-    padding-top: 64px;
+    padding-top: 80px;
 }
 /* title */
 #recommendation_title {
     padding-left: 16px;
+    display: table;
+    width: 100%;
 }
 #recommendation_title > h2 {
-    display: inline;
+    display: table-cell;
 }
 #recommendation_title > a {
-    display: inline;
+    display: table-cell;
     color: #4C95F7;
+    text-align: right;
+    padding-right: 16px;   
 }
 #recommendation_title > a > svg {
     display: block;
@@ -183,21 +199,7 @@ main {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-    scroll-snap-type: x mandatory;
-}
-@media only screen and (max-width: 1000px){
-    #recommendation_slider_insetShadow {
-        display: none;
-    }
-}
-#recommendation_slider_insetShadow {
-    position: absolute;
-    top: 532px;
-    right: calc(calc(100% - 1000px) / 2);
-    height:286px;
-    width: 20px;
-    box-shadow: -10px 0 4px -6px rgba(0,0,0,0.08) inset;
-    z-index: 1;
+    -ms-overflow-style: none;
 }
 
 /* menu card */
@@ -214,7 +216,7 @@ main {
     scroll-snap-align: center;
     width: 200px;
     height: max-content;
-    box-shadow: var(--shadow);
+    box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
     padding-bottom: 40px;
     border-radius: 40px;
 }
@@ -232,23 +234,27 @@ main {
     background: #FFF; 
     border-radius: 40px;
 }
-.menuCard_imgContainer > img {
+.menuCard_imgContainer > div {
     position: absolute; /* Take your picture out of the flow */
     top: 0;
     bottom: 0;
     left: 0;
     right: 0; /* Make the picture taking the size of it's parent */
     width: calc(100% - 20px); /* This if for the object-fit */
-    height: calc(100% - 20px); /* This if for the object-fit */
+    height: auto; /* This if for the object-fit */
     object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;
-    padding: 10px;
+    margin: 10px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .menuCard > p {
     margin-top: 10px;
     font-weight: 700;
     white-space: pre-wrap;
-    text-align-last: center;
+    text-align: center;
 }
 .menuCard_price {
     margin-top: 10px;
@@ -281,3 +287,227 @@ main {
     padding-top: 2px;
     font-size: 14px;
 }
+
+
+/*-------------------- 섹션 구분선 --------------------*/
+.section_line {
+    display: none;
+}
+
+
+/*-------------------- 프렌차이즈 안내 --------------------*/
+#franchise {
+    margin-top: 80px;
+}
+#franchise > h2 {
+    margin-left: 16px;
+    margin-bottom: 16px;
+}
+.franchise_button {
+    display: block;
+    margin: 10px 10px;
+    width: calc(100% - 20px - 48px);
+
+    padding: 24px;
+    background-color: #FF6672;
+    color: white;
+}
+.franchise_button > div {
+    display: table;
+}
+.franchise_button > div > svg {
+    display: table-cell;
+    vertical-align: middle;
+}
+.franchise_button > div > p {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+
+    padding-left: 10px;
+    font-size: 24px;
+    font-weight: 900;
+}
+/* 내용 */
+.franchise_button > p:first-of-type {
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 32px;
+}
+.franchise_emphasize {
+    border: 2px solid white;
+    background: #ffffff;
+    color: #FF6672;
+    font-size: 18px;
+    padding: 2px 4px;
+    padding-top: 4px;
+}
+/* 자세히보기 */
+.franchise_button > p:last-of-type {
+    margin-top: 24px;
+}
+.franchise_button > p:last-of-type > svg {
+    vertical-align: middle;
+    padding-bottom: 1px;
+    padding-left: 4px;
+}
+
+
+
+
+
+
+
+/*-------------------- menu detail popup --------------------*/
+#menuPopupOverlay {
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: 10;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.8);
+}
+#menuPopup {
+    height: 400px;
+    display: table;
+    z-index: 100;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background: #F0F0F0;
+    box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+
+    border-radius: 20px;
+}
+
+#menuPopup_imgContainer{
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+    width: 400px; /* The size you want */
+    background: #FFF;
+    border-radius: 20px 0 0 20px;
+}
+#menuPopup_imgContainer::after{
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+#menuPopup_imgContainer> div{
+    position: absolute; /* Take your picture out of the flow */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; /* Make the picture taking the size of it's parent */
+    width: calc(100% - 20px); /* This if for the object-fit */
+    height: auto; /* This if for the object-fit */
+    margin: 10px;
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;    
+}
+#removeMenuPopup {
+    position: absolute;
+    right: 0;
+    top: 0;
+    box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+    
+}
+/* text contents */
+#popup_container {
+    display: table-cell;
+    vertical-align: middle;
+    width: 300px;
+    padding-top: 20px;
+    padding-right: 20px;
+    background: #F0F0F0;
+    border-radius: 0 20px 20px 0;
+}
+#popup_productName {
+    display: block;
+    font-weight: 700;
+    margin-left: 16px;
+}
+#popup_price {
+    margin-top: 20px;
+    margin-right: 2px;
+    margin-left: 16px;
+    display: flex;
+}
+.popup_price_size {
+    display: inline-block;
+    width: 16px;
+    border-radius: 10px;
+    
+    height: 8px;
+    padding-top: 8px;
+    line-height: 0px;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 900;
+    color: white;
+    background: #FF6672
+} 
+.popup_price_value {
+    padding-top: 2px;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: #FF6672
+}
+.popup_price_won {
+    padding-top: 2px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+#popup_description_long {
+    display: block;
+    height: 300px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    margin-top: 20px;
+    margin-left: 16px;
+    padding-bottom: 20px;
+
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 150%;
+    color: #6d6d6d;
+}
+
+
+
+/*-------------------- 푸터 --------------------*/
+footer {
+    width: calc(100% - 32px);
+
+    padding: 16px;
+    padding-top: 32px;
+    padding-bottom: 100px;
+
+    background: #fafafa;
+    color: #6d6d6d;
+}
+#footer_container {
+    max-width: 1000px;
+    margin: auto;
+}
+#footer_container > a {
+    margin-right: 10px;
+    font-size: 14px;
+}
+#footer_container > p {
+    line-height: 120%;
+    font-size: 14px;
+}
+

@@ -82,7 +82,7 @@ app.get('/home',(req,res)=>{
 			menuCardHTML += `
 			<div class="menuCard" data-all="${encodeURIComponent(JSON.stringify(menu))}">
 				<div class="menuCard_imgContainer">
-				<img src="public/menuImage/${menu.imageURL}" alt="이미지 준비중">
+				<div style="background-image: url('public/menuImage/${menu.imageURL}');"></div>
 				</div>
 				<p> ${menu.productName} </p>`
 			/*
@@ -161,7 +161,7 @@ app.get('/menu',(req,res)=>{
 				tempCardHTML += 
 				`<div class="menuCard" data-all="${encodeURIComponent(JSON.stringify(menu))}">
 					<div class="menuCard_imgContainer">
-						<img src="public/menuImage/${menu.imageURL}" onError="this.onerror=null; this.src='public/menuImage/test.png';">
+						<div style="background-image: url('public/menuImage/${menu.imageURL}');"></div>
 					</div>
 					<p class="menuCard_productName"> ${menu.productName} </p>`
 				/* 가격 뺌
@@ -206,7 +206,7 @@ app.get('/menu',(req,res)=>{
 
 
 			
-
+			
 
 			if(menu.categoryName == "메인메뉴_기본토핑"){
 				menuCardHTML_main_basic += tempCardHTML;
@@ -219,6 +219,7 @@ app.get('/menu',(req,res)=>{
 			}
 			if(menu.categoryName == "세트메뉴"){
 				menuCardHTML_set += tempCardHTML;
+				console.log(tempCardHTML);
 			}
 			if(menu.categoryName == "사이드메뉴"){
 				menuCardHTML_side += tempCardHTML;

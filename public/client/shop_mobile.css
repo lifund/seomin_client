@@ -47,7 +47,7 @@ header {
 header > a {
     margin: auto;
 }
-header > a > svg{
+header > a > img{
     padding: 10px 0;
     height: 36px;
 }
@@ -278,4 +278,24 @@ main > h2 {
 .shopCard > a {
     text-align: right;
     grid-area: callButton;
+}
+
+
+/*-------------------- 푸터 --------------------*/
+footer {
+    margin-top: 48px;
+    padding: 16px;
+    padding-top: 32px;
+    padding-bottom: 80px;
+    background-color: var(--color-light-gray);
+
+    color: var(--color-dark-gray);
+}
+#footer_container > a {
+    margin-right: 10px;
+    font-size: 14px;
+}
+#footer_container > p {
+    font-size: 14px;
+    line-height: 120%;
 }

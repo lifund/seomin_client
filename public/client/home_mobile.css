@@ -47,9 +47,10 @@ header {
 header > a {
     margin: auto;
 }
-header > a > svg{
+header > a > img{
     padding: 10px 0;
     height: 36px;
+    width: auto;
 }
 header > svg {
     position: absolute;
@@ -145,13 +146,14 @@ nav {
     font-weight: 700;
     font-size: 1rem;
 }
-#lowerBanner_container > a {
+#lowerBanner_container > span > a {
     margin-left: auto;
     order: 2;
     border-radius: 100px;
 
-    padding: 0rem 1.2rem ;
-    padding-top: 16px;
+    padding: 10px 10px;
+    margin-top: 16px;
+    margin-left: 16px;
     line-height: 0;
     height: 16px;
 
@@ -370,24 +372,6 @@ main {
     margin-top: 24px;
 }
 
-/*-------------------- 푸터 --------------------*/
-footer {
-    margin-top: 48px;
-    padding: 16px;
-    padding-top: 32px;
-    padding-bottom: 80px;
-    background-color: var(--color-light-gray);
-
-    color: var(--color-dark-gray);
-}
-#footer_container > a {
-    margin-right: 10px;
-    font-size: 14px;
-}
-#footer_container > p {
-    font-size: 14px;
-    line-height: 120%;
-}
 
 
 /*-------------------- menu detail popup --------------------*/
@@ -504,4 +488,25 @@ footer {
     font-weight: 700;
     line-height: 150%;
     color: var(--color-dark-gray);
+}
+
+
+
+/*-------------------- 푸터 --------------------*/
+footer {
+    margin-top: 48px;
+    padding: 16px;
+    padding-top: 32px;
+    padding-bottom: 80px;
+    background-color: var(--color-light-gray);
+
+    color: var(--color-dark-gray);
+}
+#footer_container > a {
+    margin-right: 10px;
+    font-size: 14px;
+}
+#footer_container > p {
+    font-size: 14px;
+    line-height: 120%;
 }
