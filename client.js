@@ -352,34 +352,53 @@ app.get('/shop/inquiry',(req,res)=>{
 //-------------------- SHOP - INQUIRY - POST --------------------//
 app.post('/shop/inquiry',(req,res)=>{
 	const date = new Date();
-	const recaptcha_body = `secret=${process.env.recaptcha}&response=${req.body.token}`;
 
-	fetch('https://www.google.com/recaptcha/api/siteverify', {
-		method: 'post',
-		headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-		body: recaptcha_body
-	})
-	.then(verify => verify.json())
-	.then((body) =>{
-		if(body.success === true){
-			res.send('success');
-			const inquiryData = {
-				"time":date.getTime(),
-				"timeStamp": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
-				"status":"접수",
-				"category":req.body.category,
-				"name":req.body.name,
-				"email":req.body.email,
-				"tel":req.body.tel,
-				"contents":req.body.contents.replace(/(\r\n|\n|\r)/gm,'<br>')
+	if(req.body.token=='no'){
+
+		const recaptcha_body = `secret=${process.env.recaptcha}&response=${req.body.token}`;
+
+		fetch('https://www.google.com/recaptcha/api/siteverify', {
+			method: 'post',
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			body: recaptcha_body
+		})
+		.then(verify => verify.json())
+		.then((body) =>{
+			if(body.success === true){
+				res.send('success');
+				const inquiryData = {
+					"time":date.getTime(),
+					"timeStamp": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+					"status":"접수",
+					"category":req.body.category,
+					"name":req.body.name,
+					"email":req.body.email,
+					"tel":req.body.tel,
+					"contents":req.body.contents.replace(/(\r\n|\n|\r)/gm,'<br>')
+				}
+				mongoInsert('shop_inquiry',inquiryData,(result)=>{
+					console.log('[고객의소리] 접수됨');
+				});
+			} else {
+				res.send('redirect');
 			}
-			mongoInsert('shop_inquiry',inquiryData,(result)=>{
-				console.log('[고객의소리] 접수됨');
-			});
-		} else {
-			res.send('redirect');
+		});
+	} else {
+		res.send('success');
+		const inquiryData = {
+			"time":date.getTime(),
+			"timeStamp": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+			"status":"접수",
+			"category":req.body.category,
+			"name":req.body.name,
+			"email":req.body.email,
+			"tel":req.body.tel,
+			"contents":req.body.contents.replace(/(\r\n|\n|\r)/gm,'<br>')
 		}
-	});
+		mongoInsert('shop_inquiry',inquiryData,(result)=>{
+			console.log('[고객의소리] 접수됨');
+		});
+	}
 });
 
 

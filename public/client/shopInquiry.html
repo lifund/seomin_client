@@ -81,7 +81,7 @@
         <div class="g-recaptcha"
         data-sitekey="6LcJlecZAAAAAM5pdU04Yb0My1vhY-aFrKEebOud"
         data-callback="onSubmit"
-        data-error-callback="onSubmit"
+        data-error-callback="onError"
         data-size="invisible">
         </div>
 
@@ -200,9 +200,14 @@
 
         /*-------------------- submit --------------------*/
 
+        var recaptchaError = false;
         document.getElementById('submit').addEventListener('click',function(ev){
             if(requirement_check() && agreement_check()){
-                grecaptcha.execute();
+                if(recaptchaError == false){
+                    grecaptcha.execute();
+                } else {
+                    plainSubmit();
+                }
             }
             if(!requirement_check()){
                 document.getElementById('requirement_notice').removeAttribute('hidden');
@@ -226,6 +231,33 @@
             };
             var submitForm = {
                 'token': token
+            }
+            submitForm['category'] = document.getElementById('category_data').value;
+            submitForm['name'] = document.getElementById('name').value;
+            submitForm['email'] = document.getElementById('contact_email').value;
+            submitForm['tel'] = document.getElementById('contact_tel').value;
+            submitForm['contents'] = document.getElementById('contents').value;
+
+            xhr.send(JSON.stringify(submitForm));
+        }
+
+        function onError(){
+            recaptchaError = true;
+        }
+        function plainSubmit(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/shop/inquiry");
+            xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+            xhr.onload = function () {
+                if(this.responseText === 'success'){
+                    window.alert('정상적으로 접수되었습니다. \r\n빠른 시일 내에 연락드리겠습니다.');
+                    window.location = '/shop';
+                }else{
+                    window.location = '/shop';
+                }
+            };
+            var submitForm = {
+                'token': 'no'
             }
             submitForm['category'] = document.getElementById('category_data').value;
             submitForm['name'] = document.getElementById('name').value;
