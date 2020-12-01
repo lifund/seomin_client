@@ -17,7 +17,7 @@
         <h2>고객의 소리</h2>
     </header>
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer onerror="onError();"></script>
 
     <main>
 
@@ -81,7 +81,6 @@
         <div class="g-recaptcha"
         data-sitekey="6LcJlecZAAAAAM5pdU04Yb0My1vhY-aFrKEebOud"
         data-callback="onSubmit"
-        data-error-callback="onError"
         data-size="invisible">
         </div>
 
