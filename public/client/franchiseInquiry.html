@@ -18,8 +18,6 @@
         <h2>가맹 상담 신청하기</h2>
     </header>
 
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
     <main>
 
             <!-- 이름 | name -->
@@ -66,11 +64,6 @@
             <!-- 접수 | submit -->
             <button id="submit" class="button_inactive">접수하기</button>
 
-            <div class="g-recaptcha"
-            data-sitekey="6LcJlecZAAAAAM5pdU04Yb0My1vhY-aFrKEebOud"
-            data-callback="onSubmit"
-            data-size="invisible">
-            </div>
 
             <!-- 필수정보 경고 | required warning -->
             <div class="titleContainer" id="requirement_notice" hidden>
@@ -173,7 +166,7 @@
 
         document.getElementById('submit').addEventListener('click',function(ev){
             if(requirement_check() && agreement_check()){
-                grecaptcha.execute();
+                plainSubmit();
             }
             if(requirement_check()){
                 document.getElementById('requirement_notice').setAttribute('hidden','');
@@ -187,7 +180,7 @@
             }
         });
 
-        function onSubmit(token){
+        function plainSubmit(){
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/franchise/inquiry");
             xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
@@ -199,9 +192,7 @@
                     window.location = '/franchise';
                 }
             };
-            var submitForm = {
-                'token': token
-            }
+            var submitForm = {}
             submitForm['name'] = document.getElementById('name').value;
             submitForm['email'] = document.getElementById('contact_email').value;
             submitForm['tel'] = document.getElementById('contact_tel').value;
