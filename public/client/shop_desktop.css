@@ -162,24 +162,21 @@ main > h2 {
     font-size: 16px;
     font-weight: 700;
 
-    padding-left: 10px;
-    border-left: 2px solid #A02828;
+    color: #6d6d6d;
 }
 .shopPhone{
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 16px;
     font-weight: 700;
 
-    padding-left: 10px;
-    border-left: 2px solid #A02828;
+    color: #6d6d6d;
 }
 .shopHours{
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 16px;
     font-weight: 700;
 
-    padding-left: 10px;
-    border-left: 2px solid #A02828;
+    color: #6d6d6d;
 }
 .isopen{
     display: inline;
