@@ -191,7 +191,8 @@ section > h2 {
     margin-top: 10px;
 }
 .addressSearch_addressCard_select {
-    float: right;
+    width: 100%;
+    padding: 10px 20px;
 }
 
 #popupOverlay {
