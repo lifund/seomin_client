@@ -152,7 +152,7 @@ main > h2 {
     border: 1px solid var(--color-light-gray);
     background: #FFF;
     color: black;
-    font-size: 14px;
+    font-size: 16px;
 
     border-radius: 20px;
 }
@@ -258,17 +258,18 @@ main > h2 {
 }
 .shopName {
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
     grid-area: shopName;
     padding-top: 8px;
 }
 .shopAddress{
-    font-size: 14px;
+    padding-top: 8px;
+    font-size: 16px;
     color: var(--color-dark-gray);
     grid-area: shopAddress;
 }
 .shopPhone{
-    font-size: 14px;
+    font-size: 16px;
     color: var(--color-dark-gray);
     grid-area: shopPhone;
 }
