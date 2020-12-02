@@ -415,6 +415,7 @@
                                 document.getElementById(document.getElementById('addressSearch_cardId').innerText).getElementsByClassName('shop_address')[0].innerText = ev.currentTarget.parentNode.getElementsByClassName('address_region')[0].innerText;
                                 document.getElementById(document.getElementById('addressSearch_cardId').innerText).getElementsByClassName('shop_city')[0].innerText = ev.currentTarget.parentNode.getElementsByClassName('address_city')[0].innerText;
                                 document.getElementById(document.getElementById('addressSearch_cardId').innerText).getElementsByClassName('shop_district')[0].innerText = ev.currentTarget.parentNode.getElementsByClassName('address_district')[0].innerText;
+                                document.getElementById('popupOverlay').setAttribute('hidden','');
                                 document.getElementById('addressSearch').setAttribute('hidden','');
                             });
 
