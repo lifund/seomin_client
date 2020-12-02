@@ -34,29 +34,22 @@ button:hover, a:hover {
 }
 [hidden] { display: none !important; }
 
-/*-------------------- button colors --------------------*/
-.button_inactive {
-    background: #FFF;
-    border: 1px solid var(--color-light-gray);
-    color: black;
-    font-weight: 500;
-}
-.button_active {
-    background: var(--color-blue);
-    border: 1px solid var(--color-light-gray);
-    color: white;
-    font-weight: 700;
-}
 
 /*----------------------------------------------*/
 /*-------------------- main --------------------*/
 /*----------------------------------------------*/
-
+html, body {
+    background-color: rgb(0, 0, 0);
+}
 main {
     max-width: 1000px;
     margin: auto;
     padding: 20px;
     background-color: rgb(0, 0, 0);
+}
+#logout_button{
+    margin-top: 60px;
+    padding: 10px 20px;
 }
 section {
     border: 1px solid white;
@@ -68,64 +61,75 @@ section > h2 {
     color: white;
     font-size: 24px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
-.category_button{
-    display: flex;
+
+.category_button > button, #shop_add {
+    display: inline;
+    border: 1px solid #F0F0F0;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 100px;
 }
-.card_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 10px;
+.button_inactive {
+    background: #FFF;
+    color: black;
 }
+.button_active {
+    background: #4C95F7;
+    color: white;
+}
+
 
 
 /*-----------------------------------------------*/
 /*-------------------- cards --------------------*/
 /*-----------------------------------------------*/
+
+.card_container {
+    margin-top: 20px;
+    padding: 20px;
+    position: relative;
+}
+.delete_all {
+    display: inline;
+    border: 1px solid #F0F0F0;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px 20px;
+    position: absolute;
+    top: -60px;
+    right: 10px;
+    border-radius: 100px;
+}
+.franchise_inquiry, .shop_inquiry, .shop { 
+    display: inline-block;
+    margin-right: 20px;
+    background: #FFF;
+    margin-bottom: 10px;
+    width: calc(100% / 3 - 80px);
+    border-radius: 10px;
+    padding: 20px;
+}
+.franchise_inquiry>p, .shop_inquiry > p, .shop>*{
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 130%;
+} 
 .franchise_inquiry_contents, .shop_inquiry_contents{
     height: 200px;
     padding: 10px 0;
     overflow-y: scroll;
 }
-
-.franchise_inquiry{ 
-    background: #FFF;
-    padding: 10px;
-    margin-bottom: 10px;
+.shop_city, .shop_district {
+    display: none;
 }
-.franchise_inquiry>p{
-    line-height: 130%;
-} 
-
-/* shop_inquiry */
-.shop_inquiry {
-    background: #FFF;
-    padding: 10px;
-    margin-bottom: 10px;
+.shop > button, .shop > input {
+    padding: 10px 20px;
 }
-.shop_inquiry > p{
-    line-height: 130%;
-}
-
 /* menu */
-.menu {
-    background: #FFF;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.menu > p{
-    line-height: 130%;
-}
 
-/* shop */
-.shop {
-    background: #FFF;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.shop > p{
-    line-height: 100%;
-}
 
 
 /*-----------------------------------------------------*/

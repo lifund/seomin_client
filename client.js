@@ -483,7 +483,6 @@ const mongoDelete = (collection="",id,callback=function(){}) => {
 	});
 }
 
-
 // make another for key depth > 1 occasions.
 function sortObjectArrayByTheKey(objArr=[],key=""){
 	var sorted = [];
@@ -766,6 +765,24 @@ app.post('/admin/franchiseInquiry/delete',(req,res)=>{
 	}
 });
 
+app.post('/admin/franchiseInquiry/deleteAll',(req,res)=>{
+	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		MongoClient.connect(mongoUrl, mongoOption, function(err, db) {
+			if (err) throw err;
+			var dbo = db.db('seomin');
+			dbo.collection('franchise_inquiry').deleteMany({"status":"완료"},function(err,result){
+				if (err) throw err;
+				db.close();
+				res.send('success');
+			});
+		});
+	}else{
+		res.send('admin info error')
+	}
+});
+
+
+
 app.post('/admin/shopInquiry/statusUpdate',(req,res)=>{
 	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
 		data = req.body;
@@ -781,6 +798,21 @@ app.post('/admin/shopInquiry/delete',(req,res)=>{
 		data = req.body;
 		mongoDelete('shop_inquiry', data.id, function(result){
 			res.send('success');
+		});
+	}else{
+		res.send('admin info error')
+	}
+});
+app.post('/admin/shopInquiry/deleteAll',(req,res)=>{
+	if(isduplicate_logged_in_sessionKeys(req.cookies.sessionKey)){
+		MongoClient.connect(mongoUrl, mongoOption, function(err, db) {
+			if (err) throw err;
+			var dbo = db.db('seomin');
+			dbo.collection('shop_inquiry').deleteMany({"status":"완료"},function(err,result){
+				if (err) throw err;
+				db.close();
+				res.send('success');
+			});
 		});
 	}else{
 		res.send('admin info error')
@@ -848,7 +880,7 @@ app.post('/admin/searchAddress',(req,res)=>{
 		return res.json() 
 	})
 	.then((json) => {
-		if(json.documents.length==0){
+		if(!json.documents){
 			// NOT FOUND
 			res.send('일치하는 주소가 없습니다.');
 		} else {

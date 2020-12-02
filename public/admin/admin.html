@@ -16,17 +16,19 @@
 
         <!------------------ 가맹 문의 ------------------>
         <section>
-            <h2>가맹 문의</h2>
+            <h2>가맹 문의 목록</h2>
             <div class="category_button">
-                <button id="franchise_inquiry_submitted_button" class="button_active">접수</button>
-                <button id="franchise_inquiry_resolved_button" class="button_inactive">완료</button>
+                <button id="franchise_inquiry_submitted_button" class="button_active">접수됨</button>
+                <button id="franchise_inquiry_resolved_button" class="button_inactive">답변 완료함</button>
             </div>
             <div id="franchise_inquiry_submitted_container" class="card_container m__franchise_inquiry_submitted"></div>
-            <div id="franchise_inquiry_resolved_container" class="card_container m__franchise_inquiry_resolved" hidden></div>
+            <div id="franchise_inquiry_resolved_container" class="card_container m__franchise_inquiry_resolved" hidden>
+                <button id="franchise_inquiry_deleteAll_button" class="delete_all">완료 목록 비우기</button>
+            </div>
         </section>
 
         <script>
-            function request_post(url="", data={}, successCallback=function(){}, errorCallback=function(){}){
+            function request_post(url, data, successCallback, errorCallback){
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", url);
                 xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
@@ -61,7 +63,7 @@
 
 
             var franchise_inquiry_changeStatus = document.getElementsByClassName('franchise_inquiry_changeStatus');
-            for (let i = 0; i < franchise_inquiry_changeStatus.length; i++) {
+            for (var i = 0; i < franchise_inquiry_changeStatus.length; i++) {
                 var element = franchise_inquiry_changeStatus[i];
                 element.addEventListener('click',function(ev){
                     var real = document.getElementById(ev.currentTarget.id+'_el');
@@ -75,7 +77,8 @@
                             },
                             function(){
                                 window.location = '/admin';
-                            }
+                            },
+                            function(){}
                         );
 
                     }
@@ -89,7 +92,8 @@
                             },
                             function(){
                                 window.location = '/admin';
-                            }
+                            },
+                            function(){}
                         );
                     }
                     if (ev.currentTarget.innerText == '삭제하기'){
@@ -101,23 +105,41 @@
                             },
                             function(){
                                 window.location = '/admin';
-                            }
+                            },
+                            function(){}
                         );
                     }
                 });
             };
+
+            var franchise_inquiry_deleteAll_button = document.getElementById('franchise_inquiry_deleteAll_button');
+            franchise_inquiry_deleteAll_button.addEventListener('click',function(ev) {
+                request_post(
+                    '/admin/franchiseInquiry/deleteAll',
+                    {
+                        "collection":"franchise_inquiry",
+                        "id":ev.currentTarget.id,
+                    },
+                    function(){
+                        window.location = '/admin';
+                    },
+                    function(){}
+                );
+            });
             
         </script>
 
         <!------------------ 고객 문의 ------------------>
         <section>
-            <h2>고객의 소리</h2>
+            <h2>고객의 소리 목록</h2>
             <div class="category_button">
-                <button id="shop_inquiry_submitted_button" class="button_active">접수</button>
-                <button id="shop_inquiry_resolved_button" class="button_inactive">완료</button>
+                <button id="shop_inquiry_submitted_button" class="button_active">접수됨</button>
+                <button id="shop_inquiry_resolved_button" class="button_inactive">답변 완료함</button>
             </div>
             <div id="shop_inquiry_submitted_container" class="card_container m__shop_inquiry_submitted"></div>
-            <div id="shop_inquiry_resolved_container" class="card_container m__shop_inquiry_resolved" hidden></div>
+            <div id="shop_inquiry_resolved_container" class="card_container m__shop_inquiry_resolved" hidden>
+                <button id="shop_inquiry_deleteAll_button" class="delete_all">완료 목록 비우기</button>
+            </div>
         </section>
 
         <script>
@@ -140,7 +162,7 @@
 
 
             var shop_inquiry_changeStatus = document.getElementsByClassName('shop_inquiry_changeStatus');
-            for (let i = 0; i < shop_inquiry_changeStatus.length; i++) {
+            for (var i = 0; i < shop_inquiry_changeStatus.length; i++) {
                 var element = shop_inquiry_changeStatus[i];
                 element.addEventListener('click',function(ev){
                     var real = document.getElementById(ev.currentTarget.id+'_el');
@@ -154,7 +176,8 @@
                             },
                             function(){
                                 window.location = '/admin';
-                            }
+                            },
+                            function(){}
                         );
                     }
                     if (ev.currentTarget.innerText == '접수 상태로 되돌리기'){
@@ -167,7 +190,8 @@
                             },
                             function(){
                                 window.location = '/admin';
-                            }
+                            },
+                            function(){}
                         );
                     }
                     if (ev.currentTarget.innerText == '삭제하기'){
@@ -179,16 +203,31 @@
                             },
                             function(){
                                 window.location = '/admin';
-                            }
+                            },
+                            function(){}
                         );
                     }
                 });
             };
+            var shop_inquiry_deleteAll_button = document.getElementById('shop_inquiry_deleteAll_button');
+            shop_inquiry_deleteAll_button.addEventListener('click',function(ev) {
+                request_post(
+                    '/admin/shopInquiry/deleteAll',
+                    {
+                        "collection":"shop_inquiry",
+                        "id":ev.currentTarget.id,
+                    },
+                    function(){
+                        window.location = '/admin';
+                    },
+                    function(){}
+                );
+            });
         </script>
 
 
         <section>
-            <h2>가맹점 데이터</h2>
+            <h2>가맹점 목록</h2>
             <button id="shop_add">가맹점 추가하기</button>
             
             <div id="shop_container" class="card_container m__shop_list"></div>
@@ -199,7 +238,7 @@
             var used_ids = [];
 
             function isduplicate_id(id) {
-                for (let i = 0; i < used_ids.length; i++) {
+                for (var i = 0; i < used_ids.length; i++) {
                     if(id === used_ids[i]){
                         return true
                     }
@@ -269,14 +308,16 @@
                             }
                         },function(result){
                             window.location = '/admin'
-                        });
+                        },function(){}
+                        );
                     }
                 });
-                document.getElementById('shop_container').prepend(shop_CardDOM_clone);
+                var shop_container = document.getElementById('shop_container');
+                shop_container.insertBefore(shop_CardDOM_clone,shop_container.childNodes[0]||null);
             });
 
             var shop_updateCard_Array = document.getElementsByClassName('updateCard');
-            for (let i = 0; i < shop_updateCard_Array.length; i++) {
+            for (var i = 0; i < shop_updateCard_Array.length; i++) {
                 var shop_updateCard = shop_updateCard_Array[i];
                 shop_updateCard.addEventListener('click',function(ev){
                     request_post('/admin/shop/update',{
@@ -294,19 +335,21 @@
                         }}
                     },function(result){
                         window.location = '/admin'
-                    });
+                    },function(){}
+                    );
                 });
             }
 
             var shop_deleteCard_Array = document.getElementsByClassName('deleteCard');
-            for (let i = 0; i < shop_deleteCard_Array.length; i++) {
+            for (var i = 0; i < shop_deleteCard_Array.length; i++) {
                 var shop_deleteCard = shop_deleteCard_Array[i];
                 shop_deleteCard.addEventListener('click',function(ev){
                     request_post('/admin/shop/delete',{
                         id:ev.currentTarget.id
                     },function(result){
                         window.location = '/admin'
-                    });
+                    },function(){}
+                    );
                 });
             }
             
@@ -329,7 +372,7 @@
 
         <div id="addressSearch" class="popup" hidden>
             <p id="addressSearch_cardId" hidden></p>
-            <a id="addressSearch_removePopup"><!-- menu_fold --><svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"/><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"/></svg></a>
+            <a id="addressSearch_removePopup"><!-- menu_fold --><svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"></path><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"></path></svg></a>
             <h2>주소 검색하기</h2>
             <input type="text" id="addressSearch_query" class="button_inactive" placeholder="주소 입력">
             <button id="addressSearch_submit" class="button_inactive">검색</button>
@@ -337,7 +380,7 @@
         </div>
         <script>
             var shop_address_searchButton = document.getElementsByClassName('shop_address_searchButton');
-            for (let i = 0; i < shop_address_searchButton.length; i++) {
+            for (var i = 0; i < shop_address_searchButton.length; i++) {
                 shop_address_searchButton[i].addEventListener('click',function(ev){
                     document.getElementById('addressSearch_cardId').innerText = ev.currentTarget.parentNode.id;
                     document.getElementById('addressSearch').removeAttribute('hidden');
@@ -354,7 +397,7 @@
                     }else{
                         var responseObjectArray = JSON.parse(responseText);
 
-                        responseObjectArray.forEach(responseObject => {
+                        responseObjectArray.forEach(function(responseObject) {
                             var addressSearch_addressCard = document.createElement('div');
                             addressSearch_addressCard.classList.add('addressSearch_addressCard');
                             addressSearch_addressCard.innerHTML += '<div class="address_region">'+responseObject.address+'</div>';
@@ -376,7 +419,7 @@
                             document.getElementById('addressSearch_list').append(addressSearch_addressCard);
                         });
                     }
-                });
+                },function(){});
             });
         </script>
 
@@ -394,7 +437,7 @@
         function parseCookie(cookieString){
             var cookieArray = cookieString.split(';');
             var cookieObject = {};
-            for (let i = 0; i < cookieArray.length; i++) {
+            for (var i = 0; i < cookieArray.length; i++) {
                 cookieObject[cookieArray[i].split('=')[0]] = cookieArray[i].split('=')[1];
             } 
             return cookieObject;
