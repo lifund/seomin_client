@@ -281,14 +281,10 @@
                 shop_CardDOM_clone.getElementsByClassName('shop_address_searchButton')[0].addEventListener('click',function(ev){
                     document.getElementById('addressSearch_cardId').innerText = ev.currentTarget.parentNode.id;
                     document.getElementById('addressSearch').removeAttribute('hidden');
+                    popupOverlay.removeAttribute('hidden');
                 });
                 shop_CardDOM_clone.getElementsByClassName('abort')[0].addEventListener('click',function(ev){
                     ev.currentTarget.parentNode.parentNode.removeChild(ev.currentTarget.parentNode);
-                });
-                shop_CardDOM_clone.getElementsByClassName('shop_address_searchButton')[0].addEventListener('click',function(ev){
-                    document.getElementById('addressSearch_cardId').innerText = ev.currentTarget.parentNode.id;
-                    document.getElementById('addressSearch').removeAttribute('hidden');
-                    popupOverlay.removeAttribute('hidden');
                 });
                 shop_CardDOM_clone.getElementsByClassName('addCard')[0].addEventListener('click',function(ev){
                     if(
@@ -404,7 +400,8 @@
                     if(responseText!=='not specific' && responseText!=='not found'){
                         var responseObjectArray = JSON.parse(responseText);
 
-                        responseObjectArray.forEach(function(responseObject) {
+                        for (var i = 0; i < responseObjectArray.length; i++) {
+                            var responseObject = responseObjectArray[i];
                             var addressSearch_addressCard = document.createElement('div');
                             addressSearch_addressCard.classList.add('addressSearch_addressCard');
                             addressSearch_addressCard.innerHTML += '<div class="address_region">'+responseObject.address+'</div>';
@@ -424,7 +421,8 @@
                             addressSearch_addressCard.appendChild(addressSearch_addressCard_select);
 
                             document.getElementById('addressSearch_list').appendChild(addressSearch_addressCard);
-                        });
+                        }
+                            
                     } else {
                         if(responseText==='not found'){
                             document.getElementById('addressSearch_list').innerHTML = '일치하는 주소가 없습니다.';
