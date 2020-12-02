@@ -396,9 +396,7 @@
             document.getElementById('addressSearch_submit').addEventListener('click',function(ev){
                 request_post('/admin/searchAddress',{keyword:document.getElementById('addressSearch_query').value},function(responseText){
                     document.getElementById('addressSearch_list').innerHTML = '';
-                    if(responseText=='일치하는 주소가 없습니다.'|| responseText=='일치하는 주소가 없습니다. 건물번호를 포함하여, 띄어쓰기가 정확한 주소를 입력하세요. 예: 퇴계로49길14(X) 퇴계로49길 14(O)'){
-                        document.getElementById('addressSearch_list').innerHTML = '일치하는 주소가 없습니다.';
-                    }else{
+                    if(responseText!=='not specific' && responseText!=='not found'){
                         var responseObjectArray = JSON.parse(responseText);
 
                         responseObjectArray.forEach(function(responseObject) {
@@ -422,6 +420,13 @@
 
                             document.getElementById('addressSearch_list').appendChild(addressSearch_addressCard);
                         });
+                    } else {
+                        if(responseText==='not found'){
+                            document.getElementById('addressSearch_list').innerHTML = '일치하는 주소가 없습니다.';
+                        }
+                        if(responseText==='not specific'){
+                            document.getElementById('addressSearch_list').innerHTML = '일치하는 주소가 없습니다. 건물번호를 포함하여, 띄어쓰기가 정확한 주소를 입력하세요. 예: 퇴계로49길14(X) 퇴계로49길 14(O)';
+                        }
                     }
                 },function(){});
             });

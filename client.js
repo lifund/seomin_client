@@ -904,13 +904,13 @@ app.post('/admin/searchAddress',(req,res)=>{
 				return temp
 			})
 			if(mapped.length == 0){
-				res.send('일치하는 주소가 없습니다. 건물번호를 포함하여, 띄어쓰기가 정확한 주소를 입력하세요. 예: 퇴계로49길14(X) 퇴계로49길 14(O)')
+				res.send('not specific')
 			} else {
 				res.send(mapped);
 			}
 		} else {		
 			// NOT FOUND
-			res.send('일치하는 주소가 없습니다.');
+			res.send('not found');
 		} 
 	});
 })
