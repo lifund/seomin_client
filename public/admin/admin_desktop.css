@@ -186,7 +186,7 @@ section > h2 {
     height: 40px;
 }
 .addressSearch_addressCard{
-    border: 1px solid var(--color-dark-gray);
+    border: 1px solid #3f3f3f;
     padding: 10px;
     margin-top: 10px;
 }
