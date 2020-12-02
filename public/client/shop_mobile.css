@@ -260,6 +260,7 @@ main > h2 {
     display: inline-block;
     font-size: 16px;
     grid-area: shopName;
+    padding-top: 8px;
 }
 .shopAddress{
     font-size: 14px;
