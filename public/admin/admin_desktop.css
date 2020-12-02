@@ -122,7 +122,7 @@ section > h2 {
     padding: 10px 0;
     overflow-y: scroll;
 }
-.shop_city, .shop_district, .open, .close {
+.shop_city, .shop_district, .open, .close, .address_city, .address_district {
     display: none;
 }
 .shop_address {
