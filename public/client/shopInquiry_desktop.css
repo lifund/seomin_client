@@ -129,14 +129,14 @@ main {
     background: #4C95F7;
     color: #ffffff;
 }
-input[type=text], input[type=email]{
+input[type=text], input[type=email], input[type=tel]{
     margin-top: 20px;
     width: calc(100% - 40px);
     height: 40px;
     border-radius: 4px;
     border: 1px solid #D9D9D9;
     padding: 10px 20px;
-    font-size: 24px;
+    font-size: 18px;
 }
 textarea{
     margin-top: 20px;
