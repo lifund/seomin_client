@@ -93,6 +93,9 @@ nav > a:hover{
 /*----------------------------------------------*/
 /*-------------------- main --------------------*/
 /*----------------------------------------------*/
+html, body {
+    background: #F0F0F0;
+}
 main {
     display: block;
     width: 1000px;
@@ -102,6 +105,7 @@ main {
 }
 
 main > h2 {
+    font-size: 22px;
     margin-top: 56px;
     margin-left: 16px;
 }
@@ -109,7 +113,7 @@ main > h2 {
 #selectRegion {
     display: inline;
     margin-left: 16px;
-    margin-top: 20px;
+    margin-top: 56px;
 
     padding: 10px 20px;
 
@@ -150,6 +154,7 @@ main > h2 {
     border-radius: 4px;
 
     box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+    background: #FFFFFF;
 }
 
 /* contents */

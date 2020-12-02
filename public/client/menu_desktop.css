@@ -93,6 +93,9 @@ nav > a:hover{
 /*----------------------------------------------*/
 /*-------------------- main --------------------*/
 /*----------------------------------------------*/
+html, body {
+    background: #F0F0F0;
+}
 main {
     display: block;
     width: 1000px;
@@ -118,7 +121,7 @@ main {
     line-height: 0;
     height: 20px;
 
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     cursor: pointer;
 }
@@ -132,14 +135,18 @@ main {
     display: table;
     margin-top: 40px;
     margin-left: 20px;
-    border-spacing: 10px;
+    border-spacing: 16px;
     border-collapse: separate;
 }
 .main_topping_button {
     display: table-cell;
     width: max-content;
     color: #6d6d6d;
-    padding: 10px;
+    padding: 10px 20px;
+
+    font-weight: 700;
+    color: #6d6d6d;
+
     background: #FFF;
     border-radius: 100px;
     cursor: pointer;
