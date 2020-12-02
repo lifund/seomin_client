@@ -79,7 +79,7 @@ nav {
 }
 nav > a{
     display: table-cell;
-    padding-left: 64px;
+    padding: 10px 32px;
     color: black;
     font-weight: 700;
 }

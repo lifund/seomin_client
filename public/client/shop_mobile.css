@@ -261,9 +261,6 @@ main > h2 {
     font-size: 16px;
     grid-area: shopName;
 }
-.isopen{
-    margin-left: 10px;
-}
 .shopAddress{
     font-size: 14px;
     color: var(--color-dark-gray);
@@ -275,9 +272,14 @@ main > h2 {
     grid-area: shopPhone;
 }
 .shopHours{
+    display: none;
     font-size: 14px;
     color: var(--color-dark-gray);
     grid-area: shopHours;
+}
+.isopen{
+    display: none;
+    margin-left: 10px;
 }
 .shopCard > a {
     text-align: right;
