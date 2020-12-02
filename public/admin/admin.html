@@ -259,7 +259,7 @@
             shop_CardHTML_new += '<div class="shop">';
             shop_CardHTML_new += '<input type="text" class="shop_name">';
             shop_CardHTML_new += '<hr>';
-            shop_CardHTML_new += '<p class="shop_address">(전체주소 : 주소 선택시 자동입력)</p>';
+            shop_CardHTML_new += '<p class="shop_address">(주소를 검색하여 선택해주세요.)</p>';
             shop_CardHTML_new += '<p class="shop_city">(시/도: 주소 선택시 자동입력)</p>';
             shop_CardHTML_new += '<p class="shop_district">(군/구: 주소 선택시 자동입력)</p>';
             shop_CardHTML_new += '<button class="shop_address_searchButton">주소 변경하기</button>';
@@ -370,6 +370,7 @@
         <!--------------------------------------- 주소검색 ---------------------------------------->
         <!--------------------------------------------------------------------------------------------->
 
+        <div id="popupOverlay" hidden></div>
         <div id="addressSearch" class="popup" hidden>
             <p id="addressSearch_cardId" hidden></p>
             <a id="addressSearch_removePopup"><!-- menu_fold --><svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 36L36 20" stroke="black" stroke-width="2" stroke-linecap="round"></path><path d="M20 20L36 36" stroke="black" stroke-width="2" stroke-linecap="round"></path></svg></a>
@@ -380,14 +381,17 @@
         </div>
         <script>
             var shop_address_searchButton = document.getElementsByClassName('shop_address_searchButton');
+            var popupOverlay = document.getElementById('popupOverlay');
             for (var i = 0; i < shop_address_searchButton.length; i++) {
                 shop_address_searchButton[i].addEventListener('click',function(ev){
                     document.getElementById('addressSearch_cardId').innerText = ev.currentTarget.parentNode.id;
                     document.getElementById('addressSearch').removeAttribute('hidden');
+                    popupOverlay.removeAttribute('hidden');
                 });
             }
             document.getElementById('addressSearch_removePopup').addEventListener('click',function(ev){
                 document.getElementById('addressSearch').setAttribute('hidden','');
+                popupOverlay.setAttribute('hidden','');
             });
             document.getElementById('addressSearch_submit').addEventListener('click',function(ev){
                 request_post('/admin/searchAddress',{keyword:document.getElementById('addressSearch_query').value},function(responseText){
