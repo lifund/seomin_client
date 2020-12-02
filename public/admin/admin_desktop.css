@@ -128,8 +128,9 @@ section > h2 {
 .shop > button, .shop > input {
     padding: 10px 20px;
 }
-/* menu */
-
+.shop_newCard {
+    border: 2px solid red;
+}
 
 
 /*-----------------------------------------------------*/
@@ -186,3 +187,4 @@ section > h2 {
     left: 0px;
     background: rgba(0,0,0,0.8);
 }
+

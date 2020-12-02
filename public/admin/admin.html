@@ -256,7 +256,7 @@
                 }
             }
             var shop_CardHTML_new = ''; 
-            shop_CardHTML_new += '<div class="shop">';
+            shop_CardHTML_new += '<div class="shop shop_newCard">';
             shop_CardHTML_new += '<input type="text" class="shop_name">';
             shop_CardHTML_new += '<hr>';
             shop_CardHTML_new += '<p class="shop_address">(주소를 검색하여 선택해주세요.)</p>';
@@ -285,10 +285,15 @@
                 shop_CardDOM_clone.getElementsByClassName('abort')[0].addEventListener('click',function(ev){
                     ev.currentTarget.parentNode.parentNode.removeChild(ev.currentTarget.parentNode);
                 });
+                shop_CardDOM_clone.getElementsByClassName('shop_address_searchButton')[0].addEventListener('click',function(ev){
+                    document.getElementById('addressSearch_cardId').innerText = ev.currentTarget.parentNode.id;
+                    document.getElementById('addressSearch').removeAttribute('hidden');
+                    popupOverlay.removeAttribute('hidden');
+                });
                 shop_CardDOM_clone.getElementsByClassName('addCard')[0].addEventListener('click',function(ev){
                     if(
                         ev.currentTarget.parentNode.getElementsByClassName('shop_name')[0].value.trim()==''
-                        || ev.currentTarget.parentNode.getElementsByClassName('shop_address')[0].innerText=='(전체주소 : 주소 선택시 자동입력)'
+                        || ev.currentTarget.parentNode.getElementsByClassName('shop_address')[0].innerText=='(주소를 검색하여 선택해주세요.)'
                         || ev.currentTarget.parentNode.getElementsByClassName('shop_phone')[0].value.trim()==''
                     ){
                         alert('가게이름/주소/전화번호를 모두 입력해주세요')
@@ -425,7 +430,7 @@
                             document.getElementById('addressSearch_list').innerHTML = '일치하는 주소가 없습니다.';
                         }
                         if(responseText==='not specific'){
-                            document.getElementById('addressSearch_list').innerHTML = '<br>일치하는 주소가 없습니다. 건물번호를 포함하여, 띄어쓰기가 정확한 주소를 입력하세요. 예: 퇴계로49길14(X) 퇴계로49길 14(O)';
+                            document.getElementById('addressSearch_list').innerHTML = '<br>일치하는 주소가 없습니다. 건물번호를 포함하여, 띄어쓰기가 정확한 주소를 입력하세요. <br> 예: 퇴계로49길14(X) <br> 퇴계로49길 14(O)';
                         }
                     }
                 },function(){});
