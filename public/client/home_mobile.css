@@ -259,18 +259,24 @@ main {
     padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
     border-radius: 40px;
 }
-.menuCard_imgContainer > img {
+.menuCard_imgContainer > div {
     position: absolute; /* Take your picture out of the flow */
     top: 0;
     bottom: 0;
     left: 0;
     right: 0; /* Make the picture taking the size of it's parent */
     width: calc(100% - 20px); /* This if for the object-fit */
-    height: calc(100% - 20px); /* This if for the object-fit */
+    height: auto; /* This if for the object-fit */
     object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;
-    padding: 10px;
+    margin: 10px;
+    border-radius: 40px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
 .menuCard > p {
     display: block;
     font-weight: 700;
@@ -413,7 +419,7 @@ main {
     display: block;
     padding-bottom: 100%;
 }
-#menuPopup_imgContainer> img{
+#menuPopup_imgContainer> div{
     position: absolute; /* Take your picture out of the flow */
     top: 0;
     bottom: 0;
@@ -424,7 +430,11 @@ main {
     object-fit: contain; /* Equivalent of the background-size: cover; of a background-image */
     object-position: center;  
     border-radius: 20px 20px 0 0;
-    padding: 10px;
+    margin: 10px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
@@ -471,7 +481,7 @@ main {
     padding-top: 2px;
     font-size: 14px;
     margin-right: 10px;
-}
+} 
 #popup_description_long {
     display: block;
     margin-top: 10px;
@@ -482,7 +492,6 @@ main {
 
     overflow-y: scroll;
     overflow-x: hidden;
-
 
     font-size: 15px;
     font-weight: 700;
@@ -510,3 +519,4 @@ footer {
     font-size: 14px;
     line-height: 120%;
 }
+

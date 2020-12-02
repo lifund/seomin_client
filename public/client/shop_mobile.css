@@ -179,6 +179,8 @@ main > h2 {
 
     position: fixed;
     width: calc(100% - 32px);
+    top: 50%;
+    transform: translateY(-50%);
     left: 16px;
     background: #FFF;
     box-shadow: var(--shadow);
@@ -211,6 +213,8 @@ main > h2 {
 .select_popup_container {
     width: calc(100% - 20px);
     margin: auto;
+    overflow-y: scroll;
+    max-height: 60vh;
 }
 .regionList {
     border-top: 1px solid var(--color-light-gray);
