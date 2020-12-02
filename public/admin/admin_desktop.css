@@ -122,8 +122,24 @@ section > h2 {
     padding: 10px 0;
     overflow-y: scroll;
 }
-.shop_city, .shop_district {
+.shop_city, .shop_district, .open, .close {
     display: none;
+}
+.shop_address {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.shop_phone {
+    margin-top: 20px;
+}
+.updateCard, .deleteCard, .addCard, .abort{
+    margin-top: 20px;
+}
+.updateCard, .addCard{
+    background: #ccffc5;
+}
+.deleteCard, .abort{
+    background: rgb(255, 209, 213);
 }
 .shop > button, .shop > input {
     padding: 10px 20px;
@@ -131,6 +147,7 @@ section > h2 {
 .shop_newCard {
     border: 2px solid red;
 }
+
 
 
 /*-----------------------------------------------------*/
