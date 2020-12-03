@@ -147,21 +147,26 @@ main {
 /*-------------------- 배너 슬라이더 --------------------*/
 #banner_slider {
     height: 370px;
-    width: 1000px;
-    margin: auto;
+    width: 1920px;
 
-    padding-top: 56px;
+    margin-top: 56px;
 
     overflow-x: hidden;
     overflow-y: hidden;
     white-space: nowrap;
+    box-sizing: border-box;
 }
-#banner_slider img {
-    display: inline;
+.banner_image {
+    display: inline-block;
     scroll-snap-align: center;
-    height: 100%;
-    width:100%;
-    object-fit: cover;
+    position: relative;
+
+    height:370px;
+    width:1920px;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
