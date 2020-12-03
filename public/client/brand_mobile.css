@@ -37,6 +37,7 @@ button:hover, a:hover {
 
 /*-------------------- header --------------------*/
 header {
+    z-index: 10;
     position: fixed;
     top: 0;
     width: 100%;
@@ -88,6 +89,7 @@ header > svg {
     animation-fill-mode: forwards;
 }
 nav {
+    z-index: 10;
     width: 100%;
     position: fixed;
     top: 56px;
@@ -122,6 +124,37 @@ nav {
 
 
 
+#sectionBanner{
+    position: relative;
+    margin-top: 56px;
+    display: block;
+    width: 100vw;
+    height: 100vw;
+
+    background-image: url('/public/banner/section/mobile.png');
+
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+#sectionBanner > p {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 120%;
+    word-break: keep-all;
+    transform: translateY(-50%);
+}
+
 
 /*-------------------- main --------------------*/
 /*----------------------------------------------*/
@@ -136,13 +169,18 @@ main {
     max-width: 1000px;
 }
 
+
 /*-------------------- text grid --------------------*/
 #text_title{
     padding-top: 40px;
     color: #A02828;
     font-size: 24px;   
     margin-left: 10px;
-
+}
+.text_title{
+    color: #A02828;
+    font-size: 24px;  
+    margin-bottom: 20px; 
 }
 #grid_text{
     margin-top: 20px;

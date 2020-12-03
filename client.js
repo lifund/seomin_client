@@ -69,7 +69,7 @@ app.get('/home',(req,res)=>{
 		let bannerHTML = ''
 		if(req.useragent.isMobile){
 			fs.readdirSync(path.join(__dirname,'public/banner/mobile'),'utf-8').forEach((bannerImage)=>{
-				bannerHTML += '<div class="banner_image" data-href="/brand" style="background-image: url("public/banner/mobile/'+bannerImage+'");"></div>';
+				bannerHTML += '<div class="banner_image" data-href="/brand" style="background-image: url(\'public/banner/mobile/'+bannerImage+'\');"></div>';
 			});
 		}else{
 			fs.readdirSync(path.join(__dirname,'public/banner/desktop'),'utf-8').forEach((bannerImage)=>{

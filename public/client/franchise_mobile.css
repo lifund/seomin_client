@@ -123,7 +123,36 @@ nav {
 }
 
 
+#sectionBanner{
+    position: relative;
+    margin-top: 56px;
+    display: block;
+    width: 100vw;
+    height: 100vw;
 
+    background-image: url('/public/banner/section/mobile.png');
+
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+#sectionBanner > p {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 120%;
+    word-break: keep-all;
+    transform: translateY(-50%);
+}
 
 /*----------------------------------------------*/
 /*-------------------- main --------------------*/

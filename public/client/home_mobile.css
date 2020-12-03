@@ -166,36 +166,53 @@ nav {
 
 
 
+
 /*----------------------------------------------*/
 /*-------------------- main --------------------*/
 /*----------------------------------------------*/
 main {
-    margin-top: 56px;
+    margin-top: 24px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
+
+
 /*-------------------- 배너 슬라이더 --------------------*/
 #banner_slider {
     height: 100vw;
-    width: 100%;
-    overflow-x: scroll;
+    width: 100vw;
+
+    margin-top: 56px;
+
+    overflow-x: hidden;
     overflow-y: hidden;
     white-space: nowrap;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    box-sizing: border-box;
 }
-#banner_slider img {
+.banner_image {
     display: inline-block;
     scroll-snap-align: center;
-    height: 100%;
-    width:100%;
+    position: relative;
+
+    height:100vw;
+    width:100vw;
+
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
+    background-repeat: no-repeat;
+    background-position: center center;
 }
+
+
 
 /*-------------------- 추천 메뉴 --------------------*/
 #recommendation {
-    padding-top: 48px;
+    padding-top: 0px;
 }
 /* title */
 #recommendation_title {
