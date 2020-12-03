@@ -147,7 +147,7 @@ main {
 /*-------------------- 배너 슬라이더 --------------------*/
 #banner_slider {
     height: 370px;
-    width: 1920px;
+    width: 100vw;
 
     margin-top: 56px;
 
