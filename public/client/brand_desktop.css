@@ -40,6 +40,7 @@ a, img {
 [hidden] { display: none !important; }
 
 
+
 /*-------------------- header container --------------------*/
 #headerMaster {
     display: block;
@@ -48,29 +49,29 @@ a, img {
     width: 100%;
     height: 160px;
 
-    background: #ffffff;
     z-index: 1;
     box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+    background: #A02828;
 }
 #headerContainer {
-    width: 1000px;
+    width: 100%;
     margin: auto;
 }
 /*-------------------- header --------------------*/
 header {
-    width: 1000px;
+    width: 100%;
     height: 80px;
 }
 header > a {
     display: block;
-    width: 1000px;
+    width: 100%;
 }
 header > a > img {
     display: block;
     margin: auto;
-    padding-top: 20px;
-    height: 56px;
-    width: 84px;
+    padding-top: 8px;
+    height: 64px;
+    width: 100px;
 }
 header > svg {
     display: none;
@@ -80,18 +81,21 @@ nav > a > svg {
     display: none;
 }
 nav {
-    width: 100%;
     vertical-align: middle;
-    background: #FFFFFF;
     display: table;
-    padding-top: 10px;
+    background: #FFFFFF;
+
+    width: 1000px;
+    padding-left: calc(50vw - 500px);
+    padding-right: calc(50vw - 500px);
+
 }
 nav > a{
     margin: auto;
     display: table-cell;
-    padding: 24px 32px;
+    padding: 30px 32px;
     color: black;
-    font-weight: 700;
+    font-weight: 900;
     text-align: center;
 }
 nav > a:hover{
@@ -101,34 +105,51 @@ nav > a > p {
     font-size: 20px;
 }
 
-
-#sectionBanner{
-    position: relative;
-    margin-top: 160px;
-    display: block;
-    height: 370px;
-
-    background-image: url('/public/banner/section/desktop.png');
-
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-
-    background-repeat: no-repeat;
-    background-position: center center;
-}
-#sectionBanner > p {
-    position: absolute;
+/*-------------------- 하단 배너 (div) --------------------*/
+#lowerBanner {
+    position: fixed;
+    height: 80px;
+    bottom: -1px;
     width: 100%;
-    text-align: center;
-    top: 50%;
-    color: #ffffff;
-    font-size: 60px;
-    letter-spacing: 4px;
-    line-height: 0;
-    filter: alpha(opacity=70);
-    filter: opacity(0.7);
+    background-color: #fafafa;
+    z-index: 1;
+    box-shadow: 0px 4px 16px 2px rgba(0,0,0,0.08);
+}
+#lowerBanner_container {
+    max-width: 1000px;
+    height: 100%;
+    margin: auto;
+
+    padding: 0 16px;
+
+    display : table;
+}
+#lowerBanner_container > p {
+    display: table-cell;
+    vertical-align: middle;
+
+    color: #000000;
+    font-weight: 700;
+    font-size: 24px;
+}
+#lowerBanner_button_container {
+    display: table-cell;
+    vertical-align: middle;
+    border-spacing: 10px;
+    padding-left: 40px;
+}
+#lowerBanner_button_container > a {
+    display: table-cell;
+    padding: 0 20px;
+
+    height: 60px;
+    line-height: 60px;
+
+    color: white;
+    background-color: #4C95F7;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 100px;
 }
 
 /*----------------------------------------------*/
