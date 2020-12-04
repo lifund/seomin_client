@@ -357,11 +357,11 @@ app.post('/shop/inquiry',(req,res)=>{
 		"time":date.getTime(),
 		"timeStamp": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
 		"status":"접수",
-		"category":req.body.category.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, ''),
-		"name":req.body.name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, ''),
-		"email":req.body.email.replace(/[`~!#$%^&*()|+\\=?;:'",<>\{\}\[\]\\\/]/gi, ''),
-		"tel":req.body.tel.replace(/[`~!@#$%^&*()_|+\\=?;:'",.<>\{\}\[\]\\\/]/gi, ''),
-		"contents":req.body.contents.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/(\r\n|\n|\r)/gm,'<br>')
+		"category":req.body.category.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').substring(0, 2),
+		"name":req.body.name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').substring(0, 20),
+		"email":req.body.email.replace(/[`~!#$%^&*()|+\\=?;:'",<>\{\}\[\]\\\/]/gi, '').substring(0, 30),
+		"tel":req.body.tel.replace(/[`~!@#$%^&*()_|+\\=?;:'",.<>\{\}\[\]\\\/]/gi, '').substring(0, 50),
+		"contents":req.body.contents.replace(/[`~!@#$%^&*()_|+\-=;:'"<>\{\}\[\]\\\/]/gi, '').substring(0, 1000).replace(/(\r\n|\n|\r)/gm,'<br>')
 	}
 	mongoInsert('shop_inquiry',inquiryData,(result)=>{
 		console.log('[고객의소리] 접수됨');
@@ -402,10 +402,10 @@ app.post('/franchise/inquiry',(req,res)=>{
 		"time":date.getTime(),
 		"timeStamp": `${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
 		"status":"접수",
-		"name":req.body.name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, ''),
-		"email":req.body.email.replace(/[`~!#$%^&*()|+\\=?;:'",<>\{\}\[\]\\\/]/gi, ''),
-		"tel":req.body.tel.replace(/[`~!@#$%^&*()_|+\\=?;:'",.<>\{\}\[\]\\\/]/gi, ''),
-		"contents":req.body.contents.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').replace(/(\r\n|\n|\r)/gm,'<br>')
+		"name":req.body.name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '').substring(0, 20),
+		"email":req.body.email.replace(/[`~!#$%^&*()|+\\=?;:'",<>\{\}\[\]\\\/]/gi, '').substring(0, 50),
+		"tel":req.body.tel.replace(/[`~!@#$%^&*()_|+\\=?;:'",.<>\{\}\[\]\\\/]/gi, '').substring(0, 30),
+		"contents":req.body.contents.replace(/[`~!@#$%^&*()_|+\-=;:'"<>\{\}\[\]\\\/]/gi, '').substring(0, 1000).replace(/(\r\n|\n|\r)/gm,'<br>')
 	}
 	mongoInsert('franchise_inquiry',inquiryData,(result)=>{
 		console.log('[프렌차이즈 문의] 접수됨');

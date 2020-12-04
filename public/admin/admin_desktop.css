@@ -117,6 +117,9 @@ section > h2 {
     font-size: 18px;
     line-height: 130%;
 } 
+.franchise_inquiry_name, .shop_inquiry_name,.franchise_inquiry_email, .shop_inquiry_email{
+    word-wrap: break-word;
+}
 .franchise_inquiry_contents, .shop_inquiry_contents{
     height: 200px;
     padding: 10px 0;
