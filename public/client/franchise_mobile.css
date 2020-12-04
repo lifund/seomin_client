@@ -164,7 +164,7 @@ main {
     margin-top: 56px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 48px;
+    padding-top: 0px;
     padding-bottom: 80px;
 }
 
@@ -173,20 +173,29 @@ main {
     grid-template-columns: auto max-content;
     grid-template-rows: auto max-content;
     grid-template-areas: 
-    'title title_buttons';
+    'title title'
+    'title_buttons title_buttons';
     width: 100%;
     row-gap: 10px;
 }
 #titleContainer > h2 {
     margin-left: 16px;
+    font-size: 20px;
+    word-break: keep-all;
     grid-area: title;
+    width: 90vw;
+    text-align: center;
+    line-height: 150%;
+    color: #A02828;
 }
 #titleContainer_buttons {
+    padding-top: 30px;
+    margin: auto;
     grid-area: title_buttons;
     display: grid;
     grid-template-areas: 
-    'writeForm' 'callNow';
-    row-gap: 10px;
+    'writeForm callNow';
+    column-gap: 10px;
 }
 #writeForm {
     grid-area: writeForm;
@@ -195,22 +204,24 @@ main {
     grid-area: callNow;
 }
 #titleContainer_buttons > a {
-    margin-right: 16px;
     background: var(--color-blue);
     padding: 0.5em 1em;
     color: #FFF;
     border-radius: 20px;
     width: max-content;
     white-space: nowrap;
+    font-size: 20px;
 }
 main > h2 {
     margin-left: 16px;
-    margin-top: 40px;
+    margin-top: 50px;
     margin-bottom: 20px;
+    font-size: 22px;
 }
 main > h3 {
+    font-size: 20px;
     margin-left: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 /*-------------------- step --------------------*/
@@ -221,14 +232,15 @@ main > h3 {
     margin: 20px 10px;
 
     font-size: 14px;
-    color: var(--color-dark-gray);
+    color: rgb(34, 34, 34);
     background-color: #fff;
     box-shadow: var(--shadow);
 }
 .step_container > h3{
-    font-size: 18px;
+    font-size: 20px;
 }
 .step_container > p{
+    font-size: 18px;
     margin-top: 20px;
 }
 .step_number {
@@ -240,7 +252,9 @@ main > h3 {
 }
 
 /*-------------------- cost --------------------*/
-
+#cost_total {
+    line-height: 150%;
+}
 #cost_grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -251,21 +265,24 @@ main > h3 {
 .cost_container {
     padding: 30px 20px;
 
-    font-size: 14px;
+    font-size: 20px;
     color: var(--color-dark-gray);
     background-color: #fff;
     box-shadow: var(--shadow);
 }
 .cost_container > h3{
-    font-size: 18px;
+    color: rgb(37, 37, 37);
+    font-size: 22px;
 }
 .cost_container > hr { 
     border: 1px solid var(--color-tint-gray);
 }
 .cost_container > h4{
+    font-size: 20px;
     margin-top: 10px;
 }
 .cost_container > p{
+    font-size: 20px;
     margin-top: 20px;
     line-height: 150%;
     word-break: keep-all;
@@ -282,6 +299,7 @@ main > h3 {
     color: var(--color-light-gray);
 }
 .span_emphasize {
+    font-size: 22px;
     color: var(--color-pink);
 }
 
