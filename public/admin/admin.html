@@ -31,6 +31,26 @@
         </section>
 
         <script>
+
+            function containsClass(yourObj, yourClass) {
+                if(!yourObj || typeof yourClass !== 'string') {
+                    return false;
+                } else if(yourObj.className && yourObj.className.trim().split(/\s+/gi).indexOf(yourClass) > -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            function removeClass(yourObj, yourClass) {
+                var regex = new RegExp(yourClass, "g");
+                yourObj.className = yourObj.className.replace(regex, "");
+            }
+
+            function addClass(yourObj, yourClass) {
+                yourObj.className += ' ' + yourClass;
+            }
+
             function request_post(url, data, successCallback, errorCallback){
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", url);
@@ -49,19 +69,19 @@
 
             document.getElementById('franchise_inquiry_submitted_button').addEventListener('click',function(ev){
                 document.getElementById('franchise_inquiry_submitted_container').removeAttribute('hidden');
-                document.getElementById('franchise_inquiry_submitted_button').classList.remove('button_inactive');
-                document.getElementById('franchise_inquiry_submitted_button').classList.add('button_active');
+                removeClass(document.getElementById('franchise_inquiry_submitted_button'),'button_inactive');
+                addClass(document.getElementById('franchise_inquiry_submitted_button'),'button_active');
                 document.getElementById('franchise_inquiry_resolved_container').setAttribute('hidden','');
-                document.getElementById('franchise_inquiry_resolved_button').classList.add('button_inactive');
-                document.getElementById('franchise_inquiry_resolved_button').classList.remove('button_active');
+                addClass(document.getElementById('franchise_inquiry_resolved_button'),'button_inactive');
+                removeClass(document.getElementById('franchise_inquiry_resolved_button'),'button_active');
             });
             document.getElementById('franchise_inquiry_resolved_button').addEventListener('click',function(ev){
                 document.getElementById('franchise_inquiry_resolved_container').removeAttribute('hidden');
-                document.getElementById('franchise_inquiry_resolved_button').classList.remove('button_inactive');
-                document.getElementById('franchise_inquiry_resolved_button').classList.add('button_active');
+                removeClass(document.getElementById('franchise_inquiry_resolved_button'),'button_inactive');
+                addClass(document.getElementById('franchise_inquiry_resolved_button'),'button_active');
                 document.getElementById('franchise_inquiry_submitted_container').setAttribute('hidden','');
-                document.getElementById('franchise_inquiry_submitted_button').classList.add('button_inactive');
-                document.getElementById('franchise_inquiry_submitted_button').classList.remove('button_active');
+                addClass(document.getElementById('franchise_inquiry_submitted_button'),'button_inactive');
+                removeClass(document.getElementById('franchise_inquiry_submitted_button'),'button_active');
             });
 
 
@@ -150,19 +170,19 @@
         <script>
             document.getElementById('shop_inquiry_submitted_button').addEventListener('click',function(ev){
                 document.getElementById('shop_inquiry_submitted_container').removeAttribute('hidden');
-                document.getElementById('shop_inquiry_submitted_button').classList.remove('button_inactive');
-                document.getElementById('shop_inquiry_submitted_button').classList.add('button_active');
+                removeClass(document.getElementById('shop_inquiry_submitted_button'),'button_inactive');
+                addClass(document.getElementById('shop_inquiry_submitted_button'),'button_active');
                 document.getElementById('shop_inquiry_resolved_container').setAttribute('hidden','');
-                document.getElementById('shop_inquiry_resolved_button').classList.add('button_inactive');
-                document.getElementById('shop_inquiry_resolved_button').classList.remove('button_active');
+                addClass(document.getElementById('shop_inquiry_resolved_button'),'button_inactive');
+                removeClass(document.getElementById('shop_inquiry_resolved_button'),'button_active');
             });
             document.getElementById('shop_inquiry_resolved_button').addEventListener('click',function(ev){
                 document.getElementById('shop_inquiry_resolved_container').removeAttribute('hidden');
-                document.getElementById('shop_inquiry_resolved_button').classList.remove('button_inactive');
-                document.getElementById('shop_inquiry_resolved_button').classList.add('button_active');
+                removeClass(document.getElementById('shop_inquiry_resolved_button'),'button_inactive');
+                addClass(document.getElementById('shop_inquiry_resolved_button'),'button_active');
                 document.getElementById('shop_inquiry_submitted_container').setAttribute('hidden','');
-                document.getElementById('shop_inquiry_submitted_button').classList.add('button_inactive');
-                document.getElementById('shop_inquiry_submitted_button').classList.remove('button_active');
+                addClass(document.getElementById('shop_inquiry_submitted_button'),'button_inactive');
+                removeClass(document.getElementById('shop_inquiry_submitted_button'),'button_active');
             });
 
 
@@ -405,13 +425,13 @@
                         for (var i = 0; i < responseObjectArray.length; i++) {
                             var responseObject = responseObjectArray[i];
                             var addressSearch_addressCard = document.createElement('div');
-                            addressSearch_addressCard.classList.add('addressSearch_addressCard');
+                            addClass(addressSearch_addressCard,'addressSearch_addressCard');
                             addressSearch_addressCard.innerHTML += '<div class="address_region">'+responseObject.address+'</div>';
                             addressSearch_addressCard.innerHTML += '<div class="address_road">'+responseObject.road_address+'</div>';
                             addressSearch_addressCard.innerHTML += '<div class="address_city">'+responseObject.city+'</div>';
                             addressSearch_addressCard.innerHTML += '<div class="address_district">'+responseObject.district+'</div>';
                             var addressSearch_addressCard_select = document.createElement('button');
-                            addressSearch_addressCard_select.classList.add('addressSearch_addressCard_select');
+                            addClass(addressSearch_addressCard_select,'addressSearch_addressCard_select');
                             addressSearch_addressCard_select.innerText = '선택';
                             addressSearch_addressCard_select.addEventListener('click',function(ev){
                                 document.getElementById(document.getElementById('addressSearch_cardId').innerText).getElementsByClassName('shop_address')[0].innerText = ev.currentTarget.parentNode.getElementsByClassName('address_region')[0].innerText;

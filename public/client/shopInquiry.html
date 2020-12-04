@@ -37,7 +37,7 @@
             <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"></circle></svg>
             <h3>이름</h3>
         </div>
-        <input id="name" type="text" name="name" id="name" placeholder="이름을 입력해주세요">
+        <input id="name" type="text" name="name" id="name" max="20" placeholder="이름을 입력해주세요">
 
 
         <!-- 연락처 | contacts -->
@@ -47,8 +47,8 @@
             <button id="contact_change_tel">휴대전화로 상담하기</button>
             <button id="contact_change_email" hidden>이메일로 상담하기</button>
         </div>
-        <input id="contact_email" type="email" name="email" id="email" placeholder="이메일을 입력해주세요">
-        <input id="contact_tel" type="tel" name="tel" id="tel" placeholder="전화번호를 입력해주세요" hidden>
+        <input id="contact_email" type="email" name="email" id="email" maxlength="50" placeholder="이메일을 입력해주세요">
+        <input id="contact_tel" type="tel" name="tel" id="tel" maxlength="30" placeholder="전화번호를 입력해주세요" hidden>
     
 
         <!-- 문의내용 | contents -->
@@ -56,7 +56,7 @@
             <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="#FF0000"></circle></svg>
             <h3>문의 내용</h3>
         </div>
-        <textarea id="contents" name="text" wrap="soft" placeholder="문의 내용을 입력해주세요"></textarea>
+        <textarea id="contents" name="text" wrap="soft" maxlength="1000" placeholder="문의 내용을 입력해주세요 (공백 포함 1000자 이하)"></textarea>
 
         
         <!-- 동의 | agree -->

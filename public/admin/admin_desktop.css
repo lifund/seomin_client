@@ -121,6 +121,7 @@ section > h2 {
     height: 200px;
     padding: 10px 0;
     overflow-y: scroll;
+    word-wrap: break-word;
 }
 .shop_city, .shop_district, .open, .close, .address_city, .address_district {
     display: none;

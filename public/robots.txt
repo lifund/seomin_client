@@ -4,4 +4,11 @@ Disallow: /admin/login
 Disallow: /admin/logout
 Disallow: /admin/shopInquiry/statusUpdate
 Disallow: /admin/franchiseInquiry/statusUpdate
+Disallow: /admin/franchiseInquiry/delete
+Disallow: /admin/franchiseInquiry/deleteAll
+Disallow: /admin/shopInquiry/statusUpdate
+Disallow: /admin/shopInquiry/delete
+Disallow: /admin/shopInquiry/deleteAll
+Disallow: /admin/shop/update
+Disallow: /admin/shop/delete
 Disallow: /admin/searchAddress
