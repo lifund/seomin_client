@@ -219,7 +219,6 @@ app.get('/menu',(req,res)=>{
 			}
 			if(menu.categoryName == "세트메뉴"){
 				menuCardHTML_set += tempCardHTML;
-				console.log(tempCardHTML);
 			}
 			if(menu.categoryName == "사이드메뉴"){
 				menuCardHTML_side += tempCardHTML;
@@ -637,7 +636,6 @@ app.get('/admin',(req,res)=>{
 				mongoFind('menu',{},(result)=>{
 					if (result.length > 0) { result = sortObjectArrayByTheKey(result,'productName'); }
 					let menu_CardHTML = '';
-					console.log(result);
 					result.forEach((menu)=>{
 						menu_CardHTML += 
 						`<div id="${menu._id}_el" class="menu ${menu.status} ${menu.category}">
