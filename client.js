@@ -549,11 +549,11 @@ app.get('/admin',(req,res)=>{
 		// read HTML template
 		let sourceHtml = fs.readFileSync(path.join(__dirname,'public/admin/admin.html'),'utf-8');
 		// STYLE SHEET : MOBILE/DEKSTOP
-		//if(req.useragent.isMobile){
-		//	sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="public/admin/admin_mobile.css">`)
-		//}else{
+		if(req.useragent.isMobile){
+			sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="public/admin/admin_mobile.css">`)
+		}else{
 			sourceHtml = sourceHtml.replace('<!-- stylesheet_placeholder -->',`<link rel="stylesheet" href="public/admin/admin_desktop.css">`)
-		//}
+		}
 
 		
 		/* franchise_inquiry */

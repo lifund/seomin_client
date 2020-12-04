@@ -21,7 +21,10 @@
                 <button id="franchise_inquiry_submitted_button" class="button_active">접수됨</button>
                 <button id="franchise_inquiry_resolved_button" class="button_inactive">답변 완료함</button>
             </div>
-            <div id="franchise_inquiry_submitted_container" class="card_container m__franchise_inquiry_submitted"></div>
+            <div class="mobile_scroller">
+                <div id="franchise_inquiry_submitted_container" class="card_container m__franchise_inquiry_submitted">
+                </div>
+            </div>
             <div id="franchise_inquiry_resolved_container" class="card_container m__franchise_inquiry_resolved" hidden>
                 <button id="franchise_inquiry_deleteAll_button" class="delete_all">완료 목록 비우기</button>
             </div>
@@ -136,7 +139,9 @@
                 <button id="shop_inquiry_submitted_button" class="button_active">접수됨</button>
                 <button id="shop_inquiry_resolved_button" class="button_inactive">답변 완료함</button>
             </div>
-            <div id="shop_inquiry_submitted_container" class="card_container m__shop_inquiry_submitted"></div>
+            <div class="mobile_scroller">
+                <div id="shop_inquiry_submitted_container" class="card_container m__shop_inquiry_submitted"></div>
+            </div>
             <div id="shop_inquiry_resolved_container" class="card_container m__shop_inquiry_resolved" hidden>
                 <button id="shop_inquiry_deleteAll_button" class="delete_all">완료 목록 비우기</button>
             </div>
@@ -229,8 +234,9 @@
         <section>
             <h2>가맹점 목록</h2>
             <button id="shop_add">가맹점 추가하기</button>
-            
-            <div id="shop_container" class="card_container m__shop_list"></div>
+            <div class="mobile_scroller">
+                <div id="shop_container" class="card_container m__shop_list"></div>
+            </div>
         </section>
 
         <script>

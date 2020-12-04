@@ -1,64 +1,218 @@
-*{
-    font-family: Arial, Helvetica, sans-serif;
-}
 
+/*----------------------------------------------*/
+/*-------------------- 공통 --------------------*/
+/*----------------------------------------------*/
+
+* {
+    font-family: 'NanumSquare', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+}
+html, body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+p,h1,h2,h3,h4,h5,h6,a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    line-height: 100%;
+}
+button:hover, a:hover {
+    cursor: pointer;
+}
+:root {
+    --color-blue: #4C95F7;
+    --color-pink:  #FF6672;
+    --color-light-gray: #D9D9D9;
+    --color-dark-gray: #6d6d6d;
+
+    --color-tint-gray: #F0F0F0;
+    --shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
+}
+[hidden] { display: none !important; }
+
+
+/*----------------------------------------------*/
+/*-------------------- main --------------------*/
+/*----------------------------------------------*/
+html, body {
+    background-color: rgb(0, 0, 0);
+}
 main {
-
+    width: 100%;
+    margin: auto;
+    background-color: rgb(0, 0, 0);
+}
+#logout_button{
+    margin-top: 60px;
+    padding: 10px 20px;
+}
+section {
+    border: 1px solid white;
+    background-color: #3f3f3f;
+    padding: 10px;
+    margin-top: 40px;
+    overflow-x: hidden;
+}
+section > h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-section {
-    background-color: rgb(221, 212, 212);
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.category_button > button, #shop_add {
+    display: inline;
+    border: 1px solid #F0F0F0;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 100px;
+}
+.button_inactive {
+    background: #FFF;
+    color: black;
+}
+.button_active {
+    background: #4C95F7;
+    color: white;
+}
+
+
+
+/*-----------------------------------------------*/
+/*-------------------- cards --------------------*/
+/*-----------------------------------------------*/
+.mobile_scroller{
+    overflow-x: scroll;
 }
 .card_container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 10px;
+    margin-top: 20px;
+    position: relative;
+    width: max-content;
 }
-
-
-.franchise_inquiry{ 
-    background: #FFF;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-.franchise_inquiry>p{
-    line-height: 0;
-} 
-
-
-.popup {
-    padding:10px;
-    background-color: #fff;
-    border: 2px solid gray;
-}
-
-input[type="text"] {
+.delete_all {
     display: block;
-    padding: 5px;
-    font-size: 1em;
-    width: 90%;
+    border: 1px solid #F0F0F0;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px 10px;
+    top: 60px;
+    right: 10px;
+    border-radius: 100px;
+}
+.franchise_inquiry, .shop_inquiry, .shop { 
+    display: inline-block;
+    background: #FFF;
+    margin-bottom: 10px;
+    width: calc(100vw - 80px);
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 10px;
+    scroll-snap-type: mandatory;
+
+}
+.franchise_inquiry>p, .shop_inquiry > p, .shop>*{
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 130%;
+} 
+.franchise_inquiry_contents, .shop_inquiry_contents{
+    height: 200px;
+    padding: 10px 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    white-space: pre-wrap;
+    width: 100%;
+    word-break: keep-all;
+    word-wrap: break-word;
+}
+.shop_city, .shop_district, .open, .close, .address_city, .address_district {
+    display: none;
+}
+.shop_address {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.shop_phone {
+    margin-top: 20px;
+}
+.updateCard, .deleteCard, .addCard, .abort{
+    margin-top: 20px;
+}
+.updateCard, .addCard{
+    background: #ccffc5;
+}
+.deleteCard, .abort{
+    background: rgb(255, 209, 213);
+}
+.shop > button, .shop > input {
+    padding: 10px 20px;
+}
+.shop_newCard {
+    border: 2px solid red;
+}
+
+
+
+/*-----------------------------------------------------*/
+/*-------------------- input popup --------------------*/
+/*-----------------------------------------------------*/
+#addressSearch {
+    max-height: 80vh;
+    width: 90vw;
+    z-index: 10;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 4px;
+    background: #FFF;
+    box-shadow: 0px 4px 16px 0px rgba(0,0,0,0.12);
+
+    padding: 20px;
+}
+#addressSearch_removePopup{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#addressSearch_query {
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
+    width: 100%;
+    height: 40px;
 }
-input[type=submit],button {
-    display: block;
-    background: #016ABC;
-    color: #fff;
-    border: 1px solid #eee;
-    border-radius: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    height:30px;
-    font-size: 1em;
+#addressSearch_submit{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #6d6d6d;
+}
+.addressSearch_addressCard{
+    border: 1px solid #3f3f3f;
+    padding: 10px;
+    margin-top: 10px;
+}
+.addressSearch_addressCard_select {
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px 20px;
 }
 
-table, table * {
-    border-collapse: collapse;
-    border: 1px solid black;
+#popupOverlay {
+    width: 100vw;
+    height: 100vh;
+    
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.8);
 }
-td,th{
-    padding: 5px;
-}
+
