@@ -46,6 +46,7 @@ app.get('/naver1d6c556ca6b4a04b8ca411598a563b03.html',(req,res)=>{
 	res.sendFile(path.join(__dirname,'public/naver1d6c556ca6b4a04b8ca411598a563b03.html'));
 });
 app.get('/sitemap',(req,res)=>{
+	res.setHeader('content-type','application/xml')
 	res.sendFile(path.join(__dirname,'/public/sitemap.xml'));
 });
 
