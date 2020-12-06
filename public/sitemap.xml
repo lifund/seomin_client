@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://서민피자.com/sitemap">
+<urlset xmlns="https://xn--lg3bt7gwpg8yp.com/sitemap">
   <url>
-    <loc>https://서민피자.com/home</loc>
+    <loc>https://xn--lg3bt7gwpg8yp.com/home</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://서민피자.com/brand</loc>
+    <loc>https://xn--lg3bt7gwpg8yp.com/brand</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://서민피자.com/menu</loc>
+    <loc>https://xn--lg3bt7gwpg8yp.com/menu</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://서민피자.com/shop</loc>
+    <loc>https://xn--lg3bt7gwpg8yp.com/shop</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://서민피자.com/franchise</loc>
+    <loc>https://xn--lg3bt7gwpg8yp.com/franchise</loc>
     <priority>0.8</priority>
   </url>
 </urlset>
