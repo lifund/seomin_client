@@ -42,7 +42,9 @@ app.get('/temp',(req,res)=>{
 app.get('/prototype',(req,res)=>{
 	res.sendFile(path.join(__dirname,'public/proto.html'));
 });
-
+app.get('/naver1d6c556ca6b4a04b8ca411598a563b03.html',(req,res)=>{
+	res.sendFile(path.join(__dirname,'public/naver1d6c556ca6b4a04b8ca411598a563b03.html'));
+});
 
 
 
