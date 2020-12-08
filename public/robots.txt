@@ -12,3 +12,6 @@ Disallow: /admin/shopInquiry/deleteAll
 Disallow: /admin/shop/update
 Disallow: /admin/shop/delete
 Disallow: /admin/searchAddress
+
+Sitemap: https://xn--lg3bt7gwpg8yp.com/sitemap
+Host: https://xn--lg3bt7gwpg8yp.com/
