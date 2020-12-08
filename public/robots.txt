@@ -1,4 +1,9 @@
 User-agent: *
+Allow:/
+Allow:/brand
+Allow:/menu
+Allow:/shop
+Allow:/franchise
 Disallow: /admin
 Disallow: /admin/login
 Disallow: /admin/logout
