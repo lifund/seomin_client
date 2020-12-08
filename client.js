@@ -32,7 +32,10 @@ app.use(cookieParser());
 
 app.get('/robots.txt',(req,res)=>{
 	res.sendFile(path.join(__dirname,'public/robots.txt'));
-})
+});
+app.get('/favicon.ico',(req,res)=>{
+	res.sendFile(path.join(__dirname,'public/favicon/favicon-32x32.png'));
+});
 app.get('/',(req,res)=>{
 	res.redirect('/home');
 });
