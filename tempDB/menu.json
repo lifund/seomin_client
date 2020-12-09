@@ -144,7 +144,7 @@
         "categoryName": "사이드메뉴", "imageURL":"샐러드.jpg", "productName":"샐러드", "price":[{"size":"","value":"-"}], "description":{"short":"샐러드" ,"long":"샐러드"}, "mainPage":false
     },
     {
-        "categoryName": "사이드메뉴", "imageURL":"핫윙.jpg", "productName":"핫윗", "price":[{"size":"","value":"-"}], "description":{"short":"윙" ,"long":"윙"}, "mainPage":false
+        "categoryName": "사이드메뉴", "imageURL":"핫윙.jpg", "productName":"핫윙", "price":[{"size":"","value":"-"}], "description":{"short":"윙" ,"long":"윙"}, "mainPage":false
     },
     {
         "categoryName": "사이드메뉴", "imageURL":"사이드포테이토.jpg", "productName":"포테이토", "price":[{"size":"","value":"-"}], "description":{"short":"포테이토" ,"long":"포테이토"}, "mainPage":false
