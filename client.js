@@ -45,8 +45,8 @@ app.get('/temp',(req,res)=>{
 app.get('/prototype',(req,res)=>{
 	res.sendFile(path.join(__dirname,'public/proto.html'));
 });
-app.get('/naver1d6c556ca6b4a04b8ca411598a563b03.html',(req,res)=>{
-	res.sendFile(path.join(__dirname,'public/naver1d6c556ca6b4a04b8ca411598a563b03.html'));
+app.get('/naverd635da45b9992b3f77dc326b1621172c.html',(req,res)=>{
+	res.sendFile(path.join(__dirname,'public/naverd635da45b9992b3f77dc326b1621172c.html'));
 });
 app.get('/sitemap',(req,res)=>{
 	res.setHeader('content-type','application/xml')
